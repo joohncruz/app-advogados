@@ -1,50 +1,55 @@
-
 .login-content {
-    background: rgba(0,172,219,1);
-    background: -moz-linear-gradient(top, rgba(0,172,219,1) 0%, rgba(56,153,182,1) 55%, rgba(56,153,182,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,172,219,1)), color-stop(55%, rgba(56,153,182,1)), color-stop(100%, rgba(56,153,182,1)));
-    background: -webkit-linear-gradient(top, rgba(0,172,219,1) 0%, rgba(56,153,182,1) 55%, rgba(56,153,182,1) 100%);
-    background: -o-linear-gradient(top, rgba(0,172,219,1) 0%, rgba(56,153,182,1) 55%, rgba(56,153,182,1) 100%);
-    background: -ms-linear-gradient(top, rgba(0,172,219,1) 0%, rgba(56,153,182,1) 55%, rgba(56,153,182,1) 100%);
-    background: linear-gradient(to bottom, rgba(0,172,219,1) 0%, rgba(56,153,182,1) 55%, rgba(56,153,182,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00acdb', endColorstr='#3899b6', GradientType=0 );
+    background: rgba(0, 172, 219, 1);
+    background: -moz-linear-gradient(top, rgba(0, 172, 219, 1) 0%, rgba(56, 153, 182, 1) 55%, rgba(56, 153, 182, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 172, 219, 1)), color-stop(55%, rgba(56, 153, 182, 1)), color-stop(100%, rgba(56, 153, 182, 1)));
+    background: -webkit-linear-gradient(top, rgba(0, 172, 219, 1) 0%, rgba(56, 153, 182, 1) 55%, rgba(56, 153, 182, 1) 100%);
+    background: -o-linear-gradient(top, rgba(0, 172, 219, 1) 0%, rgba(56, 153, 182, 1) 55%, rgba(56, 153, 182, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(0, 172, 219, 1) 0%, rgba(56, 153, 182, 1) 55%, rgba(56, 153, 182, 1) 100%);
+    background: linear-gradient(to bottom, rgba(0, 172, 219, 1) 0%, rgba(56, 153, 182, 1) 55%, rgba(56, 153, 182, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00acdb', endColorstr='#3899b6', GradientType=0);
 }
-img{
+
+img {
     margin-bottom: 0;
     width: 70%;
     margin: 0 auto;
     display: block;
 }
-.list-ios[inset]{
+
+.list-ios[inset] {
     margin: 0;
 }
-.submit-btn{
+
+.submit-btn {
     background-color: #4dd0e1;
 }
-.social-button-facebook{
+
+.social-button-facebook {
     background-color: #3b5998;
-    ion-icon{
+    ion-icon {
         margin-right: 15px;
         display: inline-block;
     }
     margin-bottom: 25px;
 }
-.register-btn{
+
+.register-btn {
     color: #fff;
     font-size: 14px;
-    a{
+    a {
         color: #fff;
         text-decoration: none;
         padding-left: 5px;
         display: inline-block;
     }
 }
-.input-custom{
+
+.input-custom {
     background-color: transparent;
     color: #fff;
     padding: 0;
     font-size: 15px;
-}
-ion-label{
-    color: #fff;
+    ion-label {
+        color: #fff;
+    }
 }
