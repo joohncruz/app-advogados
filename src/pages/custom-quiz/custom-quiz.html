@@ -12,14 +12,14 @@
 <ion-content class="menu-content" padding>
   <ion-row id="number-header">
     <ion-col>
-      <ion-icon ios="ios-remove" md="md-remove"></ion-icon>
+      <ion-icon ios="ios-remove" md="md-remove" (click)="removerQuestoes()"></ion-icon>
     </ion-col>
     <ion-col id="box-number-questions">
-      <span id="number-questions">20</span>
+      <span id="number-questions" name="NumeroQuestoes" >{{NumeroQuestoes}}</span>
       <span id="text">questões</span>
     </ion-col>
     <ion-col>
-      <ion-icon ios="ios-add" md="md-add"></ion-icon>
+      <ion-icon ios="ios-add" md="md-add" (click)="adicionarQuestoes()"></ion-icon>
     </ion-col>
   </ion-row>
 

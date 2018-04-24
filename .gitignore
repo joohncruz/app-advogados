@@ -1,4 +1,5 @@
 .sourcemaps/
 .vscode/
 node_modules/
+www/build/
 *.log
