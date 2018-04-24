@@ -25724,6 +25724,10 @@ ion-navbar.toolbar {
   color: #999;
 }
 
+.customLabel {
+  color: #000;
+}
+
 page-historico .skip-btn {
   background-color: #4dd0e1;
 }
@@ -25936,6 +25940,10 @@ ion-label {
 
 .question h2 {
   padding: 0;
+}
+
+.customLabel {
+  color: #000;
 }
 
 .skip-btn {

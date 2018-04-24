@@ -25,34 +25,34 @@
 
   <ion-list>
     <ion-item class="custom-check">
-      <ion-label>Antropologia</ion-label>
+      <ion-label class="customLabel">Antropologia</ion-label>
       <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
     </ion-item>
     <ion-item class="custom-check">
-      <ion-label>Direito Civil</ion-label>
+      <ion-label class="customLabel">Direito Civil</ion-label>
       <ion-checkbox [(ngModel)]="sausage"></ion-checkbox>
     </ion-item>
     <ion-item class="custom-check">
-      <ion-label>Fundamentos do Direito Penal</ion-label>
+      <ion-label class="customLabel">Fundamentos do Direito Penal</ion-label>
       <ion-checkbox [(ngModel)]="mushrooms"></ion-checkbox>
     </ion-item>
     <ion-item class="custom-check">
-      <ion-label>Teoria da Constituição</ion-label>
+      <ion-label class="customLabel">Teoria da Constituição</ion-label>
       <ion-checkbox [(ngModel)]="mushroomsasdsad"></ion-checkbox>
     </ion-item>
     <ion-item class="custom-check">
-      <ion-label>Ciência Politica</ion-label>
+      <ion-label class="customLabel">Ciência Politica</ion-label>
       <ion-checkbox [(ngModel)]="mushroomsasdad"></ion-checkbox>
     </ion-item>
     <ion-item class="custom-check">
-      <ion-label>Sociologia do Direito</ion-label>
+      <ion-label class="customLabel">Sociologia do Direito</ion-label>
       <ion-checkbox [(ngModel)]="mushroomsasd"></ion-checkbox>
     </ion-item>
   </ion-list>
 
   <ion-row>
     <ion-col class="signup-col">
-      <button ion-button class="submit-btn" full>Iniciar</button>
+      <button ion-button class="submit-btn" full (click)="start()">Iniciar</button>
     </ion-col>
   </ion-row>
 </ion-content>

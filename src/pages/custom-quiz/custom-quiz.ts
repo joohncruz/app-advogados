@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 
+import { PrepararSimuladoPage } from '../preparar-simulado/preparar-simulado';
+
 @IonicPage()
 @Component({
   selector: 'page-custom-quiz',
@@ -18,6 +20,10 @@ export class CustomQuizPage {
 
   goHomePage() {
     this.navCtrl.setRoot(HomePage);
+  }
+
+  start() {
+    this.navCtrl.setRoot(PrepararSimuladoPage);
   }
 
 

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { HomePage } from '../home/home';
+
 /**
  * Generated class for the HistoricoPage page.
  *
@@ -20,6 +22,10 @@ export class HistoricoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HistoricoPage');
+  }
+
+  close() {
+    this.navCtrl.setRoot(HomePage);
   }
 
 }

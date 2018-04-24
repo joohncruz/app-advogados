@@ -1,12 +1,15 @@
 <ion-header>
-
   <ion-navbar>
-    <ion-title text-center>
-      Meu histórico
-    </ion-title>
+      <ion-buttons left>
+          <button ion-button icon-only (click)="close()">
+              <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
+      <ion-title text-center>
+        Meu histórico
+      </ion-title>
   </ion-navbar>
-
-</ion-header>
+  </ion-header>
 
 <ion-content padding class="tutorial-page">
   <ion-card>

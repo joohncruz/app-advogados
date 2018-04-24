@@ -1,3 +1,15 @@
+
+<ion-header>
+  <ion-navbar>
+      <ion-buttons left>
+          <button ion-button icon-only (click)="close()">
+              <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
+  </ion-navbar>
+  </ion-header>
+
+
 <ion-content padding class="question">
   <ion-row>
     <ion-col text-center>
@@ -14,24 +26,24 @@
 
   <ion-row>
     <ion-col>
-      <ion-list no-lines>
+      <ion-list radio-group no-lines [(ngModel)]="userAnswer">
         <ion-item>
-          <ion-label>o cancelamento da inscrição como advogado.</ion-label>
+          <ion-label class="customLabel">o cancelamento da inscrição como advogado.</ion-label>
           <ion-radio checked="true" value="A"></ion-radio>
         </ion-item>
 
         <ion-item>
-          <ion-label>a suspensão até que cesse a incompatibilidade.</ion-label>
+          <ion-label class="customLabel">a suspensão até que cesse a incompatibilidade.</ion-label>
           <ion-radio value="B"></ion-radio>
         </ion-item>
 
         <ion-item>
-          <ion-label>o licenciamento do profissional.</ion-label>
+          <ion-label class="customLabel">o licenciamento do profissional.</ion-label>
           <ion-radio value="C"></ion-radio>
         </ion-item>
 
         <ion-item>
-            <ion-label>a passagem para a reserva do quadro de advogados.</ion-label>
+            <ion-label class="customLabel">a passagem para a reserva do quadro de advogados.</ion-label>
             <ion-radio value="D"></ion-radio>
           </ion-item>
       </ion-list>

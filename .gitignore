@@ -1,2 +1,4 @@
-node_modules
+.sourcemaps/
+.vscode/
+node_modules/
 *.log

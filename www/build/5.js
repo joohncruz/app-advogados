@@ -27,7 +27,7 @@ var PrepararSimuladoPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__preparar_simulado__["a" /* PrepararSimuladoPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__preparar_simulado__["a" /* PrepararSimuladoPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__preparar_simulado__["a" /* PrepararSimuladoPage */]),
             ],
         })
     ], PrepararSimuladoPageModule);
