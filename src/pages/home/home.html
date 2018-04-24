@@ -1,15 +1,20 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      APP Advogados
+    <ion-title text-center>
+      Menu
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <p>...</p>
-
-  <button ion-button block color="primary" (click)="signOut()">
-    Sair
-  </button>
-</ion-content>
+<ion-content class="menu-content" padding>
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button id="btn-simulado" full (click)="goPrepararSimulado()">Simulado</button>
+        <button ion-button id="btn-quizz" full (click)="customQuiz()">Quiz</button>
+        <button ion-button id="btn-historico" full (click)="goHistoricoPage()">Histórico</button>
+        <button ion-button id="btn-sair" full (click)="signOut()">
+          Sair
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-content>

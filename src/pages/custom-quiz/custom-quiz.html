@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+      <ion-buttons left>
+          <button ion-button icon-only (click)="goHomePage()">
+              <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
+    <ion-title text-center>Customize o seu quiz</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="menu-content" padding>
+  <ion-row id="number-header">
+    <ion-col>
+      <ion-icon ios="ios-remove" md="md-remove"></ion-icon>
+    </ion-col>
+    <ion-col id="box-number-questions">
+      <span id="number-questions">20</span>
+      <span id="text">questões</span>
+    </ion-col>
+    <ion-col>
+      <ion-icon ios="ios-add" md="md-add"></ion-icon>
+    </ion-col>
+  </ion-row>
+
+  <ion-list>
+    <ion-item class="custom-check">
+      <ion-label>Antropologia</ion-label>
+      <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+    </ion-item>
+    <ion-item class="custom-check">
+      <ion-label>Direito Civil</ion-label>
+      <ion-checkbox [(ngModel)]="sausage"></ion-checkbox>
+    </ion-item>
+    <ion-item class="custom-check">
+      <ion-label>Fundamentos do Direito Penal</ion-label>
+      <ion-checkbox [(ngModel)]="mushrooms"></ion-checkbox>
+    </ion-item>
+    <ion-item class="custom-check">
+      <ion-label>Teoria da Constituição</ion-label>
+      <ion-checkbox [(ngModel)]="mushroomsasdsad"></ion-checkbox>
+    </ion-item>
+    <ion-item class="custom-check">
+      <ion-label>Ciência Politica</ion-label>
+      <ion-checkbox [(ngModel)]="mushroomsasdad"></ion-checkbox>
+    </ion-item>
+    <ion-item class="custom-check">
+      <ion-label>Sociologia do Direito</ion-label>
+      <ion-checkbox [(ngModel)]="mushroomsasd"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <ion-row>
+    <ion-col class="signup-col">
+      <button ion-button class="submit-btn" full>Iniciar</button>
+    </ion-col>
+  </ion-row>
+</ion-content>

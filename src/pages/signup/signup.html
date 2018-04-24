@@ -1,37 +1,38 @@
-<ion-header>
-  <ion-navbar color="primary">
-    <ion-title>
-      Criar nova conta
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content class="cadastre-content" padding>
+  <ion-row class="logo-row">
+    <ion-col>
+      <img src="assets/imgs/mulher.png" />
+    </ion-col>
+  </ion-row>
+  <div class="login-box">
+    <form #form="ngForm" novalidate>
+      <ion-row>
+        <ion-col>
+          <ion-item class="input-custom">
+            <ion-label floating>E-mail</ion-label>
+            <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>
+          </ion-item>
+          <ion-item class="input-custom">
+            <ion-label floating>Senha</ion-label>
+            <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>
+          </ion-item>
+          <ion-item class="input-custom">
+            <ion-label floating>Confirme a senha</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-
-<ion-content padding>
-  <form #form="ngForm" novalidate>
-    <ion-list>
-
-      <ion-item>
-        <ion-label stacked>E-mail</ion-label>
-        <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>
-      </ion-item>
-      <ion-item *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger">
-        O campo é obrigatório
-      </ion-item>
-
-      <ion-item>
-        <ion-label stacked>Senha</ion-label>
-        <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>
-      </ion-item>
-      <ion-item *ngIf="password.errors && (password.dirty || password.touched)" class="text-danger">
-        O campo é obrigatório
-      </ion-item>
-
-    </ion-list>
-
-    <button ion-button block color="primary" [disabled]="!form.form.valid" (click)="createAccount()">
-      Criar conta
-    </button>
-  </form>
-
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full [disabled]="!form.form.valid" (click)="createAccount()">
+            Cadastrar
+          </button>
+          <button ion-button class="register-btn" block clear (click)="signIn()">
+            Você já tem uma conta? Entrar
+          </button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
 </ion-content>

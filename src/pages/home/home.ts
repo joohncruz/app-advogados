@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth/auth-service';
 import { SigninPage } from '../signin/signin';
+import { CustomQuizPage } from '../custom-quiz/custom-quiz';
+import { HistoricoPage } from '../historico/historico';
+import { PrepararSimuladoPage } from '../preparar-simulado/preparar-simulado';
 
 @Component({
   selector: 'page-home',
@@ -23,4 +26,15 @@ export class HomePage {
       });
   }
 
+  customQuiz() {
+    this.navCtrl.setRoot(CustomQuizPage);
+  }
+
+  goHistoricoPage() {
+    this.navCtrl.setRoot(HistoricoPage);
+  }
+
+  goPrepararSimulado() {
+    this.navCtrl.setRoot(PrepararSimuladoPage);
+  }
 }

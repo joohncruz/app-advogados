@@ -30,6 +30,12 @@ export class SigninPage {
     this.navCtrl.push(ResetpasswordPage);
   }
 
+  loginFacebook() {
+    let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
+    toast.setMessage('Login com o Facebook ainda não implementado.');
+    toast.present();
+  }
+
   signIn() {
     if(this.form.form.valid) {
       this.authService.signIn(this.user)

@@ -3,6 +3,7 @@ import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { User } from '../../providers/auth/user';
 import { AuthService } from '../../providers/auth/auth-service';
+import { SigninPage } from '../signin/signin';
 import { HomePage } from '../home/home';
 
 @IonicPage()
@@ -53,6 +54,10 @@ export class SignupPage {
           toast.present();
         });
     }
+  }
+
+  signIn() {
+    this.navCtrl.setRoot(SigninPage);
   }
 
 }

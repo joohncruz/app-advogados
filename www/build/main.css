@@ -25677,3 +25677,299 @@ ion-navbar.toolbar {
   min-height: calc(46px + constant(safe-area-inset-bottom));
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
+
+.submit-btn {
+  background-color: #4dd0e1;
+}
+
+.custom-check {
+  margin: 0;
+  padding: 0;
+}
+
+.custom-check .item-inner {
+  border: none !important;
+}
+
+.checkbox-icon {
+  border-radius: 0 !important;
+}
+
+#number-header {
+  margin-bottom: 25px;
+}
+
+#number-header #number-questions {
+  font-size: 45px;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+  color: #4dd0e1;
+}
+
+#number-header #text {
+  display: block;
+  text-align: center;
+  color: #4dd0e1;
+}
+
+#number-header ion-icon {
+  text-align: center;
+  display: block;
+  font-weight: bold;
+  line-height: 75px;
+  font-size: 25px;
+  color: #999;
+}
+
+page-historico .skip-btn {
+  background-color: #4dd0e1;
+}
+
+page-historico .swiper-pagination-bullet-active {
+  background: #4dd0e1;
+  opacity: 6;
+}
+
+page-historico .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+}
+
+page-historico .swiper-slide img {
+  width: auto;
+  max-width: 40%;
+  height: auto;
+  max-height: 40%;
+}
+
+page-historico p {
+  padding-top: 2%;
+  color: #78909c;
+  font-size: 14px;
+}
+
+page-historico .last {
+  padding-bottom: 5%;
+}
+
+page-historico h2 {
+  padding-bottom: 5%;
+  color: #78909c;
+}
+
+page-historico .card-md {
+  height: 90%;
+}
+
+page-historico .card-content-md {
+  height: 100%;
+}
+
+#btn-simulado {
+  color: #fff;
+  background-color: #4dd0e1;
+  margin-bottom: 15px;
+}
+
+#btn-quizz {
+  color: #fff;
+  background-color: #4fe3b7;
+  margin-bottom: 50px;
+}
+
+#btn-historico {
+  color: #fff;
+  background-color: #ff9800;
+  margin-bottom: 100px;
+}
+
+#btn-sair {
+  color: #fff;
+  background-color: #f44336;
+}
+
+.preparar-simulado h2 {
+  text-align: center;
+  font-size: 16px;
+  -webkit-animation: flash 1s linear infinite;
+  animation: flash 1s linear infinite;
+  padding-bottom: 0;
+}
+
+.preparar-simulado p {
+  font-size: 14px;
+}
+
+@-webkit-keyframes flash {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  50% {
+    opacity: 0;
+  }
+}
+
+.preparar-simulado .linha {
+  text-align: center;
+  height: 2px;
+  width: 100%;
+  background-color: #4fe3b7;
+}
+
+.login-content {
+  background: #00acdb;
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #00acdb), color-stop(55%, #3899b6), color-stop(100%, #3899b6));
+  background: -webkit-gradient(linear, left top, left bottom, from(#00acdb), color-stop(55%, #3899b6), to(#3899b6));
+  background: linear-gradient(to bottom, #00acdb 0%, #3899b6 55%, #3899b6 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00acdb', endColorstr='#3899b6', GradientType=0 );
+}
+
+img {
+  margin-bottom: 0;
+  width: 70%;
+  margin: 0 auto;
+  display: block;
+}
+
+.list-ios[inset] {
+  margin: 0;
+}
+
+.submit-btn {
+  background-color: #4dd0e1;
+}
+
+.social-button-facebook {
+  background-color: #3b5998;
+  margin-bottom: 25px;
+}
+
+.social-button-facebook ion-icon {
+  margin-right: 15px;
+  display: inline-block;
+}
+
+.register-btn {
+  color: #fff;
+  font-size: 14px;
+}
+
+.register-btn a {
+  color: #fff;
+  text-decoration: none;
+  padding-left: 5px;
+  display: inline-block;
+}
+
+.input-custom {
+  background-color: transparent;
+  color: #fff;
+  padding: 0;
+  font-size: 15px;
+}
+
+ion-label {
+  color: #fff;
+}
+
+.cadastre-content {
+  background: #00acdb;
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #00acdb), color-stop(55%, #3899b6), color-stop(100%, #3899b6));
+  background: -webkit-gradient(linear, left top, left bottom, from(#00acdb), color-stop(55%, #3899b6), to(#3899b6));
+  background: linear-gradient(to bottom, #00acdb 0%, #3899b6 55%, #3899b6 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00acdb', endColorstr='#3899b6', GradientType=0 );
+}
+
+img {
+  margin-bottom: 0;
+  width: 70%;
+  margin: 0 auto;
+  display: block;
+}
+
+.list-ios[inset] {
+  margin: 0;
+}
+
+.submit-btn {
+  background-color: #4dd0e1;
+}
+
+.social-button-facebook {
+  background-color: #3b5998;
+  margin-bottom: 25px;
+}
+
+.social-button-facebook ion-icon {
+  margin-right: 15px;
+  display: inline-block;
+}
+
+.register-btn {
+  color: #fff;
+  font-size: 14px;
+}
+
+.register-btn a {
+  color: #fff;
+  text-decoration: none;
+  padding-left: 5px;
+  display: inline-block;
+}
+
+.input-custom {
+  background-color: transparent;
+  color: #fff;
+  padding: 0;
+  font-size: 15px;
+}
+
+ion-label {
+  color: #fff;
+}
+
+.question h2 {
+  padding: 0;
+}
+
+.skip-btn {
+  background-color: #4dd0e1;
+}
+
+.slide-content {
+  height: 80%;
+}
+
+.swiper-pagination-bullet-active {
+  background: #4dd0e1;
+  opacity: 6;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+}
+
+.swiper-slide img {
+  width: auto;
+  max-width: 60%;
+  height: auto;
+  max-height: 60%;
+}
+
+p {
+  padding-top: 5%;
+  color: #78909c;
+  font-size: 14px;
+}
+
+h2 {
+  padding-bottom: 10%;
+  color: #78909c;
+}

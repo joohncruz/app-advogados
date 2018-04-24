@@ -12,6 +12,11 @@ import { HomePage } from '../pages/home/home';
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
 import { ResetpasswordPage } from '../pages/resetpassword/resetpassword';
+import { CustomQuizPage } from '../pages/custom-quiz/custom-quiz';
+import { PrepararSimuladoPage } from '../pages/preparar-simulado/preparar-simulado';
+import { TutorialInicialPage } from '../pages/tutorial-inicial/tutorial-inicial';
+import { HistoricoPage } from '../pages/historico/historico';
+import { SimuladoPage } from '../pages/simulado/simulado';
 
 import { AuthService } from '../providers/auth/auth-service';
 
@@ -31,6 +36,11 @@ const firebaseConfig = {
     SigninPage,
     SignupPage,
     ResetpasswordPage,
+    CustomQuizPage,
+    PrepararSimuladoPage,
+    TutorialInicialPage,
+    HistoricoPage,
+    SimuladoPage,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +55,11 @@ const firebaseConfig = {
     SigninPage,
     SignupPage,
     ResetpasswordPage,
+    CustomQuizPage,
+    PrepararSimuladoPage,
+    TutorialInicialPage,
+    HistoricoPage,
+    SimuladoPage,
   ],
   providers: [
     StatusBar,

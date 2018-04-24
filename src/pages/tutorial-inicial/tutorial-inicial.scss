@@ -1,0 +1,35 @@
+.skip-btn {
+    background-color: #4dd0e1;
+}
+
+.slide-content {
+    height: 80%;
+}
+
+.swiper-pagination-bullet-active {
+    background: #4dd0e1;
+    opacity: 6;
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+}
+
+.swiper-slide img {
+    width: auto;
+    max-width: 60%;
+    height: auto;
+    max-height: 60%;
+}
+
+p {
+    padding-top: 5%;
+    color: rgb(120, 144, 156);
+    font-size: 14px;
+}
+
+h2 {
+    padding-bottom: 10%;
+    color: rgb(120, 144, 156);
+}

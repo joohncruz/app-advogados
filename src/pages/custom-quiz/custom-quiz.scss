@@ -1,0 +1,38 @@
+.submit-btn{
+    background-color: #4dd0e1;
+}
+.custom-check{
+    margin: 0;
+    padding: 0;
+    .item-inner{
+        border: none !important;
+    }
+}
+.checkbox-icon{
+    border-radius: 0 !important;
+}
+#number-header{
+    margin-bottom: 25px;
+    #number-questions{
+        font-size: 45px; 
+        width: 100%;
+        display: block;           
+        margin: 0 auto;
+        text-align: center;
+        font-weight: bold;
+        color: #4dd0e1;
+    }
+    #text{
+        display: block;           
+        text-align: center;
+        color: #4dd0e1;
+    }
+    ion-icon{
+        text-align: center;
+        display: block;
+        font-weight: bold;
+        line-height: 75px;
+        font-size: 25px;
+        color: #999;
+    }
+}
