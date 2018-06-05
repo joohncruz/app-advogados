@@ -7,6 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { SigninPage } from '../pages/signin/signin';
@@ -19,14 +21,16 @@ import { HistoricoPage } from '../pages/historico/historico';
 import { SimuladoPage } from '../pages/simulado/simulado';
 
 import { AuthService } from '../providers/auth/auth-service';
+import { UserProvider } from '../providers/user/user';
+import { SimuladoProvider } from '../providers/simulado/simulado';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCrc_fwSyiIVLf3v9YPvrEzRUENqUDPexs",
-  authDomain: "app-advogados-39f27.firebaseapp.com",
-  databaseURL: "https://app-advogados-39f27.firebaseio.com",
-  projectId: "app-advogados-39f27",
-  storageBucket: "app-advogados-39f27.appspot.com",
-  messagingSenderId: "103835262760"
+  apiKey: "AIzaSyBQsMou8CwzNNRvpz6Xd8zti9dCl6spVLQ",
+  authDomain: "trabmontanha-afa5c.firebaseapp.com",
+  databaseURL: "https://trabmontanha-afa5c.firebaseio.com",
+  projectId: "trabmontanha-afa5c",
+  storageBucket: "trabmontanha-afa5c.appspot.com",
+  messagingSenderId: "922779715590"
 };
 
 @NgModule({
@@ -46,7 +50,8 @@ const firebaseConfig = {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -65,7 +70,9 @@ const firebaseConfig = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthService
+    AuthService,
+    UserProvider,
+    SimuladoProvider
   ]
 })
 export class AppModule {}
