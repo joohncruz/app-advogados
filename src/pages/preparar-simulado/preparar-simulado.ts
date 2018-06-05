@@ -15,7 +15,6 @@ export class PrepararSimuladoPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private simuladoProvider: SimuladoProvider) {
-    this.ngOnInit();
   }
 
   ionViewDidLoad() {
@@ -24,13 +23,4 @@ export class PrepararSimuladoPage {
       this.navCtrl.setRoot(SimuladoPage);
     });
   }
-
-  ngOnInit() {
-    
-    /* setTimeout(() => {
-      this.navParams = that.simulados;
-      this.navCtrl.setRoot(SimuladoPage);
-    }, 2000); */
-  }
-
 }
