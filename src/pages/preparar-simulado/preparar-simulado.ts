@@ -12,21 +12,25 @@ export class PrepararSimuladoPage {
   simulados: Object;
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     private simuladoProvider: SimuladoProvider) {
     this.ngOnInit();
   }
 
   ionViewDidLoad() {
-    this.simulados = this.simuladoProvider.getSimulado();
+    this.simuladoProvider.getSimulado().then((res) => {
+      this.navParams = res;
+      this.navCtrl.setRoot(SimuladoPage);
+    });
   }
 
-  ngOnInit(){
-    setTimeout(() => {
-        this.navParams = this.simulados;
-        this.navCtrl.push(SimuladoPage);
-    }, 2000);
-}
+  ngOnInit() {
+    
+    /* setTimeout(() => {
+      this.navParams = that.simulados;
+      this.navCtrl.setRoot(SimuladoPage);
+    }, 2000); */
+  }
 
 }
