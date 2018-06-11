@@ -1,24 +1,25 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class UserProvider {
   userRef: AngularFireList<any>;
 
   constructor(private db: AngularFireDatabase) {
-    this.userRef = db.list('users');
+    this.userRef = this.db.list('users');
   }
 
   addUser (uid, email, displayName) {
     const promise = this.userRef.push({ uid, email, displayName })
     
     promise.then(response => {
-      localStorage.setItem('user', JSON.stringify({key: response.key, uid, email, displayName}))
+      this.saveUserLocalStorage({key: response.key, uid, email, displayName})
     });
     
+  }
+
+  saveUserLocalStorage(user) {
+    localStorage.setItem('user', JSON.stringify(user))
   }
 
   getUser () {

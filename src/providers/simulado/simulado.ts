@@ -7,40 +7,39 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 export class SimuladoProvider {
   simuladoRef: AngularFireList<any>;
   simulados: Observable<any[]>;
+  loading: boolean;
 
   constructor(private db: AngularFireDatabase) {
-    this.simuladoRef = db.list('simulado');
-    //this.simulados = db.list('simulado').valueChanges();
+    this.loading = true;
+    this.simuladoRef = this.db.list('/simulado/');
   }
-
-  /* getSimulado(): Observable<any[]> {
-    return this.simulados;
-  } */
 
   getSimulado() {
     var questions = [];
     return new Promise((resolve, reject) => {
-      this.db
-        .list('/simulado/')
+      this.simuladoRef
         .snapshotChanges()
         .subscribe(snapshot => {
           snapshot.forEach(item => {
             questions.push(item.key);
           });
+
+          console.log(questions);
           this.shuffleArray(questions).then(shuffle => {
+            console.log(shuffle);
             resolve(shuffle);
           });
         });
     });
   }
 
-  private shuffleArray(a) {
+  private shuffleArray(array) {
     return new Promise((resolve, reject) => {
-      for (let i = a.length - 1; i > 0; i--) {
+      for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
+        [array[i], array[j]] = [array[j], array[i]];
       }
-      resolve(a);
+      resolve(array);
     });
   }
 
