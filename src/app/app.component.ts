@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { TutorialInicialPage } from '../pages/tutorial-inicial/tutorial-inicial';
 
 import { AngularFireAuth } from 'angularfire2/auth';
+import { SigninPage } from '../pages/signin/signin';
 
 @Component({
   templateUrl: 'app.html'
@@ -20,7 +21,11 @@ export class MyApp {
         this.rootPage = HomePage;
         authObserver.unsubscribe();
       } else {
-        this.rootPage = TutorialInicialPage;
+        if(localStorage.getItem("tutorialViewed") == "true"){
+          this.rootPage = SigninPage;
+        }else{
+          this.rootPage = TutorialInicialPage;
+        }
         authObserver.unsubscribe();
       }
     })

@@ -381,15 +381,17 @@ var TutorialInicialPage = /** @class */ (function () {
         console.log('ionViewDidLoad TutorialInicialPage');
     };
     TutorialInicialPage.prototype.skipTutorial = function () {
+        localStorage.setItem("tutorialViewed", "true");
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__signin_signin__["a" /* SigninPage */]);
     };
     TutorialInicialPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-tutorial-inicial',template:/*ion-inline-start:"C:\Users\Beestart\Projetos\Pessoais\app-advogados\src\pages\tutorial-inicial\tutorial-inicial.html"*/'<ion-content padding class="tutorial-page">\n\n  <ion-slides pager class="slide-content">\n\n    <ion-slide>\n\n      <h2>Jogue Quiz</h2>\n\n      <img src="assets/imgs/homen1.png" class="slide-image" />\n\n      <p>Como o quiz você pode treinar para os simulados e conseguir notas ainda mais altas!</p>\n\n    </ion-slide>\n\n\n\n    <ion-slide>\n\n        <h2>Faça Simulados</h2>\n\n        <img src="assets/imgs/mulher1.png" class="slide-image" />\n\n        <p>Com os simulados você pode ver como está o seu conhecimento, experimentar uma prova semelhante a da OAB.</p>\n\n    </ion-slide>\n\n\n\n    <ion-slide>\n\n        <h2>Faça Progresso</h2>\n\n        <img src="assets/imgs/homen2.png" class="slide-image" />\n\n        <p>Você pode ver como nós te ajudamos! O nosso histórico permite ver o resultado de cada simulado que você realizar.</p>\n\n    </ion-slide>\n\n  </ion-slides>\n\n  <button ion-button class="skip-btn" full (click)="skipTutorial()">Ignorar</button>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Beestart\Projetos\Pessoais\app-advogados\src\pages\tutorial-inicial\tutorial-inicial.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object])
     ], TutorialInicialPage);
     return TutorialInicialPage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=tutorial-inicial.js.map
@@ -749,6 +751,7 @@ var HomePage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_tutorial_inicial_tutorial_inicial__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_signin_signin__ = __webpack_require__(48);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -765,6 +768,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var MyApp = /** @class */ (function () {
     function MyApp(platform, statusBar, splashScreen, afAuth) {
         var _this = this;
@@ -774,7 +778,12 @@ var MyApp = /** @class */ (function () {
                 authObserver.unsubscribe();
             }
             else {
-                _this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_tutorial_inicial_tutorial_inicial__["a" /* TutorialInicialPage */];
+                if (localStorage.getItem("tutorialViewed") == "true") {
+                    _this.rootPage = __WEBPACK_IMPORTED_MODULE_7__pages_signin_signin__["a" /* SigninPage */];
+                }
+                else {
+                    _this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_tutorial_inicial_tutorial_inicial__["a" /* TutorialInicialPage */];
+                }
                 authObserver.unsubscribe();
             }
         });
@@ -859,6 +868,7 @@ var AuthService = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__signup_signup__ = __webpack_require__(115);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__resetpassword_resetpassword__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_user_user__ = __webpack_require__(186);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -876,13 +886,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var SigninPage = /** @class */ (function () {
-    function SigninPage(navCtrl, toastCtrl, authService, alertCtrl, loadingCtrl) {
+    function SigninPage(navCtrl, toastCtrl, authService, alertCtrl, loadingCtrl, userProvider) {
         this.navCtrl = navCtrl;
         this.toastCtrl = toastCtrl;
         this.authService = authService;
         this.alertCtrl = alertCtrl;
         this.loadingCtrl = loadingCtrl;
+        this.userProvider = userProvider;
         this.user = new __WEBPACK_IMPORTED_MODULE_3__providers_auth_user__["a" /* User */]();
     }
     SigninPage.prototype.createAccount = function () {
@@ -907,7 +919,9 @@ var SigninPage = /** @class */ (function () {
             loading_1.present();
             this.authService
                 .signIn(this.user)
-                .then(function () {
+                .then(function (authUser) {
+                console.log("signIn authUser", authUser);
+                _this.userProvider.saveUserLocalStorage({ key: authUser.key, uid: authUser.uid, email: authUser.email, displayName: authUser.displayName });
                 loading_1.dismiss();
                 _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]);
             })
@@ -941,6 +955,9 @@ var SigninPage = /** @class */ (function () {
             toast.present();
         }
     };
+    SigninPage.prototype.saveUserLocalStorage = function (user) {
+        localStorage.setItem('user', JSON.stringify(user));
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])("form"),
         __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* NgForm */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* NgForm */]) === "function" && _a || Object)
@@ -949,10 +966,10 @@ var SigninPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: "page-signin",template:/*ion-inline-start:"C:\Users\Beestart\Projetos\Pessoais\app-advogados\src\pages\signin\signin.html"*/'<ion-content class="login-content" padding>\n\n  <ion-row class="logo-row">\n\n    <ion-col>\n\n      <img src="assets/imgs/logo.png" />\n\n    </ion-col>\n\n  </ion-row>\n\n  <div class="login-box">\n\n    <form #form="ngForm" novalidate>\n\n      <ion-row>\n\n        <ion-col>\n\n          <ion-item class="input-custom">\n\n            <ion-label floating>E-mail</ion-label>\n\n            <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>\n\n          </ion-item>\n\n          <ion-item class="input-custom">\n\n            <ion-label floating>Senha</ion-label>\n\n            <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>\n\n          </ion-item>\n\n        </ion-col>\n\n      </ion-row>\n\n      <ion-row>\n\n        <ion-col class="signup-col">\n\n          <button ion-button class="submit-btn" full (click)="signIn()">Entrar</button>\n\n          <button ion-button class="social-button-facebook" full>\n\n            <ion-icon ios="logo-facebook" md="logo-facebook" (click)="loginFacebook()"></ion-icon> \n\n            Continuar com o Facebook\n\n          </button>\n\n          <button ion-button class="register-btn" block clear (click)="createAccount()">\n\n            Não tem uma conta ainda? Registre-se\n\n          </button>\n\n          <button ion-button class="register-btn" block clear (click)="resetPassword()">\n\n            Perdeu sua senha? clique aqui!\n\n          </button>\n\n\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n    </form>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Beestart\Projetos\Pessoais\app-advogados\src\pages\signin\signin.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth_service__["a" /* AuthService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth_service__["a" /* AuthService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_8__providers_user_user__["a" /* UserProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__providers_user_user__["a" /* UserProvider */]) === "function" && _g || Object])
     ], SigninPage);
     return SigninPage;
-    var _a, _b, _c, _d, _e, _f;
+    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=signin.js.map

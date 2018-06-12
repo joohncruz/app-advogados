@@ -12,6 +12,7 @@ import { AuthService } from "../../providers/auth/auth-service";
 import { HomePage } from "../home/home";
 import { SignupPage } from "../signup/signup";
 import { ResetpasswordPage } from "../resetpassword/resetpassword";
+import { UserProvider } from '../../providers/user/user';
 
 @IonicPage()
 @Component({
@@ -27,7 +28,8 @@ export class SigninPage {
     private toastCtrl: ToastController,
     private authService: AuthService,
     private alertCtrl: AlertController,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,
+    private userProvider: UserProvider
   ) { }
 
   createAccount() {
@@ -39,7 +41,7 @@ export class SigninPage {
   }
 
   loginFacebook() {
-    let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
+    let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom' });
     toast.setMessage('Ainda estamos trabalhando para implementar o login com o Facebook.');
     toast.present();
   }
@@ -56,7 +58,9 @@ export class SigninPage {
 
       this.authService
         .signIn(this.user)
-        .then(() => {
+        .then((authUser) => {
+          console.log("signIn authUser", authUser);
+          this.userProvider.saveUserLocalStorage({ key: authUser.key, uid: authUser.uid, email: authUser.email, displayName: authUser.displayName });
           loading.dismiss();
           this.navCtrl.setRoot(HomePage);
         })
@@ -91,7 +95,7 @@ export class SigninPage {
 
           toast.present();
         });
-    }else{
+    } else {
       let toast = this.toastCtrl.create({
         duration: 3000,
         position: "bottom"
@@ -99,5 +103,9 @@ export class SigninPage {
       toast.setMessage("Preencha corretamente todos os dados antes de continuar!");
       toast.present();
     }
+  }
+
+  saveUserLocalStorage(user) {
+    localStorage.setItem('user', JSON.stringify(user))
   }
 }
