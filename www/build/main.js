@@ -422,11 +422,11 @@ var map = {
 		7
 	],
 	"../pages/historico/historico.module": [
-		359,
+		358,
 		6
 	],
 	"../pages/preparar-simulado/preparar-simulado.module": [
-		358,
+		359,
 		5
 	],
 	"../pages/resetpassword/resetpassword.module": [
@@ -434,19 +434,19 @@ var map = {
 		4
 	],
 	"../pages/signin/signin.module": [
-		363,
+		361,
 		3
 	],
 	"../pages/signup/signup.module": [
-		364,
+		362,
 		2
 	],
 	"../pages/simulado/simulado.module": [
-		361,
+		363,
 		1
 	],
 	"../pages/tutorial-inicial/tutorial-inicial.module": [
-		362,
+		364,
 		0
 	]
 };
@@ -629,13 +629,13 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/custom-quiz/custom-quiz.module#CustomQuizPageModule', name: 'CustomQuizPage', segment: 'custom-quiz', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/preparar-simulado/preparar-simulado.module#PrepararSimuladoPageModule', name: 'PrepararSimuladoPage', segment: 'preparar-simulado', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/historico/historico.module#HistoricoPageModule', name: 'HistoricoPage', segment: 'historico', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/preparar-simulado/preparar-simulado.module#PrepararSimuladoPageModule', name: 'PrepararSimuladoPage', segment: 'preparar-simulado', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/resetpassword/resetpassword.module#ResetpasswordPageModule', name: 'ResetpasswordPage', segment: 'resetpassword', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/simulado/simulado.module#SimuladoPageModule', name: 'SimuladoPage', segment: 'simulado', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/tutorial-inicial/tutorial-inicial.module#TutorialInicialPageModule', name: 'TutorialInicialPage', segment: 'tutorial-inicial', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signin/signin.module#LoginPageModule', name: 'SigninPage', segment: 'signin', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/simulado/simulado.module#SimuladoPageModule', name: 'SimuladoPage', segment: 'simulado', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/tutorial-inicial/tutorial-inicial.module#TutorialInicialPageModule', name: 'TutorialInicialPage', segment: 'tutorial-inicial', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_5_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
@@ -788,9 +788,10 @@ var MyApp = /** @class */ (function () {
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Beestart\Projetos\Pessoais\app-advogados\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\Beestart\Projetos\Pessoais\app-advogados\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__["a" /* AngularFireAuth */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _d || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=app.component.js.map
@@ -891,29 +892,9 @@ var SigninPage = /** @class */ (function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__resetpassword_resetpassword__["a" /* ResetpasswordPage */]);
     };
     SigninPage.prototype.loginFacebook = function () {
-        var alert = this.alertCtrl.create({
-            title: "Ooops!",
-            message: "Ainda estamos trabalhando para implementar o login com o Facebook.",
-            buttons: [
-                {
-                    text: "Cancelar",
-                    role: "cancel",
-                    handler: function () {
-                        console.log("Cancel clicked");
-                    }
-                },
-                {
-                    text: "OK",
-                    handler: function () {
-                        console.log("Buy clicked");
-                    }
-                }
-            ]
-        });
-        alert.present();
-        /* let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
-        toast.setMessage('Login com o Facebook ainda não implementado.');
-        toast.present(); */
+        var toast = this.toastCtrl.create({ duration: 3000, position: 'bottom' });
+        toast.setMessage('Ainda estamos trabalhando para implementar o login com o Facebook.');
+        toast.present();
     };
     SigninPage.prototype.signIn = function () {
         var _this = this;
@@ -950,6 +931,14 @@ var SigninPage = /** @class */ (function () {
                 }
                 toast.present();
             });
+        }
+        else {
+            var toast = this.toastCtrl.create({
+                duration: 3000,
+                position: "bottom"
+            });
+            toast.setMessage("Preencha corretamente todos os dados antes de continuar!");
+            toast.present();
         }
     };
     __decorate([

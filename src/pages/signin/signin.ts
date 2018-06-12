@@ -39,30 +39,9 @@ export class SigninPage {
   }
 
   loginFacebook() {
-    let alert = this.alertCtrl.create({
-      title: "Ooops!",
-      message:
-        "Ainda estamos trabalhando para implementar o login com o Facebook.",
-      buttons: [
-        {
-          text: "Cancelar",
-          role: "cancel",
-          handler: () => {
-            console.log("Cancel clicked");
-          }
-        },
-        {
-          text: "OK",
-          handler: () => {
-            console.log("Buy clicked");
-          }
-        }
-      ]
-    });
-    alert.present();
-    /* let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
-    toast.setMessage('Login com o Facebook ainda não implementado.');
-    toast.present(); */
+    let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
+    toast.setMessage('Ainda estamos trabalhando para implementar o login com o Facebook.');
+    toast.present();
   }
 
   signIn() {
@@ -112,6 +91,13 @@ export class SigninPage {
 
           toast.present();
         });
+    }else{
+      let toast = this.toastCtrl.create({
+        duration: 3000,
+        position: "bottom"
+      });
+      toast.setMessage("Preencha corretamente todos os dados antes de continuar!");
+      toast.present();
     }
   }
 }
