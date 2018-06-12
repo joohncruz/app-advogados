@@ -19,8 +19,7 @@ export class PrepararSimuladoPage {
 
   ionViewDidLoad() {
     this.simuladoProvider.getSimulado().then((res) => {
-      this.navParams = res;
-      this.navCtrl.setRoot(SimuladoPage);
+      this.navCtrl.setRoot(SimuladoPage, {'simulado': res});
     });
   }
 }

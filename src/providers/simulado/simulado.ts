@@ -15,20 +15,55 @@ export class SimuladoProvider {
   }
 
   getSimulado() {
-    var questions = [];
+    var simulado = [];
     return new Promise((resolve, reject) => {
       this.simuladoRef
+        .snapshotChanges()
+        .subscribe(snapshot => {
+          snapshot.forEach(item => {
+            simulado.push(item.key);
+          });
+
+          this.shuffleArray(simulado).then(shuffle => {
+            const simuladoId = shuffle[0];
+            let materias: any;
+
+            this.getDisciplinas(simuladoId).then(res => {
+              materias = res;
+              console.log(materias);
+              resolve({id: simuladoId, materias: {...materias}})
+            })
+          });
+        });
+    });
+  }
+
+  getDisciplinas(id) {
+    var questions =[];
+    return new Promise((resolve, reject) => {
+      this.db.list(`/simulado/${id}`)
         .snapshotChanges()
         .subscribe(snapshot => {
           snapshot.forEach(item => {
             questions.push(item.key);
           });
 
-          console.log(questions);
-          this.shuffleArray(questions).then(shuffle => {
-            console.log(shuffle);
-            resolve(shuffle);
+          resolve(questions);
+        });
+    });
+  }
+
+  getQuestions(id, disciplina) {
+    var questions =[];
+    return new Promise((resolve, reject) => {
+      this.db.list(`/simulado/${id}/${disciplina}`)
+        .snapshotChanges()
+        .subscribe(snapshot => {
+          snapshot.forEach(item => {
+            questions.push(item.payload.val());
           });
+
+          resolve(questions);
         });
     });
   }
@@ -42,10 +77,5 @@ export class SimuladoProvider {
       resolve(array);
     });
   }
-
-  addSimuladoToUser() {
-    console.log('addSimuladoToUser')
-  }
-
 }
 
