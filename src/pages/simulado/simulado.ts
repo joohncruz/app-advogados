@@ -18,6 +18,29 @@ export class SimuladoPage {
 
   }
 
+  confirmQuestion() {
+    this.showFeedback(
+      'Testando o Confirm', 
+      'Cara voce acertou bola pra frente apertta ai'
+    );
+  }
+
+  showFeedback(title, message) {
+    const confirm = this.alertCtrl.create({
+      title,
+      message: message,
+      buttons: [
+        {
+          text: 'Próxima',
+          handler: () => {
+            console.log('Agree clicked');
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad SimuladoPage');
   }

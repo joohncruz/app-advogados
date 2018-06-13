@@ -25959,6 +25959,11 @@ ion-label {
   white-space: normal;
 }
 
+#btn-confirm {
+  color: #fff;
+  background-color: #f44336;
+}
+
 .skip-btn {
   background-color: #4dd0e1;
 }

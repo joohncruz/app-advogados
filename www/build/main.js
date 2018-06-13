@@ -298,6 +298,24 @@ var SimuladoPage = /** @class */ (function () {
         this.simulado = this.navParams.get('simulado');
         // console.log(this.simulado);
     }
+    SimuladoPage.prototype.confirmQuestion = function () {
+        this.showFeedback('Testando o Confirm', 'Cara voce acertou bola pra frente apertta ai');
+    };
+    SimuladoPage.prototype.showFeedback = function (title, message) {
+        var confirm = this.alertCtrl.create({
+            title: title,
+            message: message,
+            buttons: [
+                {
+                    text: 'Próxima',
+                    handler: function () {
+                        console.log('Agree clicked');
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
     SimuladoPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad SimuladoPage');
     };
@@ -326,12 +344,11 @@ var SimuladoPage = /** @class */ (function () {
     };
     SimuladoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-simulado',template:/*ion-inline-start:"/home/front/projects/github/app-advogados/src/pages/simulado/simulado.html"*/'\n<ion-header>\n  <ion-navbar>\n      <ion-buttons left>\n          <button ion-button icon-only (click)="close()">\n              <ion-icon name="arrow-back"></ion-icon>\n          </button>\n      </ion-buttons>\n      <ion-title>Simulado</ion-title>\n  </ion-navbar>\n  </ion-header>\n\n\n<ion-content padding class="question">\n  <ion-row>\n    <ion-col text-center>\n      <h2>Simulado OAB 2015</h2>\n    </ion-col>\n  </ion-row>\n\n  <ion-row>\n    <ion-col>\n      <p> 01. Fábio, advogado com mais de dez anos de efetivaatividade, obtém a indicação e passa a ser Conselheirode Tribunal\n        de Contas do Estado do Rio de Janeiro.Diante disso, à luz das normas estatutárias ocorrerá: </p>\n    </ion-col>\n  </ion-row>\n\n  <ion-row>\n    <ion-col>\n      <ion-list radio-group no-lines [(ngModel)]="userAnswer">\n        <ion-item>\n          <ion-label class="customLabel">o cancelamento da inscrição como advogado.</ion-label>\n          <ion-radio checked="true" value="A"></ion-radio>\n        </ion-item>\n\n        <ion-item>\n          <ion-label class="customLabel">a suspensão até que cesse a incompatibilidade.</ion-label>\n          <ion-radio value="B"></ion-radio>\n        </ion-item>\n\n        <ion-item>\n          <ion-label class="customLabel">o licenciamento do profissional.</ion-label>\n          <ion-radio value="C"></ion-radio>\n        </ion-item>\n\n        <ion-item>\n            <ion-label class="customLabel">a passagem para a reserva do quadro de advogados.</ion-label>\n            <ion-radio value="D"></ion-radio>\n          </ion-item>\n      </ion-list>\n    </ion-col>\n  </ion-row>\n</ion-content>'/*ion-inline-end:"/home/front/projects/github/app-advogados/src/pages/simulado/simulado.html"*/,
+            selector: 'page-simulado',template:/*ion-inline-start:"/home/front/projects/github/app-advogados/src/pages/simulado/simulado.html"*/'\n<ion-header>\n  <ion-navbar>\n      <ion-buttons left>\n          <button ion-button icon-only (click)="close()">\n              <ion-icon name="arrow-back"></ion-icon>\n          </button>\n      </ion-buttons>\n      <ion-title>Simulado</ion-title>\n  </ion-navbar>\n  </ion-header>\n\n\n<ion-content padding class="question">\n  <ion-row>\n    <ion-col text-center>\n      <h2>Simulado OAB 2015</h2>\n    </ion-col>\n  </ion-row>\n\n  <ion-row>\n    <ion-col>\n      <p> 01. Fábio, advogado com mais de dez anos de efetivaatividade, obtém a indicação e passa a ser Conselheirode Tribunal\n        de Contas do Estado do Rio de Janeiro.Diante disso, à luz das normas estatutárias ocorrerá: </p>\n    </ion-col>\n  </ion-row>\n\n  <ion-row>\n    <ion-col>\n      <ion-list radio-group no-lines [(ngModel)]="userAnswer">\n        <ion-item>\n          <ion-label class="customLabel">o cancelamento da inscrição como advogado.</ion-label>\n          <ion-radio checked="true" value="A"></ion-radio>\n        </ion-item>\n\n        <ion-item>\n          <ion-label class="customLabel">a suspensão até que cesse a incompatibilidade.</ion-label>\n          <ion-radio value="B"></ion-radio>\n        </ion-item>\n\n        <ion-item>\n          <ion-label class="customLabel">o licenciamento do profissional.</ion-label>\n          <ion-radio value="C"></ion-radio>\n        </ion-item>\n\n        <ion-item>\n            <ion-label class="customLabel">a passagem para a reserva do quadro de advogados.</ion-label>\n            <ion-radio value="D"></ion-radio>\n          </ion-item>\n      </ion-list>\n    </ion-col>\n  </ion-row>\n\n  <button ion-button id="btn-confirm" full (click)="confirmQuestion()">\n    Confirmar\n  </button>\n</ion-content>'/*ion-inline-end:"/home/front/projects/github/app-advogados/src/pages/simulado/simulado.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_simulado_simulado__["a" /* SimuladoProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_simulado_simulado__["a" /* SimuladoProvider */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2__providers_simulado_simulado__["a" /* SimuladoProvider */]])
     ], SimuladoPage);
     return SimuladoPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=simulado.js.map
@@ -951,10 +968,11 @@ var PrepararSimuladoPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-preparar-simulado',template:/*ion-inline-start:"/home/front/projects/github/app-advogados/src/pages/preparar-simulado/preparar-simulado.html"*/'<ion-content class="menu-content" padding>\n    <ion-row text-center>\n      <ion-col class="preparar-simulado">\n          <img class="grayscale" src="assets/imgs/mulher1.png"/>\n          <h2>Preparando simulado</h2>\n          <p>Aguarde enquanto estamos preparando o simulado...</p>\n          <div class="linha"></div>\n      </ion-col>\n    </ion-row>\n  </ion-content>\n'/*ion-inline-end:"/home/front/projects/github/app-advogados/src/pages/preparar-simulado/preparar-simulado.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_simulado_simulado__["a" /* SimuladoProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_simulado_simulado__["a" /* SimuladoProvider */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_simulado_simulado__["a" /* SimuladoProvider */]])
     ], PrepararSimuladoPage);
     return PrepararSimuladoPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=preparar-simulado.js.map
