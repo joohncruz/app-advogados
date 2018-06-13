@@ -14,7 +14,61 @@ export class SimuladoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private simuladoProvider: SimuladoProvider) {
     this.simulado = this.navParams.get('simulado');
-    // console.log(this.simulado);
+    this.simulado = {
+      ano: 2018,
+      questions: {
+        constitucional: {
+          1 : {
+            "pergunta" : "eu amo nicolas constitucional?",
+            "resposta_correta" : "a",
+            "respostas" : {
+              "a" : {
+                "descricao": "sim constitucional a",
+                "justificativa": "por que sim"
+              },
+              "b" : {
+                "descricao": "não constitucional b",
+                "justificativa": "por que não"
+              },
+              "c" : {
+                "descricao": "não constitucional c",
+                "justificativa": "por que não"
+              },
+              "d" : {
+                "descricao": "não constitucional d",
+                "justificativa": "por que não"
+              },
+            },
+          },
+        },
+        etica: {
+          1 : {
+            "pergunta" : "eu amo nicolas etica?",
+            "resposta_correta" : "a",
+            "respostas" : {
+              "a" : {
+                "descricao": "sim etica a",
+                "justificativa": "por que sim"
+              },
+              "b" : {
+                "descricao": "não etica b",
+                "justificativa": "por que não"
+              },
+              "c" : {
+                "descricao": "não etica c",
+                "justificativa": "por que não"
+              },
+              "d" : {
+                "descricao": "não etica d",
+                "justificativa": "por que não"
+              },
+            },
+          },
+        },
+      },
+    };
+    
+    console.log(this.simulado);
 
   }
 
