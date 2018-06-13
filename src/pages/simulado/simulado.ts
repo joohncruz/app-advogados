@@ -4,13 +4,6 @@ import { SimuladoProvider } from '../../providers/simulado/simulado';
 
 import { HomePage } from '../home/home';
 
-/**
- * Generated class for the SimuladoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-simulado',
@@ -21,17 +14,8 @@ export class SimuladoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private simuladoProvider: SimuladoProvider) {
     this.simulado = this.navParams.get('simulado');
-    console.log(this.simulado);
+    // console.log(this.simulado);
 
-    this.simulado.materias.forEach(materia => {
-      console.log(materia);
-      this.simuladoProvider.getQuestions(this.simulado.id, materia).then((res) => {
-        this.simulado.materia
-        
-        console.log(this.simulado.materias[materia]);
-        console.log(this.simulado);
-      });
-    });
   }
 
   ionViewDidLoad() {
