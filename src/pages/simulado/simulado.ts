@@ -44,6 +44,28 @@ export class SimuladoPage {
               },
             },
           },
+          2 : {
+            "pergunta" : "eu amo nicolas constitucional dois?",
+            "resposta_correta" : "a",
+            "respostas" : {
+              "a" : {
+                "descricao": "sim constitucional a",
+                "justificativa": "por que sim"
+              },
+              "b" : {
+                "descricao": "não constitucional b",
+                "justificativa": "por que não"
+              },
+              "c" : {
+                "descricao": "não constitucional c",
+                "justificativa": "por que não"
+              },
+              "d" : {
+                "descricao": "não constitucional d",
+                "justificativa": "por que não"
+              },
+            },
+          },
         },
         etica: {
           1 : {
@@ -97,29 +119,44 @@ export class SimuladoPage {
   }
   
   nextQuestion(userOption, currentBook) {
+    let nextBook = {};
+
     this.updateUserSimulate(currentBook, userOption);
     const nextQuestionId = currentBook.currentQuestionId + 1;
 
+    console.log('totalQuestions', this.simulado.questions, this.books, currentBook)
     const totalQuestions = 
-      Object.keys(this.simulado.questions[this.books[currentBook.bookId]]).length;
+      Object.keys(this.simulado.questions[currentBook.bookId]).length;
+
+    console.log('totalQuestions', totalQuestions)      
     
     const isAnsweredAllQuestions = nextQuestionId > totalQuestions; 
+
+    console.log('isAnsweredAllQuestions', isAnsweredAllQuestions)
   
     const totalBooks = 
       Object.keys(this.books).length;
 
     const isAnsweredAllBooks = false;
 
-    const nextBook = {
-      bookId: isAnsweredAllQuestions ? 
-        this.books[currentBook.bookId] : currentBook.bookId,
-      questions: currentBook.questions,
-      currentQuestionId: nextQuestionId,
-      currentQuestion: currentBook.questions[Object.keys(currentBook.questions)[nextQuestionId - 1]],
+    // Caso nao tenha respondido todas as questões da materia atual atual.
+    console.log(currentBook.questions)
+    console.log(Object.keys(currentBook.questions))
+    console.log(nextQuestionId - 1)
 
+    if(!isAnsweredAllQuestions) {
+
+      let nextBook = {
+        bookId: currentBook.bookId,
+        questions: currentBook.questions,
+        currentQuestionId: nextQuestionId,
+        currentQuestion: currentBook.currentQuestion,
+  
+      }
+    
     }
 
-    console.log('-----------------')
+    console.log('------- nextBook ---------')
     console.log(nextBook)
     this.currentBook = nextBook;
   }
