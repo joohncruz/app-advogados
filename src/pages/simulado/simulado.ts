@@ -11,7 +11,11 @@ import { HomePage } from '../home/home';
 })
 export class SimuladoPage {
   simulado: any;
-
+  userSimulate: any;
+  books: any;
+  currentBook: any;
+  userOption: any;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private simuladoProvider: SimuladoProvider) {
     this.simulado = this.navParams.get('simulado');
     this.simulado = {
@@ -67,27 +71,73 @@ export class SimuladoPage {
         },
       },
     };
-    
-    console.log(this.simulado);
 
+    this.books = Object.keys(this.simulado.questions);
+
+    const questions = this.simulado.questions[this.books[0]];
+    this.currentBook = {
+      bookId: this.books[0],
+      questions,
+      currentQuestionId: 1,
+      currentQuestion: questions[Object.keys(questions)[0]],
+    }
+    
+    this.userSimulate = this.simulado; 
   }
 
-  confirmQuestion() {
+  confirmQuestion(question, userOption) {
+    const respostaCorreta = question.resposta_correta;
+    const resposta = question.respostas[userOption];
+
     this.showFeedback(
-      'Testando o Confirm', 
-      'Cara voce acertou bola pra frente apertta ai'
+      respostaCorreta === userOption ? 'Resposta Correta!' : 'Resposta Incorreta', 
+      resposta.justificativa,
+      () => this.nextQuestion(userOption, this.currentBook)
     );
   }
+  
+  nextQuestion(userOption, currentBook) {
+    this.updateUserSimulate(currentBook, userOption);
+    const nextQuestionId = currentBook.currentQuestionId + 1;
 
-  showFeedback(title, message) {
+    const totalQuestions = 
+      Object.keys(this.simulado.questions[this.books[currentBook.bookId]]).length;
+    
+    const isAnsweredAllQuestions = nextQuestionId > totalQuestions; 
+  
+    const totalBooks = 
+      Object.keys(this.books).length;
+
+    const isAnsweredAllBooks = false;
+
+    const nextBook = {
+      bookId: isAnsweredAllQuestions ? 
+        this.books[currentBook.bookId] : currentBook.bookId,
+      questions: currentBook.questions,
+      currentQuestionId: nextQuestionId,
+      currentQuestion: currentBook.questions[Object.keys(currentBook.questions)[nextQuestionId - 1]],
+
+    }
+
+    console.log('-----------------')
+    console.log(nextBook)
+    this.currentBook = nextBook;
+  }
+
+  updateUserSimulate(currentBook, userOption) {
+    this.userSimulate.questions[currentBook.bookId][currentBook.currentQuestionId].resposta_informada = userOption;
+    // TODO: Atualizar o objeto dentro do usuario.
+  }
+
+  showFeedback(title, message, nextQuestion) {
     const confirm = this.alertCtrl.create({
       title,
       message: message,
       buttons: [
         {
           text: 'Próxima',
-          handler: () => {
-            console.log('Agree clicked');
+          handler: () => { 
+            nextQuestion();
           }
         }
       ]
@@ -123,3 +173,4 @@ export class SimuladoPage {
   }
 
 }
+

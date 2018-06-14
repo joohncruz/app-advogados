@@ -47,7 +47,7 @@ var CustomQuizPage = /** @class */ (function () {
     };
     CustomQuizPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-custom-quiz',template:/*ion-inline-start:"/home/front/projects/github/app-advogados/src/pages/custom-quiz/custom-quiz.html"*/'<ion-header>\n  <ion-navbar>\n      <ion-buttons left>\n          <button ion-button icon-only (click)="goHomePage()">\n              <ion-icon name="arrow-back"></ion-icon>\n          </button>\n      </ion-buttons>\n    <ion-title text-center>Customize o seu quiz</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="menu-content" padding>\n  <ion-row id="number-header">\n    <ion-col>\n      <ion-icon ios="ios-remove" md="md-remove" (click)="removerQuestoes()"></ion-icon>\n    </ion-col>\n    <ion-col id="box-number-questions">\n      <span id="number-questions" name="NumeroQuestoes" >{{NumeroQuestoes}}</span>\n      <span id="text">questões</span>\n    </ion-col>\n    <ion-col>\n      <ion-icon ios="ios-add" md="md-add" (click)="adicionarQuestoes()"></ion-icon>\n    </ion-col>\n  </ion-row>\n\n  <ion-list>\n    <ion-item class="custom-check">\n      <ion-label class="customLabel">Antropologia</ion-label>\n      <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>\n    </ion-item>\n    <ion-item class="custom-check">\n      <ion-label class="customLabel">Direito Civil</ion-label>\n      <ion-checkbox [(ngModel)]="sausage"></ion-checkbox>\n    </ion-item>\n    <ion-item class="custom-check">\n      <ion-label class="customLabel">Fundamentos do Direito Penal</ion-label>\n      <ion-checkbox [(ngModel)]="mushrooms"></ion-checkbox>\n    </ion-item>\n    <ion-item class="custom-check">\n      <ion-label class="customLabel">Teoria da Constituição</ion-label>\n      <ion-checkbox [(ngModel)]="mushroomsasdsad"></ion-checkbox>\n    </ion-item>\n    <ion-item class="custom-check">\n      <ion-label class="customLabel">Ciência Politica</ion-label>\n      <ion-checkbox [(ngModel)]="mushroomsasdad"></ion-checkbox>\n    </ion-item>\n    <ion-item class="custom-check">\n      <ion-label class="customLabel">Sociologia do Direito</ion-label>\n      <ion-checkbox [(ngModel)]="mushroomsasd"></ion-checkbox>\n    </ion-item>\n  </ion-list>\n\n  <ion-row>\n    <ion-col class="signup-col">\n      <button ion-button class="submit-btn" full (click)="start()">Iniciar</button>\n    </ion-col>\n  </ion-row>\n</ion-content>'/*ion-inline-end:"/home/front/projects/github/app-advogados/src/pages/custom-quiz/custom-quiz.html"*/,
+            selector: 'page-custom-quiz',template:/*ion-inline-start:"/home/joohncruz/Projects/github/app-advogados/src/pages/custom-quiz/custom-quiz.html"*/'<ion-header>\n  <ion-navbar>\n      <ion-buttons left>\n          <button ion-button icon-only (click)="goHomePage()">\n              <ion-icon name="arrow-back"></ion-icon>\n          </button>\n      </ion-buttons>\n    <ion-title text-center>Customize o seu quiz</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="menu-content" padding>\n  <ion-row id="number-header">\n    <ion-col>\n      <ion-icon ios="ios-remove" md="md-remove" (click)="removerQuestoes()"></ion-icon>\n    </ion-col>\n    <ion-col id="box-number-questions">\n      <span id="number-questions" name="NumeroQuestoes" >{{NumeroQuestoes}}</span>\n      <span id="text">questões</span>\n    </ion-col>\n    <ion-col>\n      <ion-icon ios="ios-add" md="md-add" (click)="adicionarQuestoes()"></ion-icon>\n    </ion-col>\n  </ion-row>\n\n  <ion-list>\n    <ion-item class="custom-check">\n      <ion-label class="customLabel">Antropologia</ion-label>\n      <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>\n    </ion-item>\n    <ion-item class="custom-check">\n      <ion-label class="customLabel">Direito Civil</ion-label>\n      <ion-checkbox [(ngModel)]="sausage"></ion-checkbox>\n    </ion-item>\n    <ion-item class="custom-check">\n      <ion-label class="customLabel">Fundamentos do Direito Penal</ion-label>\n      <ion-checkbox [(ngModel)]="mushrooms"></ion-checkbox>\n    </ion-item>\n    <ion-item class="custom-check">\n      <ion-label class="customLabel">Teoria da Constituição</ion-label>\n      <ion-checkbox [(ngModel)]="mushroomsasdsad"></ion-checkbox>\n    </ion-item>\n    <ion-item class="custom-check">\n      <ion-label class="customLabel">Ciência Politica</ion-label>\n      <ion-checkbox [(ngModel)]="mushroomsasdad"></ion-checkbox>\n    </ion-item>\n    <ion-item class="custom-check">\n      <ion-label class="customLabel">Sociologia do Direito</ion-label>\n      <ion-checkbox [(ngModel)]="mushroomsasd"></ion-checkbox>\n    </ion-item>\n  </ion-list>\n\n  <ion-row>\n    <ion-col class="signup-col">\n      <button ion-button class="submit-btn" full (click)="start()">Iniciar</button>\n    </ion-col>\n  </ion-row>\n</ion-content>'/*ion-inline-end:"/home/joohncruz/Projects/github/app-advogados/src/pages/custom-quiz/custom-quiz.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
     ], CustomQuizPage);
@@ -134,7 +134,7 @@ var SignupPage = /** @class */ (function () {
     ], SignupPage.prototype, "form", void 0);
     SignupPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-signup',template:/*ion-inline-start:"/home/front/projects/github/app-advogados/src/pages/signup/signup.html"*/'<ion-content class="cadastre-content" padding>\n  <ion-row class="logo-row">\n    <ion-col>\n      <img src="assets/imgs/mulher.png" />\n    </ion-col>\n  </ion-row>\n  <div class="login-box">\n    <form #form="ngForm" novalidate>\n      <ion-row>\n        <ion-col>\n          <ion-item class="input-custom">\n            <ion-label floating>E-mail</ion-label>\n            <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>\n          </ion-item>\n          <ion-item class="input-custom">\n            <ion-label floating>Senha</ion-label>\n            <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>\n          </ion-item>\n          <ion-item class="input-custom">\n            <ion-label floating>Confirme a senha</ion-label>\n            <ion-input type="password"></ion-input>\n          </ion-item>\n        </ion-col>\n      </ion-row>\n\n      <ion-row>\n        <ion-col class="signup-col">\n          <button ion-button class="submit-btn" full [disabled]="!form.form.valid" (click)="createAccount()">\n            Cadastrar\n          </button>\n          <button ion-button class="register-btn" block clear (click)="signIn()">\n            Você já tem uma conta? Entrar\n          </button>\n        </ion-col>\n      </ion-row>\n    </form>\n  </div>\n</ion-content>'/*ion-inline-end:"/home/front/projects/github/app-advogados/src/pages/signup/signup.html"*/,
+            selector: 'page-signup',template:/*ion-inline-start:"/home/joohncruz/Projects/github/app-advogados/src/pages/signup/signup.html"*/'<ion-content class="cadastre-content" padding>\n  <ion-row class="logo-row">\n    <ion-col>\n      <img src="assets/imgs/mulher.png" />\n    </ion-col>\n  </ion-row>\n  <div class="login-box">\n    <form #form="ngForm" novalidate>\n      <ion-row>\n        <ion-col>\n          <ion-item class="input-custom">\n            <ion-label floating>E-mail</ion-label>\n            <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>\n          </ion-item>\n          <ion-item class="input-custom">\n            <ion-label floating>Senha</ion-label>\n            <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>\n          </ion-item>\n          <ion-item class="input-custom">\n            <ion-label floating>Confirme a senha</ion-label>\n            <ion-input type="password"></ion-input>\n          </ion-item>\n        </ion-col>\n      </ion-row>\n\n      <ion-row>\n        <ion-col class="signup-col">\n          <button ion-button class="submit-btn" full [disabled]="!form.form.valid" (click)="createAccount()">\n            Cadastrar\n          </button>\n          <button ion-button class="register-btn" block clear (click)="signIn()">\n            Você já tem uma conta? Entrar\n          </button>\n        </ion-col>\n      </ion-row>\n    </form>\n  </div>\n</ion-content>'/*ion-inline-end:"/home/joohncruz/Projects/github/app-advogados/src/pages/signup/signup.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */],
@@ -204,7 +204,7 @@ var ResetpasswordPage = /** @class */ (function () {
     ], ResetpasswordPage.prototype, "form", void 0);
     ResetpasswordPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-resetpassword',template:/*ion-inline-start:"/home/front/projects/github/app-advogados/src/pages/resetpassword/resetpassword.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>\n      Resetar minha senha\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <form #form="ngForm" novalidate>\n    <ion-list>\n\n      <ion-item>\n        <ion-label stacked>E-mail</ion-label>\n        <ion-input type="text" name="email" [(ngModel)]="userEmail" #email="ngModel" required></ion-input>\n      </ion-item>\n      <ion-item *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger">\n        O campo é obrigatório\n      </ion-item>\n\n    </ion-list>\n\n    <button ion-button block color="primary" [disabled]="!form.form.valid" (click)="resetPassword()">\n      Resetar minha senha\n    </button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/front/projects/github/app-advogados/src/pages/resetpassword/resetpassword.html"*/
+            selector: 'page-resetpassword',template:/*ion-inline-start:"/home/joohncruz/Projects/github/app-advogados/src/pages/resetpassword/resetpassword.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>\n      Resetar minha senha\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <form #form="ngForm" novalidate>\n    <ion-list>\n\n      <ion-item>\n        <ion-label stacked>E-mail</ion-label>\n        <ion-input type="text" name="email" [(ngModel)]="userEmail" #email="ngModel" required></ion-input>\n      </ion-item>\n      <ion-item *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger">\n        O campo é obrigatório\n      </ion-item>\n\n    </ion-list>\n\n    <button ion-button block color="primary" [disabled]="!form.form.valid" (click)="resetPassword()">\n      Resetar minha senha\n    </button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/joohncruz/Projects/github/app-advogados/src/pages/resetpassword/resetpassword.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */],
@@ -256,7 +256,7 @@ var HistoricoPage = /** @class */ (function () {
     };
     HistoricoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-historico',template:/*ion-inline-start:"/home/front/projects/github/app-advogados/src/pages/historico/historico.html"*/'<ion-header>\n  <ion-navbar>\n      <ion-buttons left>\n          <button ion-button icon-only (click)="close()">\n              <ion-icon name="arrow-back"></ion-icon>\n          </button>\n      </ion-buttons>\n      <ion-title text-center>\n        Meu histórico\n      </ion-title>\n  </ion-navbar>\n  </ion-header>\n\n<ion-content padding class="tutorial-page">\n  <ion-card>\n\n    <ion-card-content>\n      <ion-slides pager>\n        <ion-slide>\n          <h2>Simulado OAB 2015</h2>\n          <img src="assets/imgs/star.png" class="slide-image" />\n          <p>Questões respondidas</p>\n          <p>\n            <b>32</b>\n          </p>\n          <p>Concluido em</p>\n          <p>3 de abril</p>\n          <p>Pontos:\n            <b>80/10</b>\n          </p>\n        </ion-slide>\n\n        <ion-slide>\n          <h2>Simulado OAB 2016</h2>\n          <img src="assets/imgs/star.png" class="slide-image" />\n          <p>Questões respondidas</p>\n          <p>\n            <b>32</b>\n          </p>\n          <p>Concluido em</p>\n          <p>3 de abril</p>\n          <p>Pontos:\n            <b>80/10</b>\n          </p>\n        </ion-slide>\n\n        <ion-slide>\n          <h2>Simulado OAB 2017</h2>\n          <img src="assets/imgs/star.png" class="slide-image" />\n          <p>Questões respondidas</p>\n          <p>\n            <b>32</b>\n          </p>\n          <p>Concluido em</p>\n          <p>3 de abril</p>\n          <p>Pontos:\n            <b>80/10</b>\n          </p>\n        </ion-slide>\n      </ion-slides>\n    </ion-card-content>\n\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"/home/front/projects/github/app-advogados/src/pages/historico/historico.html"*/,
+            selector: 'page-historico',template:/*ion-inline-start:"/home/joohncruz/Projects/github/app-advogados/src/pages/historico/historico.html"*/'<ion-header>\n  <ion-navbar>\n      <ion-buttons left>\n          <button ion-button icon-only (click)="close()">\n              <ion-icon name="arrow-back"></ion-icon>\n          </button>\n      </ion-buttons>\n      <ion-title text-center>\n        Meu histórico\n      </ion-title>\n  </ion-navbar>\n  </ion-header>\n\n<ion-content padding class="tutorial-page">\n  <ion-card>\n\n    <ion-card-content>\n      <ion-slides pager>\n        <ion-slide>\n          <h2>Simulado OAB 2015</h2>\n          <img src="assets/imgs/star.png" class="slide-image" />\n          <p>Questões respondidas</p>\n          <p>\n            <b>32</b>\n          </p>\n          <p>Concluido em</p>\n          <p>3 de abril</p>\n          <p>Pontos:\n            <b>80/10</b>\n          </p>\n        </ion-slide>\n\n        <ion-slide>\n          <h2>Simulado OAB 2016</h2>\n          <img src="assets/imgs/star.png" class="slide-image" />\n          <p>Questões respondidas</p>\n          <p>\n            <b>32</b>\n          </p>\n          <p>Concluido em</p>\n          <p>3 de abril</p>\n          <p>Pontos:\n            <b>80/10</b>\n          </p>\n        </ion-slide>\n\n        <ion-slide>\n          <h2>Simulado OAB 2017</h2>\n          <img src="assets/imgs/star.png" class="slide-image" />\n          <p>Questões respondidas</p>\n          <p>\n            <b>32</b>\n          </p>\n          <p>Concluido em</p>\n          <p>3 de abril</p>\n          <p>Pontos:\n            <b>80/10</b>\n          </p>\n        </ion-slide>\n      </ion-slides>\n    </ion-card-content>\n\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"/home/joohncruz/Projects/github/app-advogados/src/pages/historico/historico.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
     ], HistoricoPage);
@@ -296,12 +296,98 @@ var SimuladoPage = /** @class */ (function () {
         this.alertCtrl = alertCtrl;
         this.simuladoProvider = simuladoProvider;
         this.simulado = this.navParams.get('simulado');
-        // console.log(this.simulado);
+        this.simulado = {
+            ano: 2018,
+            questions: {
+                constitucional: {
+                    1: {
+                        "pergunta": "eu amo nicolas constitucional?",
+                        "resposta_correta": "a",
+                        "respostas": {
+                            "a": {
+                                "descricao": "sim constitucional a",
+                                "justificativa": "por que sim"
+                            },
+                            "b": {
+                                "descricao": "não constitucional b",
+                                "justificativa": "por que não"
+                            },
+                            "c": {
+                                "descricao": "não constitucional c",
+                                "justificativa": "por que não"
+                            },
+                            "d": {
+                                "descricao": "não constitucional d",
+                                "justificativa": "por que não"
+                            },
+                        },
+                    },
+                },
+                etica: {
+                    1: {
+                        "pergunta": "eu amo nicolas etica?",
+                        "resposta_correta": "a",
+                        "respostas": {
+                            "a": {
+                                "descricao": "sim etica a",
+                                "justificativa": "por que sim"
+                            },
+                            "b": {
+                                "descricao": "não etica b",
+                                "justificativa": "por que não"
+                            },
+                            "c": {
+                                "descricao": "não etica c",
+                                "justificativa": "por que não"
+                            },
+                            "d": {
+                                "descricao": "não etica d",
+                                "justificativa": "por que não"
+                            },
+                        },
+                    },
+                },
+            },
+        };
+        this.books = Object.keys(this.simulado.questions);
+        var questions = this.simulado.questions[this.books[0]];
+        this.currentBook = {
+            bookId: this.books[0],
+            questions: questions,
+            currentQuestionId: 1,
+            currentQuestion: questions[Object.keys(questions)[0]],
+        };
+        this.userSimulate = this.simulado;
     }
-    SimuladoPage.prototype.confirmQuestion = function () {
-        this.showFeedback('Testando o Confirm', 'Cara voce acertou bola pra frente apertta ai');
+    SimuladoPage.prototype.confirmQuestion = function (question, userOption) {
+        var _this = this;
+        var respostaCorreta = question.resposta_correta;
+        var resposta = question.respostas[userOption];
+        this.showFeedback(respostaCorreta === userOption ? 'Resposta Correta!' : 'Resposta Incorreta', resposta.justificativa, function () { return _this.nextQuestion(userOption, _this.currentBook); });
     };
-    SimuladoPage.prototype.showFeedback = function (title, message) {
+    SimuladoPage.prototype.nextQuestion = function (userOption, currentBook) {
+        this.updateUserSimulate(currentBook, userOption);
+        var nextQuestionId = currentBook.currentQuestionId + 1;
+        var totalQuestions = Object.keys(this.simulado.questions[this.books[currentBook.bookId]]).length;
+        var isAnsweredAllQuestions = nextQuestionId > totalQuestions;
+        var totalBooks = Object.keys(this.books).length;
+        var isAnsweredAllBooks = false;
+        var nextBook = {
+            bookId: isAnsweredAllQuestions ?
+                this.books[currentBook.bookId] : currentBook.bookId,
+            questions: currentBook.questions,
+            currentQuestionId: nextQuestionId,
+            currentQuestion: currentBook.questions[Object.keys(currentBook.questions)[nextQuestionId - 1]],
+        };
+        console.log('-----------------');
+        console.log(nextBook);
+        this.currentBook = nextBook;
+    };
+    SimuladoPage.prototype.updateUserSimulate = function (currentBook, userOption) {
+        this.userSimulate.questions[currentBook.bookId][currentBook.currentQuestionId].resposta_informada = userOption;
+        // TODO: Atualizar o objeto dentro do usuario.
+    };
+    SimuladoPage.prototype.showFeedback = function (title, message, nextQuestion) {
         var confirm = this.alertCtrl.create({
             title: title,
             message: message,
@@ -309,7 +395,7 @@ var SimuladoPage = /** @class */ (function () {
                 {
                     text: 'Próxima',
                     handler: function () {
-                        console.log('Agree clicked');
+                        nextQuestion();
                     }
                 }
             ]
@@ -344,11 +430,12 @@ var SimuladoPage = /** @class */ (function () {
     };
     SimuladoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-simulado',template:/*ion-inline-start:"/home/front/projects/github/app-advogados/src/pages/simulado/simulado.html"*/'\n<ion-header>\n  <ion-navbar>\n      <ion-buttons left>\n          <button ion-button icon-only (click)="close()">\n              <ion-icon name="arrow-back"></ion-icon>\n          </button>\n      </ion-buttons>\n      <ion-title>Simulado</ion-title>\n  </ion-navbar>\n  </ion-header>\n\n\n<ion-content padding class="question">\n  <ion-row>\n    <ion-col text-center>\n      <h2>Simulado OAB 2015</h2>\n    </ion-col>\n  </ion-row>\n\n  <ion-row>\n    <ion-col>\n      <p> 01. Fábio, advogado com mais de dez anos de efetivaatividade, obtém a indicação e passa a ser Conselheirode Tribunal\n        de Contas do Estado do Rio de Janeiro.Diante disso, à luz das normas estatutárias ocorrerá: </p>\n    </ion-col>\n  </ion-row>\n\n  <ion-row>\n    <ion-col>\n      <ion-list radio-group no-lines [(ngModel)]="userAnswer">\n        <ion-item>\n          <ion-label class="customLabel">o cancelamento da inscrição como advogado.</ion-label>\n          <ion-radio checked="true" value="A"></ion-radio>\n        </ion-item>\n\n        <ion-item>\n          <ion-label class="customLabel">a suspensão até que cesse a incompatibilidade.</ion-label>\n          <ion-radio value="B"></ion-radio>\n        </ion-item>\n\n        <ion-item>\n          <ion-label class="customLabel">o licenciamento do profissional.</ion-label>\n          <ion-radio value="C"></ion-radio>\n        </ion-item>\n\n        <ion-item>\n            <ion-label class="customLabel">a passagem para a reserva do quadro de advogados.</ion-label>\n            <ion-radio value="D"></ion-radio>\n          </ion-item>\n      </ion-list>\n    </ion-col>\n  </ion-row>\n\n  <button ion-button id="btn-confirm" full (click)="confirmQuestion()">\n    Confirmar\n  </button>\n</ion-content>'/*ion-inline-end:"/home/front/projects/github/app-advogados/src/pages/simulado/simulado.html"*/,
+            selector: 'page-simulado',template:/*ion-inline-start:"/home/joohncruz/Projects/github/app-advogados/src/pages/simulado/simulado.html"*/'\n<ion-header>\n  <ion-navbar>\n      <ion-buttons left>\n          <button ion-button icon-only (click)="close()">\n              <ion-icon name="arrow-back"></ion-icon>\n          </button>\n      </ion-buttons>\n      <ion-title>Simulado {{simulado.ano}}</ion-title>\n  </ion-navbar>\n  </ion-header>\n\n\n<ion-content padding class="question">\n  <ion-row>\n    <ion-col text-center>\n      <h2>Simulado OAB {{simulado.ano}}</h2>\n    </ion-col>\n  </ion-row>\n\n  <ion-row>\n    <ion-col>\n      <p> [{{currentBook.bookId}}] {{currentBook.currentQuestionId}}. \n        {{currentBook.currentQuestion.pergunta}}\n      </p>\n    </ion-col>\n  </ion-row>\n\n  <ion-row>\n    <ion-col>\n      <ion-list radio-group no-lines [(ngModel)]="userOption">\n        {{ userOption }}\n        {{ currentBook.currentQuestion.respostas | json }}\n        <ion-item>\n          <ion-label class="customLabel">\n            {{currentBook.currentQuestion.respostas.a.descricao}}  \n          </ion-label>\n          <ion-radio checked="true" value="a"></ion-radio>\n        </ion-item>\n\n        <ion-item>\n          <ion-label class="customLabel">\n            {{currentBook.currentQuestion.respostas.b.descricao}}  \n          </ion-label>\n          <ion-radio checked="true" value="b"></ion-radio>\n        </ion-item>\n\n        <ion-item>\n          <ion-label class="customLabel">\n            {{currentBook.currentQuestion.respostas.c.descricao}}  \n          </ion-label>\n          <ion-radio checked="true" value="c"></ion-radio>\n        </ion-item>\n\n        <ion-item>\n          <ion-label class="customLabel">\n            {{currentBook.currentQuestion.respostas.d.descricao}}  \n          </ion-label>\n          <ion-radio checked="true" value="d"></ion-radio>\n        </ion-item>\n\n      </ion-list>\n    </ion-col>\n  </ion-row>\n\n  <button ion-button id="btn-confirm" full (click)="confirmQuestion(currentBook.currentQuestion, userOption)">\n    Confirmar\n  </button>\n</ion-content>'/*ion-inline-end:"/home/joohncruz/Projects/github/app-advogados/src/pages/simulado/simulado.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2__providers_simulado_simulado__["a" /* SimuladoProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_simulado_simulado__["a" /* SimuladoProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_simulado_simulado__["a" /* SimuladoProvider */]) === "function" && _d || Object])
     ], SimuladoPage);
     return SimuladoPage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=simulado.js.map
@@ -389,7 +476,7 @@ var TutorialInicialPage = /** @class */ (function () {
     };
     TutorialInicialPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-tutorial-inicial',template:/*ion-inline-start:"/home/front/projects/github/app-advogados/src/pages/tutorial-inicial/tutorial-inicial.html"*/'<ion-content padding class="tutorial-page">\n  <ion-slides pager class="slide-content">\n    <ion-slide>\n      <h2>Jogue Quiz</h2>\n      <img src="assets/imgs/homen1.png" class="slide-image" />\n      <p>Como o quiz você pode treinar para os simulados e conseguir notas ainda mais altas!</p>\n    </ion-slide>\n\n    <ion-slide>\n        <h2>Faça Simulados</h2>\n        <img src="assets/imgs/mulher1.png" class="slide-image" />\n        <p>Com os simulados você pode ver como está o seu conhecimento, experimentar uma prova semelhante a da OAB.</p>\n    </ion-slide>\n\n    <ion-slide>\n        <h2>Faça Progresso</h2>\n        <img src="assets/imgs/homen2.png" class="slide-image" />\n        <p>Você pode ver como nós te ajudamos! O nosso histórico permite ver o resultado de cada simulado que você realizar.</p>\n    </ion-slide>\n  </ion-slides>\n  <button ion-button class="skip-btn" full (click)="skipTutorial()">Ignorar</button>\n</ion-content>'/*ion-inline-end:"/home/front/projects/github/app-advogados/src/pages/tutorial-inicial/tutorial-inicial.html"*/,
+            selector: 'page-tutorial-inicial',template:/*ion-inline-start:"/home/joohncruz/Projects/github/app-advogados/src/pages/tutorial-inicial/tutorial-inicial.html"*/'<ion-content padding class="tutorial-page">\n  <ion-slides pager class="slide-content">\n    <ion-slide>\n      <h2>Jogue Quiz</h2>\n      <img src="assets/imgs/homen1.png" class="slide-image" />\n      <p>Como o quiz você pode treinar para os simulados e conseguir notas ainda mais altas!</p>\n    </ion-slide>\n\n    <ion-slide>\n        <h2>Faça Simulados</h2>\n        <img src="assets/imgs/mulher1.png" class="slide-image" />\n        <p>Com os simulados você pode ver como está o seu conhecimento, experimentar uma prova semelhante a da OAB.</p>\n    </ion-slide>\n\n    <ion-slide>\n        <h2>Faça Progresso</h2>\n        <img src="assets/imgs/homen2.png" class="slide-image" />\n        <p>Você pode ver como nós te ajudamos! O nosso histórico permite ver o resultado de cada simulado que você realizar.</p>\n    </ion-slide>\n  </ion-slides>\n  <button ion-button class="skip-btn" full (click)="skipTutorial()">Ignorar</button>\n</ion-content>'/*ion-inline-end:"/home/joohncruz/Projects/github/app-advogados/src/pages/tutorial-inicial/tutorial-inicial.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
     ], TutorialInicialPage);
@@ -679,7 +766,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/front/projects/github/app-advogados/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title text-center>\n      Menu\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="menu-content" padding>\n    <ion-row>\n      <ion-col class="signup-col">\n        <button ion-button id="btn-simulado" full (click)="goPrepararSimulado()">Simulado</button>\n        <button ion-button id="btn-quizz" full (click)="customQuiz()">Quiz</button>\n        <button ion-button id="btn-historico" full (click)="goHistoricoPage()">Histórico</button>\n        <button ion-button id="btn-sair" full (click)="signOut()">\n          Sair\n        </button>\n      </ion-col>\n    </ion-row>\n  </ion-content>\n'/*ion-inline-end:"/home/front/projects/github/app-advogados/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/home/joohncruz/Projects/github/app-advogados/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title text-center>\n      Menu\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="menu-content" padding>\n    <ion-row>\n      <ion-col class="signup-col">\n        <button ion-button id="btn-simulado" full (click)="goPrepararSimulado()">Simulado</button>\n        <button ion-button id="btn-quizz" full (click)="customQuiz()">Quiz</button>\n        <button ion-button id="btn-historico" full (click)="goHistoricoPage()">Histórico</button>\n        <button ion-button id="btn-sair" full (click)="signOut()">\n          Sair\n        </button>\n      </ion-col>\n    </ion-row>\n  </ion-content>\n'/*ion-inline-end:"/home/joohncruz/Projects/github/app-advogados/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth_service__["a" /* AuthService */]])
     ], HomePage);
@@ -746,7 +833,7 @@ var MyApp = /** @class */ (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/front/projects/github/app-advogados/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/front/projects/github/app-advogados/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/joohncruz/Projects/github/app-advogados/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/joohncruz/Projects/github/app-advogados/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__["a" /* AngularFireAuth */]])
     ], MyApp);
@@ -866,7 +953,7 @@ var SigninPage = /** @class */ (function () {
     ], SigninPage.prototype, "form", void 0);
     SigninPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "page-signin",template:/*ion-inline-start:"/home/front/projects/github/app-advogados/src/pages/signin/signin.html"*/'<ion-content class="login-content" padding>\n  <ion-row class="logo-row">\n    <ion-col>\n      <img src="assets/imgs/logo.png" />\n    </ion-col>\n  </ion-row>\n  <div class="login-box">\n    <form #form="ngForm" novalidate>\n      <ion-row>\n        <ion-col>\n          <ion-item class="input-custom">\n            <ion-label floating>E-mail</ion-label>\n            <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>\n          </ion-item>\n          <ion-item class="input-custom">\n            <ion-label floating>Senha</ion-label>\n            <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>\n          </ion-item>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col class="signup-col">\n          <button ion-button class="submit-btn" full (click)="signIn()">Entrar</button>\n          <button ion-button class="social-button-facebook" full>\n            <ion-icon ios="logo-facebook" md="logo-facebook" (click)="loginFacebook()"></ion-icon> \n            Continuar com o Facebook\n          </button>\n          <button ion-button class="register-btn" block clear (click)="createAccount()">\n            Não tem uma conta ainda? Registre-se\n          </button>\n          <button ion-button class="register-btn" block clear (click)="resetPassword()">\n            Perdeu sua senha? clique aqui!\n          </button>\n\n        </ion-col>\n      </ion-row>\n\n    </form>\n  </div>\n</ion-content>'/*ion-inline-end:"/home/front/projects/github/app-advogados/src/pages/signin/signin.html"*/
+            selector: "page-signin",template:/*ion-inline-start:"/home/joohncruz/Projects/github/app-advogados/src/pages/signin/signin.html"*/'<ion-content class="login-content" padding>\n  <ion-row class="logo-row">\n    <ion-col>\n      <img src="assets/imgs/logo.png" />\n    </ion-col>\n  </ion-row>\n  <div class="login-box">\n    <form #form="ngForm" novalidate>\n      <ion-row>\n        <ion-col>\n          <ion-item class="input-custom">\n            <ion-label floating>E-mail</ion-label>\n            <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>\n          </ion-item>\n          <ion-item class="input-custom">\n            <ion-label floating>Senha</ion-label>\n            <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>\n          </ion-item>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col class="signup-col">\n          <button ion-button class="submit-btn" full (click)="signIn()">Entrar</button>\n          <button ion-button class="social-button-facebook" full>\n            <ion-icon ios="logo-facebook" md="logo-facebook" (click)="loginFacebook()"></ion-icon> \n            Continuar com o Facebook\n          </button>\n          <button ion-button class="register-btn" block clear (click)="createAccount()">\n            Não tem uma conta ainda? Registre-se\n          </button>\n          <button ion-button class="register-btn" block clear (click)="resetPassword()">\n            Perdeu sua senha? clique aqui!\n          </button>\n\n        </ion-col>\n      </ion-row>\n\n    </form>\n  </div>\n</ion-content>'/*ion-inline-end:"/home/joohncruz/Projects/github/app-advogados/src/pages/signin/signin.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */],
@@ -966,7 +1053,7 @@ var PrepararSimuladoPage = /** @class */ (function () {
     };
     PrepararSimuladoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-preparar-simulado',template:/*ion-inline-start:"/home/front/projects/github/app-advogados/src/pages/preparar-simulado/preparar-simulado.html"*/'<ion-content class="menu-content" padding>\n    <ion-row text-center>\n      <ion-col class="preparar-simulado">\n          <img class="grayscale" src="assets/imgs/mulher1.png"/>\n          <h2>Preparando simulado</h2>\n          <p>Aguarde enquanto estamos preparando o simulado...</p>\n          <div class="linha"></div>\n      </ion-col>\n    </ion-row>\n  </ion-content>\n'/*ion-inline-end:"/home/front/projects/github/app-advogados/src/pages/preparar-simulado/preparar-simulado.html"*/,
+            selector: 'page-preparar-simulado',template:/*ion-inline-start:"/home/joohncruz/Projects/github/app-advogados/src/pages/preparar-simulado/preparar-simulado.html"*/'<ion-content class="menu-content" padding>\n    <ion-row text-center>\n      <ion-col class="preparar-simulado">\n          <img class="grayscale" src="assets/imgs/mulher1.png"/>\n          <h2>Preparando simulado</h2>\n          <p>Aguarde enquanto estamos preparando o simulado...</p>\n          <div class="linha"></div>\n      </ion-col>\n    </ion-row>\n  </ion-content>\n'/*ion-inline-end:"/home/joohncruz/Projects/github/app-advogados/src/pages/preparar-simulado/preparar-simulado.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
