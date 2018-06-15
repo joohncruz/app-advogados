@@ -29,8 +29,6 @@
   <ion-row>
     <ion-col>
       <ion-list radio-group no-lines [(ngModel)]="userOption">
-        {{ userOption }}
-        {{ currentBook.currentQuestion.respostas | json }}
         <ion-item>
           <ion-label class="customLabel">
             {{currentBook.currentQuestion.respostas.a.descricao}}  

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController  } from 'ionic-angular';
 import { SimuladoProvider } from '../../providers/simulado/simulado';
+import { SimuladoCompletoPage } from '../simulado-completo/simulado-completo';
 
 import { HomePage } from '../home/home';
 
@@ -15,7 +16,8 @@ export class SimuladoPage {
   books: any;
   currentBook: any;
   userOption: any;
-  
+  finished: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private simuladoProvider: SimuladoProvider) {
     this.simulado = this.navParams.get('simulado');
     this.simulado = {
@@ -94,6 +96,7 @@ export class SimuladoPage {
       },
     };
 
+    this.finished = false;
     this.books = Object.keys(this.simulado.questions);
 
     const questions = this.simulado.questions[this.books[0]];
@@ -130,6 +133,8 @@ export class SimuladoPage {
 
     console.log('totalQuestions', totalQuestions)      
     
+    console.log('isAnsweredAllQuestions')
+
     const isAnsweredAllQuestions = nextQuestionId > totalQuestions; 
 
     console.log('isAnsweredAllQuestions', isAnsweredAllQuestions)
@@ -137,27 +142,35 @@ export class SimuladoPage {
     const totalBooks = 
       Object.keys(this.books).length;
 
-    const isAnsweredAllBooks = false;
-
     // Caso nao tenha respondido todas as questões da materia atual atual.
-    console.log(currentBook.questions)
-    console.log(Object.keys(currentBook.questions))
-    console.log(nextQuestionId - 1)
-
     if(!isAnsweredAllQuestions) {
-
-      let nextBook = {
+      console.log('if(!isAnsweredAllQuestions)')
+      nextBook = {
         bookId: currentBook.bookId,
         questions: currentBook.questions,
         currentQuestionId: nextQuestionId,
-        currentQuestion: currentBook.currentQuestion,
-  
+        currentQuestion: currentBook.questions[nextQuestionId],
       }
     
+    } else if (isAnsweredAllQuestions && this.books.length > 1) {
+      console.log('else if (isAnsweredAllQuestions && this.books.length > 1)')
+      this.books.shift();
+      const questions = this.simulado.questions[this.books[0]];
+
+      nextBook = {
+        bookId: this.books[0],
+        questions,
+        currentQuestionId: 1,
+        currentQuestion: questions[Object.keys(questions)[0]],
+      }
+    } else {
+      console.log('else')
+      this.finished = true;
+      this.navCtrl.setRoot(SimuladoCompletoPage, {'simulado': this.userSimulate});
+      return;
     }
 
-    console.log('------- nextBook ---------')
-    console.log(nextBook)
+    this.userOption = '';
     this.currentBook = nextBook;
   }
 

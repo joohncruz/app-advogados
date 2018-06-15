@@ -16,6 +16,8 @@ import { SignupPage } from '../pages/signup/signup';
 import { ResetpasswordPage } from '../pages/resetpassword/resetpassword';
 import { CustomQuizPage } from '../pages/custom-quiz/custom-quiz';
 import { PrepararSimuladoPage } from '../pages/preparar-simulado/preparar-simulado';
+import { SimuladoCompletoPage } from '../pages/simulado-completo/simulado-completo';
+
 import { TutorialInicialPage } from '../pages/tutorial-inicial/tutorial-inicial';
 import { HistoricoPage } from '../pages/historico/historico';
 import { SimuladoPage } from '../pages/simulado/simulado';
@@ -42,6 +44,7 @@ const firebaseConfig = {
     ResetpasswordPage,
     CustomQuizPage,
     PrepararSimuladoPage,
+    SimuladoCompletoPage,
     TutorialInicialPage,
     HistoricoPage,
     SimuladoPage,
@@ -62,6 +65,7 @@ const firebaseConfig = {
     ResetpasswordPage,
     CustomQuizPage,
     PrepararSimuladoPage,
+    SimuladoCompletoPage,
     TutorialInicialPage,
     HistoricoPage,
     SimuladoPage,
