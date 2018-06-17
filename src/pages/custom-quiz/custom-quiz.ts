@@ -13,7 +13,7 @@ export class CustomQuizPage {
   NumeroQuestoes: number = 0;
   disciplinas: any;
   disciplina: any;
-  disciplinasSelecionadas: Array<Object> = [];
+  disciplinasSelecionadas: any = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.NumeroQuestoes = 20;
@@ -87,7 +87,7 @@ export class CustomQuizPage {
         value: checked
       });
     } else {
-      this.disciplinasSelecionadas = _.remove(this.disciplinasSelecionadas, arr => {
+      this.disciplinasSelecionadas = _.remove(this.disciplinasSelecionadas, (arr) => {
         return arr.normalizeRef == normalizedString;
       });
     }
