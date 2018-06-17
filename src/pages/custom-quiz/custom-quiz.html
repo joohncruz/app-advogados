@@ -1,10 +1,10 @@
 <ion-header>
   <ion-navbar>
-      <ion-buttons left>
-          <button ion-button icon-only (click)="goHomePage()">
-              <ion-icon name="arrow-back"></ion-icon>
-          </button>
-      </ion-buttons>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="goHomePage()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title text-center>Customize o seu quiz</ion-title>
   </ion-navbar>
 </ion-header>
@@ -15,7 +15,7 @@
       <ion-icon ios="ios-remove" md="md-remove" (click)="removerQuestoes()"></ion-icon>
     </ion-col>
     <ion-col id="box-number-questions">
-      <span id="number-questions" name="NumeroQuestoes" >{{NumeroQuestoes}}</span>
+      <span id="number-questions" name="NumeroQuestoes">{{NumeroQuestoes}}</span>
       <span id="text">questões</span>
     </ion-col>
     <ion-col>
@@ -24,29 +24,9 @@
   </ion-row>
 
   <ion-list>
-    <ion-item class="custom-check">
-      <ion-label class="customLabel">Antropologia</ion-label>
-      <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
-    </ion-item>
-    <ion-item class="custom-check">
-      <ion-label class="customLabel">Direito Civil</ion-label>
-      <ion-checkbox [(ngModel)]="sausage"></ion-checkbox>
-    </ion-item>
-    <ion-item class="custom-check">
-      <ion-label class="customLabel">Fundamentos do Direito Penal</ion-label>
-      <ion-checkbox [(ngModel)]="mushrooms"></ion-checkbox>
-    </ion-item>
-    <ion-item class="custom-check">
-      <ion-label class="customLabel">Teoria da Constituição</ion-label>
-      <ion-checkbox [(ngModel)]="mushroomsasdsad"></ion-checkbox>
-    </ion-item>
-    <ion-item class="custom-check">
-      <ion-label class="customLabel">Ciência Politica</ion-label>
-      <ion-checkbox [(ngModel)]="mushroomsasdad"></ion-checkbox>
-    </ion-item>
-    <ion-item class="custom-check">
-      <ion-label class="customLabel">Sociologia do Direito</ion-label>
-      <ion-checkbox [(ngModel)]="mushroomsasd"></ion-checkbox>
+    <ion-item class="custom-check" *ngFor="let item of disciplinas">
+      <ion-label class="customLabel">{{item}}</ion-label>
+      <ion-checkbox (ionChange)="onChange(item, $event.checked)" value="item"></ion-checkbox>
     </ion-item>
   </ion-list>
 
