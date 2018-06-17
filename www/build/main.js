@@ -39,7 +39,7 @@ var HistoricoPage = /** @class */ (function () {
     };
     HistoricoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-historico',template:/*ion-inline-start:"B:\Github\app-advogados\src\pages\historico\historico.html"*/'<ion-header>\n\n  <ion-navbar>\n\n      <ion-buttons left>\n\n          <button ion-button icon-only (click)="close()">\n\n              <ion-icon name="arrow-back"></ion-icon>\n\n          </button>\n\n      </ion-buttons>\n\n      <ion-title text-center>\n\n        Meu histórico\n\n      </ion-title>\n\n  </ion-navbar>\n\n  </ion-header>\n\n\n\n<ion-content padding class="tutorial-page">\n\n  <ion-card>\n\n\n\n    <ion-card-content>\n\n      <ion-slides pager>\n\n        <ion-slide>\n\n          <h2>Simulado OAB 2015</h2>\n\n          <img src="assets/imgs/star.png" class="slide-image" />\n\n          <p>Questões respondidas</p>\n\n          <p>\n\n            <b>32</b>\n\n          </p>\n\n          <p>Concluido em</p>\n\n          <p>3 de abril</p>\n\n          <p>Pontos:\n\n            <b>80/10</b>\n\n          </p>\n\n        </ion-slide>\n\n\n\n        <ion-slide>\n\n          <h2>Simulado OAB 2016</h2>\n\n          <img src="assets/imgs/star.png" class="slide-image" />\n\n          <p>Questões respondidas</p>\n\n          <p>\n\n            <b>32</b>\n\n          </p>\n\n          <p>Concluido em</p>\n\n          <p>3 de abril</p>\n\n          <p>Pontos:\n\n            <b>80/10</b>\n\n          </p>\n\n        </ion-slide>\n\n\n\n        <ion-slide>\n\n          <h2>Simulado OAB 2017</h2>\n\n          <img src="assets/imgs/star.png" class="slide-image" />\n\n          <p>Questões respondidas</p>\n\n          <p>\n\n            <b>32</b>\n\n          </p>\n\n          <p>Concluido em</p>\n\n          <p>3 de abril</p>\n\n          <p>Pontos:\n\n            <b>80/10</b>\n\n          </p>\n\n        </ion-slide>\n\n      </ion-slides>\n\n    </ion-card-content>\n\n\n\n  </ion-card>\n\n\n\n</ion-content>'/*ion-inline-end:"B:\Github\app-advogados\src\pages\historico\historico.html"*/,
+            selector: 'page-historico',template:/*ion-inline-start:"B:\Github\app-advogados\src\pages\historico\historico.html"*/'<ion-header>\n\n  <ion-navbar>\n\n      <ion-buttons left>\n\n          <button ion-button icon-only (click)="close()">\n\n              <ion-icon name="arrow-back"></ion-icon>\n\n          </button>\n\n      </ion-buttons>\n\n      <ion-title text-center>\n\n        Meu histórico\n\n      </ion-title>\n\n  </ion-navbar>\n\n  </ion-header>\n\n\n\n<ion-content padding class="tutorial-page">\n\n  <ion-card>\n\n\n\n    <ion-card-content>\n\n      <ion-slides pager>\n\n        <ion-slide>\n\n          <h2>Simulado OAB 2015</h2>\n\n          <img src="assets/imgs/star.png" class="slide-image" />\n\n          <p>Questões respondidas</p>\n\n          <p>\n\n            <b>32</b>\n\n          </p>\n\n          <p>Concluido em</p>\n\n          <p>3 de abril</p>\n\n          <p>Pontos:\n\n            <b>80/10</b>\n\n          </p>\n\n        </ion-slide>\n\n\n\n        <ion-slide>\n\n          <h2>Simulado OAB 2016</h2>\n\n          <img src="assets/imgs/star.png" class="slide-image" />\n\n          <p>Questões respondidas</p>\n\n          <p>\n\n            <b>32</b>\n\n          </p>\n\n          <p>Concluido em</p>\n\n          <p>3 de abril</p>\n\n          <p>Pontos:\n\n            <b>80/10</b>\n\n          </p>\n\n        </ion-slide>\n\n\n\n        <ion-slide>\n\n          <h2>Simulado OAB 2017</h2>\n\n          <img src="assets/imgs/star.png" class="slide-image" />\n\n          <p>Questões respondidas</p>\n\n          <p>\n\n            <b>32</b>\n\n          </p>\n\n          <p>Concluido em</p>\n\n          <p>3 de abril</p>\n\n          <p>Pontos:\n\n            <b>80/10</b>\n\n          </p>\n\n        </ion-slide>\n\n      </ion-slides>\n\n    </ion-card-content>\n\n\n\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"B:\Github\app-advogados\src\pages\historico\historico.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
     ], HistoricoPage);
@@ -322,7 +322,7 @@ var SimuladoPage = /** @class */ (function () {
     };
     SimuladoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-simulado',template:/*ion-inline-start:"B:\Github\app-advogados\src\pages\simulado\simulado.html"*/'\n\n<ion-header>\n\n  <ion-navbar>\n\n      <ion-buttons left>\n\n          <button ion-button icon-only (click)="close()">\n\n              <ion-icon name="arrow-back"></ion-icon>\n\n          </button>\n\n      </ion-buttons>\n\n      <ion-title>Simulado</ion-title>\n\n  </ion-navbar>\n\n  </ion-header>\n\n\n\n\n\n<ion-content padding class="question">\n\n  <ion-row>\n\n    <ion-col text-center>\n\n      <h2>Simulado OAB 2015</h2>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row>\n\n    <ion-col>\n\n      <p> 01. Fábio, advogado com mais de dez anos de efetivaatividade, obtém a indicação e passa a ser Conselheirode Tribunal\n\n        de Contas do Estado do Rio de Janeiro.Diante disso, à luz das normas estatutárias ocorrerá: </p>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row>\n\n    <ion-col>\n\n      <ion-list radio-group no-lines [(ngModel)]="userAnswer">\n\n        <ion-item>\n\n          <ion-label class="customLabel">o cancelamento da inscrição como advogado.</ion-label>\n\n          <ion-radio checked="true" value="A"></ion-radio>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label class="customLabel">a suspensão até que cesse a incompatibilidade.</ion-label>\n\n          <ion-radio value="B"></ion-radio>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label class="customLabel">o licenciamento do profissional.</ion-label>\n\n          <ion-radio value="C"></ion-radio>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n            <ion-label class="customLabel">a passagem para a reserva do quadro de advogados.</ion-label>\n\n            <ion-radio value="D"></ion-radio>\n\n          </ion-item>\n\n      </ion-list>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-content>'/*ion-inline-end:"B:\Github\app-advogados\src\pages\simulado\simulado.html"*/,
+            selector: 'page-simulado',template:/*ion-inline-start:"B:\Github\app-advogados\src\pages\simulado\simulado.html"*/'\n\n<ion-header>\n\n  <ion-navbar>\n\n      <ion-buttons left>\n\n          <button ion-button icon-only (click)="close()">\n\n              <ion-icon name="arrow-back"></ion-icon>\n\n          </button>\n\n      </ion-buttons>\n\n      <ion-title>Simulado {{simulado.ano}}</ion-title>\n\n  </ion-navbar>\n\n  </ion-header>\n\n\n\n\n\n<ion-content padding class="question">\n\n  <ion-row>\n\n    <ion-col text-center>\n\n      <h2>Simulado OAB {{simulado.ano}}</h2>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row>\n\n    <ion-col>\n\n      <p> [{{currentBook.bookId}}] {{currentBook.currentQuestionId}}. \n\n        {{currentBook.currentQuestion.pergunta}}\n\n      </p>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row>\n\n    <ion-col>\n\n      <ion-list radio-group no-lines [(ngModel)]="userOption">\n\n        <ion-item>\n\n          <ion-label class="customLabel">\n\n            {{currentBook.currentQuestion.respostas.a.descricao}}  \n\n          </ion-label>\n\n          <ion-radio checked="true" value="a"></ion-radio>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label class="customLabel">\n\n            {{currentBook.currentQuestion.respostas.b.descricao}}  \n\n          </ion-label>\n\n          <ion-radio checked="true" value="b"></ion-radio>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label class="customLabel">\n\n            {{currentBook.currentQuestion.respostas.c.descricao}}  \n\n          </ion-label>\n\n          <ion-radio checked="true" value="c"></ion-radio>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label class="customLabel">\n\n            {{currentBook.currentQuestion.respostas.d.descricao}}  \n\n          </ion-label>\n\n          <ion-radio checked="true" value="d"></ion-radio>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <button ion-button id="btn-confirm" full (click)="confirmQuestion(currentBook.currentQuestion, userOption)">\n\n    Confirmar\n\n  </button>\n\n</ion-content>'/*ion-inline-end:"B:\Github\app-advogados\src\pages\simulado\simulado.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], SimuladoPage);
@@ -400,35 +400,39 @@ webpackEmptyAsyncContext.id = 121;
 var map = {
 	"../pages/custom-quiz/custom-quiz.module": [
 		307,
-		7
+		18
 	],
 	"../pages/historico/historico.module": [
 		306,
-		6
+		17
 	],
 	"../pages/preparar-simulado/preparar-simulado.module": [
 		308,
-		5
+		16
 	],
 	"../pages/resetpassword/resetpassword.module": [
 		309,
-		4
+		15
 	],
 	"../pages/signin/signin.module": [
 		312,
-		3
+		14
 	],
 	"../pages/signup/signup.module": [
 		313,
-		2
+		13
+	],
+	"../pages/simulado-completo/simulado-completo.module": [
+		314,
+		10
 	],
 	"../pages/simulado/simulado.module": [
 		310,
-		1
+		12
 	],
 	"../pages/tutorial-inicial/tutorial-inicial.module": [
 		311,
-		0
+		11
 	]
 };
 function webpackAsyncContext(req) {
@@ -845,7 +849,7 @@ var SigninPage = /** @class */ (function () {
     ], SigninPage.prototype, "form", void 0);
     SigninPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-signin',template:/*ion-inline-start:"B:\Github\app-advogados\src\pages\signin\signin.html"*/'<ion-content class="login-content" padding>\n\n  <ion-row class="logo-row">\n\n    <ion-col>\n\n      <img src="assets/imgs/logo.png" />\n\n    </ion-col>\n\n  </ion-row>\n\n  <div class="login-box">\n\n    <form #form="ngForm" novalidate>\n\n      <ion-row>\n\n        <ion-col>\n\n          <ion-item class="input-custom">\n\n            <ion-label color="light" floating>E-mail</ion-label>\n\n            <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>\n\n          </ion-item>\n\n          <ion-item class="input-custom">\n\n            <ion-label color="light" floating>Senha</ion-label>\n\n            <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>\n\n          </ion-item>\n\n        </ion-col>\n\n      </ion-row>\n\n      <ion-row>\n\n        <ion-col class="signup-col">\n\n          <button ion-button class="social-button-facebook" full>\n\n            <ion-icon ios="logo-facebook" md="logo-facebook" (click)="loginFacebook()"></ion-icon> Continuar com o Facebook</button>\n\n          <button ion-button class="submit-btn" full (click)="signIn()">Entrar</button>\n\n          <button ion-button class="register-btn" block clear (click)="createAccount()">\n\n            Não tem uma conta ainda? Registre-se\n\n          </button>\n\n          <button ion-button class="register-btn" block clear (click)="resetPassword()">\n\n            Perdeu sua senha? clique aqui!\n\n          </button>\n\n\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n    </form>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"B:\Github\app-advogados\src\pages\signin\signin.html"*/,
+            selector: 'page-signin',template:/*ion-inline-start:"B:\Github\app-advogados\src\pages\signin\signin.html"*/'<ion-content class="login-content" padding>\n\n  <ion-row class="logo-row">\n\n    <ion-col>\n\n      <img src="assets/imgs/logo.png" />\n\n    </ion-col>\n\n  </ion-row>\n\n  <div class="login-box">\n\n    <form #form="ngForm" novalidate>\n\n      <ion-row>\n\n        <ion-col>\n\n          <ion-item class="input-custom">\n\n            <ion-label color="light" floating>E-mail</ion-label>\n\n            <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>\n\n          </ion-item>\n\n          <ion-item class="input-custom">\n\n            <ion-label color="light" floating>Senha</ion-label>\n\n            <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>\n\n          </ion-item>\n\n        </ion-col>\n\n      </ion-row>\n\n      <ion-row>\n\n        <ion-col class="signup-col">\n\n          <button ion-button class="submit-btn" full (click)="signIn()">Entrar</button>\n\n          <button ion-button class="social-button-facebook" full>\n\n            <ion-icon ios="logo-facebook" md="logo-facebook" (click)="loginFacebook()"></ion-icon> \n\n            Continuar com o Facebook\n\n          </button>\n\n          <button ion-button class="register-btn" block clear (click)="createAccount()">\n\n            Não tem uma conta ainda? Registre-se\n\n          </button>\n\n          <button ion-button class="register-btn" block clear (click)="resetPassword()">\n\n            Perdeu sua senha? clique aqui!\n\n          </button>\n\n\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n    </form>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"B:\Github\app-advogados\src\pages\signin\signin.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */],

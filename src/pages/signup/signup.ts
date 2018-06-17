@@ -5,6 +5,7 @@ import { User } from '../../providers/auth/user';
 import { AuthService } from '../../providers/auth/auth-service';
 import { SigninPage } from '../signin/signin';
 import { HomePage } from '../home/home';
+import { UserProvider } from '../../providers/user/user';
 
 @IonicPage()
 @Component({
@@ -18,7 +19,8 @@ export class SignupPage {
   constructor(
     public navCtrl: NavController,
     private toastCtrl: ToastController,
-    private authService: AuthService) {
+    private authService: AuthService,
+    private userProvider: UserProvider) {
   }
 
   createAccount() {
@@ -28,6 +30,7 @@ export class SignupPage {
       this.authService.createUser(this.user)
         .then((user: any) => {
           user.sendEmailVerification();
+          this.userProvider.addUser(user.uid, user.email, user.displayName);
 
           toast.setMessage('Usuário criado com sucesso.');
           toast.present();

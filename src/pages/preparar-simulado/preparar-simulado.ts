@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SimuladoPage } from '../simulado/simulado';
+import { SimuladoProvider } from '../../providers/simulado/simulado';
 
 @IonicPage()
 @Component({
@@ -8,19 +9,17 @@ import { SimuladoPage } from '../simulado/simulado';
   templateUrl: 'preparar-simulado.html',
 })
 export class PrepararSimuladoPage {
+  simulados: Object;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.ngOnInit();
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private simuladoProvider: SimuladoProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PrepararSimuladoPage');
+    this.simuladoProvider.getSimulado().then((res) => {
+      this.navCtrl.setRoot(SimuladoPage, {'simulado': res});
+    });
   }
-
-  ngOnInit(){
-    setTimeout(() => {
-        this.navCtrl.setRoot(SimuladoPage);
-    }, 2000);
-}
-
 }

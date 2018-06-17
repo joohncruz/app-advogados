@@ -17,6 +17,7 @@ export class TutorialInicialPage {
   }
 
   skipTutorial() {
+    localStorage.setItem("tutorialViewed", "true");
     this.navCtrl.setRoot(SigninPage);
   }
 

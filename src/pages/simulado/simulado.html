@@ -6,7 +6,7 @@
               <ion-icon name="arrow-back"></ion-icon>
           </button>
       </ion-buttons>
-      <ion-title>Simulado</ion-title>
+      <ion-title>Simulado {{simulado.ano}}</ion-title>
   </ion-navbar>
   </ion-header>
 
@@ -14,40 +14,54 @@
 <ion-content padding class="question">
   <ion-row>
     <ion-col text-center>
-      <h2>Simulado OAB 2015</h2>
+      <h2>Simulado OAB {{simulado.ano}}</h2>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col>
-      <p> 01. Fábio, advogado com mais de dez anos de efetivaatividade, obtém a indicação e passa a ser Conselheirode Tribunal
-        de Contas do Estado do Rio de Janeiro.Diante disso, à luz das normas estatutárias ocorrerá: </p>
+      <p> [{{currentBook.bookId}}] {{currentBook.currentQuestionId}}. 
+        {{currentBook.currentQuestion.pergunta}}
+      </p>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col>
-      <ion-list radio-group no-lines [(ngModel)]="userAnswer">
+      <ion-list radio-group no-lines [(ngModel)]="userOption">
         <ion-item>
-          <ion-label class="customLabel">o cancelamento da inscrição como advogado.</ion-label>
-          <ion-radio checked="true" value="A"></ion-radio>
+          <ion-label class="customLabel">
+            {{currentBook.currentQuestion.respostas.a.descricao}}  
+          </ion-label>
+          <ion-radio checked="true" value="a"></ion-radio>
         </ion-item>
 
         <ion-item>
-          <ion-label class="customLabel">a suspensão até que cesse a incompatibilidade.</ion-label>
-          <ion-radio value="B"></ion-radio>
+          <ion-label class="customLabel">
+            {{currentBook.currentQuestion.respostas.b.descricao}}  
+          </ion-label>
+          <ion-radio checked="true" value="b"></ion-radio>
         </ion-item>
 
         <ion-item>
-          <ion-label class="customLabel">o licenciamento do profissional.</ion-label>
-          <ion-radio value="C"></ion-radio>
+          <ion-label class="customLabel">
+            {{currentBook.currentQuestion.respostas.c.descricao}}  
+          </ion-label>
+          <ion-radio checked="true" value="c"></ion-radio>
         </ion-item>
 
         <ion-item>
-            <ion-label class="customLabel">a passagem para a reserva do quadro de advogados.</ion-label>
-            <ion-radio value="D"></ion-radio>
-          </ion-item>
+          <ion-label class="customLabel">
+            {{currentBook.currentQuestion.respostas.d.descricao}}  
+          </ion-label>
+          <ion-radio checked="true" value="d"></ion-radio>
+        </ion-item>
+
       </ion-list>
     </ion-col>
   </ion-row>
+
+  <button ion-button id="btn-confirm" full (click)="confirmQuestion(currentBook.currentQuestion, userOption)">
+    Confirmar
+  </button>
 </ion-content>
