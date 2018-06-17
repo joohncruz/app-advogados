@@ -72,24 +72,24 @@ export class SigninPage {
           });
 
           if (error.code == "auth/invalid-email") {
-            toast.setMessage("Thrown if the email address is not valid.");
+            toast.setMessage("O endereço de e-mail não é válido.");
           }
 
           if (error.code == "auth/user-disabled") {
             toast.setMessage(
-              "Thrown if the user corresponding to the given email has been disabled."
+              "O endereço de email pode ter sido desativado."
             );
           }
 
           if (error.code == "auth/user-not-found") {
             toast.setMessage(
-              "Thrown if there is no user corresponding to the given email."
+              "Email não está cadastrado no sistema."
             );
           }
 
           if (error.code == "auth/wrong-password") {
             toast.setMessage(
-              "Thrown if the password is invalid for the given email, or the account corresponding to the email does not have a password set."
+              "Endereço de email ou senha inválidos."
             );
           }
 
