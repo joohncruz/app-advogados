@@ -14,14 +14,174 @@ export class SimuladoProvider {
     this.simuladoRef = this.db.list('/simulado/');
   }
 
-  getQuiz(){
+  getQuiz() {
     return new Promise((resolve, reject) => {
-      
+      var simulado = {
+        ano: 2018,
+        questions: {
+          constitucional: {
+            1: {
+              "pergunta": "eu amo nicolas constitucional?",
+              "resposta_correta": "a",
+              "respostas": {
+                "a": {
+                  "descricao": "sim constitucional a",
+                  "justificativa": "por que sim"
+                },
+                "b": {
+                  "descricao": "não constitucional b",
+                  "justificativa": "por que não"
+                },
+                "c": {
+                  "descricao": "não constitucional c",
+                  "justificativa": "por que não"
+                },
+                "d": {
+                  "descricao": "não constitucional d",
+                  "justificativa": "por que não"
+                },
+              },
+            },
+            2: {
+              "pergunta": "eu amo nicolas constitucional dois?",
+              "resposta_correta": "a",
+              "respostas": {
+                "a": {
+                  "descricao": "sim constitucional a",
+                  "justificativa": "por que sim"
+                },
+                "b": {
+                  "descricao": "não constitucional b",
+                  "justificativa": "por que não"
+                },
+                "c": {
+                  "descricao": "não constitucional c",
+                  "justificativa": "por que não"
+                },
+                "d": {
+                  "descricao": "não constitucional d",
+                  "justificativa": "por que não"
+                },
+              },
+            },
+          },
+          etica: {
+            1: {
+              "pergunta": "eu amo nicolas etica?",
+              "resposta_correta": "a",
+              "respostas": {
+                "a": {
+                  "descricao": "sim etica a",
+                  "justificativa": "por que sim"
+                },
+                "b": {
+                  "descricao": "não etica b",
+                  "justificativa": "por que não"
+                },
+                "c": {
+                  "descricao": "não etica c",
+                  "justificativa": "por que não"
+                },
+                "d": {
+                  "descricao": "não etica d",
+                  "justificativa": "por que não"
+                },
+              },
+            },
+          },
+        },
+      };
+      this.shuffleArray(simulado).then((s) => {
+        resolve(s);
+      });
     });
   }
 
   getSimulado() {
-    var simulado = [];
+    return new Promise((resolve, reject) => {
+      var simulado = {
+        ano: 2018,
+        questions: {
+          constitucional: {
+            1: {
+              "pergunta": "eu amo nicolas constitucional?",
+              "resposta_correta": "a",
+              "respostas": {
+                "a": {
+                  "descricao": "sim constitucional a",
+                  "justificativa": "por que sim"
+                },
+                "b": {
+                  "descricao": "não constitucional b",
+                  "justificativa": "por que não"
+                },
+                "c": {
+                  "descricao": "não constitucional c",
+                  "justificativa": "por que não"
+                },
+                "d": {
+                  "descricao": "não constitucional d",
+                  "justificativa": "por que não"
+                },
+              },
+            },
+            2: {
+              "pergunta": "eu amo nicolas constitucional dois?",
+              "resposta_correta": "a",
+              "respostas": {
+                "a": {
+                  "descricao": "sim constitucional a",
+                  "justificativa": "por que sim"
+                },
+                "b": {
+                  "descricao": "não constitucional b",
+                  "justificativa": "por que não"
+                },
+                "c": {
+                  "descricao": "não constitucional c",
+                  "justificativa": "por que não"
+                },
+                "d": {
+                  "descricao": "não constitucional d",
+                  "justificativa": "por que não"
+                },
+              },
+            },
+          },
+          etica: {
+            1: {
+              "pergunta": "eu amo nicolas etica?",
+              "resposta_correta": "a",
+              "respostas": {
+                "a": {
+                  "descricao": "sim etica a",
+                  "justificativa": "por que sim"
+                },
+                "b": {
+                  "descricao": "não etica b",
+                  "justificativa": "por que não"
+                },
+                "c": {
+                  "descricao": "não etica c",
+                  "justificativa": "por que não"
+                },
+                "d": {
+                  "descricao": "não etica d",
+                  "justificativa": "por que não"
+                },
+              },
+            },
+          },
+        },
+      };
+      this.shuffleArray(simulado).then((s) => {
+        resolve(s);
+      });
+    });
+
+
+
+    /* var simulado = [];
     return new Promise((resolve, reject) => {
       this.simuladoRef
         .snapshotChanges()
@@ -41,11 +201,11 @@ export class SimuladoProvider {
             })
           });
         });
-    });
+    }); */
   }
 
   getDisciplinas(id) {
-    var questions =[];
+    var questions = [];
     return new Promise((resolve, reject) => {
       this.db.list(`/simulado/${id}`)
         .snapshotChanges()
@@ -60,7 +220,7 @@ export class SimuladoProvider {
   }
 
   getQuestions(id, disciplina) {
-    var questions =[];
+    var questions = [];
     return new Promise((resolve, reject) => {
       this.db.list(`/simulado/${id}/${disciplina}`)
         .snapshotChanges()
