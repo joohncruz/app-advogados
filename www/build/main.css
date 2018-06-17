@@ -25980,6 +25980,20 @@ ion-label {
   background-color: #4fe3b7;
 }
 
+page-simulado-completo h2 {
+  font-size: 25px !important;
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+page-simulado-completo p {
+  font-size: 40px !important;
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
 .skip-btn {
   background-color: #4dd0e1;
 }
