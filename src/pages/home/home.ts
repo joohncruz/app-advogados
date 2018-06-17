@@ -35,6 +35,6 @@ export class HomePage {
   }
 
   goPrepararSimulado() {
-    this.navCtrl.setRoot(PrepararSimuladoPage);
+    this.navCtrl.setRoot(PrepararSimuladoPage, { 'isQuiz': false });
   }
 }

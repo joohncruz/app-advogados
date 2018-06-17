@@ -14,6 +14,12 @@ export class SimuladoProvider {
     this.simuladoRef = this.db.list('/simulado/');
   }
 
+  getQuiz(){
+    return new Promise((resolve, reject) => {
+      
+    });
+  }
+
   getSimulado() {
     var simulado = [];
     return new Promise((resolve, reject) => {

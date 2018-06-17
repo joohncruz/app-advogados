@@ -49,12 +49,13 @@ export class CustomQuizPage {
   }
 
   start() {
-    console.log("start called!");
-    this.updateDisciplinas();
-    /* this.updateDisciplinas().then(_disciplinas => {
-      console.log("start:", _disciplinas);
-      //this.navCtrl.setRoot(PrepararSimuladoPage);
-    }); */
+    this.navCtrl.setRoot(PrepararSimuladoPage,
+      {
+        'isQuiz': true,
+        'disciplinasSelecionadas': this.disciplinasSelecionadas,
+        'questionsCount': this.NumeroQuestoes
+      }
+    );
   }
 
   adicionarQuestoes() {
@@ -79,40 +80,16 @@ export class CustomQuizPage {
   onChange(disciplina, checked) {
     let normalizedString = this.normalizeString(disciplina);
 
-    if(checked){
+    if (checked) {
       this.disciplinasSelecionadas.push({
         key: disciplina,
         normalizeRef: normalizedString,
         value: checked
       });
-    }else{
+    } else {
       this.disciplinasSelecionadas = _.remove(this.disciplinasSelecionadas, arr => {
         return arr.normalizeRef == normalizedString;
-      })
+      });
     }
-    
-  }
-
-  updateDisciplinas() {
-     return new Promise(resolve => {
-      var auxArr = [];
-      var currIndex = 0;
-      var length = _.size(this.disciplinasSelecionadas);
-      console.log("updateDisciplinas lenght:", length);
-      console.log("updateDisciplinas disciplinasSelecionadas:", this.disciplinasSelecionadas);
-      if (length > 0) {
-        _.each(this.disciplinasSelecionadas, item => {
-          console.log("updateDisciplinas each item:", item);
-          if (item.value == true) {
-            auxArr.push(item);
-          }
-          currIndex++;
-          if (currIndex === length) {
-            console.log("updateDisciplinas:", auxArr);
-            resolve(auxArr);
-          }
-        });
-      }
-    });
   }
 }

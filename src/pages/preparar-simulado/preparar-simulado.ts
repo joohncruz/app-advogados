@@ -10,16 +10,24 @@ import { SimuladoProvider } from '../../providers/simulado/simulado';
 })
 export class PrepararSimuladoPage {
   simulados: Object;
+  isQuiz: boolean;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private simuladoProvider: SimuladoProvider) {
+      this.isQuiz = this.navParams.get('isQuiz');
   }
 
   ionViewDidLoad() {
-    this.simuladoProvider.getSimulado().then((res) => {
-      this.navCtrl.setRoot(SimuladoPage, {'simulado': res});
-    });
+    if(!this.isQuiz){
+      this.simuladoProvider.getSimulado().then((res) => {
+        this.navCtrl.setRoot(SimuladoPage, {'simulado': res});
+      });
+    }else{
+      this.simuladoProvider.getQuiz().then((res) => {
+        this.navCtrl.setRoot(SimuladoPage, {'simulado': res});
+      });
+    }
   }
 }
