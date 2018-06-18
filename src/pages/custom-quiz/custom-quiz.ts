@@ -88,7 +88,8 @@ export class CustomQuizPage {
       });
     } else {
       this.disciplinasSelecionadas = _.remove(this.disciplinasSelecionadas, (arr) => {
-        return arr.normalizeRef == normalizedString;
+        var _arr: any = arr;
+        return _arr.normalizeRef == normalizedString;
       });
     }
   }
