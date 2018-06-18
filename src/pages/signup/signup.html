@@ -9,6 +9,10 @@
       <ion-row>
         <ion-col>
           <ion-item class="input-custom">
+            <ion-label floating>Nome</ion-label>
+            <ion-input type="text" name="displayName" [(ngModel)]="user.displayName" #displayName="ngModel" required></ion-input>
+          </ion-item>
+          <ion-item class="input-custom">
             <ion-label floating>E-mail</ion-label>
             <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>
           </ion-item>

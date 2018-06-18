@@ -13,90 +13,29 @@ export class SimuladoProvider {
 
   constructor(private db: AngularFireDatabase) {
     this.loading = true;
-    this.simuladoRef = this.db.list("/simulado/");
+    this.simuladoRef = this.db.list("/simulados/");
+    this.getSimuladoByRef();
+  }
+
+  getSimuladoByRef() {
+    return new Promise(resolve => {
+      this.simuladoRef.valueChanges().subscribe(snapshot => {
+        var randomSimulado = snapshot[Math.floor(Math.random() * snapshot.length)];
+        console.log("getSimuladoByRef:", snapshot);
+        console.log("randomSimulado:", randomSimulado);
+        resolve(randomSimulado);
+      });
+    });
   }
 
   getQuiz(selected) {
     return new Promise((resolve, reject) => {
-      var simulado = {
-        ano: 2018,
-        questions: {
-          constitucional: {
-            1: {
-              pergunta: "eu amo nicolas constitucional?",
-              resposta_correta: "a",
-              respostas: {
-                a: {
-                  descricao: "sim constitucional a",
-                  justificativa: "por que sim"
-                },
-                b: {
-                  descricao: "não constitucional b",
-                  justificativa: "por que não"
-                },
-                c: {
-                  descricao: "não constitucional c",
-                  justificativa: "por que não"
-                },
-                d: {
-                  descricao: "não constitucional d",
-                  justificativa: "por que não"
-                }
-              }
-            },
-            2: {
-              pergunta: "eu amo nicolas constitucional dois?",
-              resposta_correta: "a",
-              respostas: {
-                a: {
-                  descricao: "sim constitucional a",
-                  justificativa: "por que sim"
-                },
-                b: {
-                  descricao: "não constitucional b",
-                  justificativa: "por que não"
-                },
-                c: {
-                  descricao: "não constitucional c",
-                  justificativa: "por que não"
-                },
-                d: {
-                  descricao: "não constitucional d",
-                  justificativa: "por que não"
-                }
-              }
-            }
-          },
-          etica: {
-            1: {
-              pergunta: "eu amo nicolas etica?",
-              resposta_correta: "a",
-              respostas: {
-                a: {
-                  descricao: "sim etica a",
-                  justificativa: "por que sim"
-                },
-                b: {
-                  descricao: "não etica b",
-                  justificativa: "por que não"
-                },
-                c: {
-                  descricao: "não etica c",
-                  justificativa: "por que não"
-                },
-                d: {
-                  descricao: "não etica d",
-                  justificativa: "por que não"
-                }
-              }
-            }
-          }
-        }
-      };
-      this.getMateriasSelecionadas(selected).then(selected1 => {
-        this.parseQuiz(selected1, simulado).then(s1 => {
-          this.shuffleArray(s1).then(s => {
-            resolve(s);
+      this.getSimuladoByRef().then(simulado => {
+        this.getMateriasSelecionadas(selected).then(selected1 => {
+          this.parseQuiz(selected1, simulado).then(s1 => {
+            this.shuffleArray(s1).then(s => {
+              resolve(s);
+            });
           });
         });
       });
@@ -105,107 +44,12 @@ export class SimuladoProvider {
 
   getSimulado() {
     return new Promise((resolve, reject) => {
-      var simulado = {
-        ano: 2018,
-        questions: {
-          constitucional: {
-            1: {
-              pergunta: "eu amo nicolas constitucional?",
-              resposta_correta: "a",
-              respostas: {
-                a: {
-                  descricao: "sim constitucional a",
-                  justificativa: "por que sim"
-                },
-                b: {
-                  descricao: "não constitucional b",
-                  justificativa: "por que não"
-                },
-                c: {
-                  descricao: "não constitucional c",
-                  justificativa: "por que não"
-                },
-                d: {
-                  descricao: "não constitucional d",
-                  justificativa: "por que não"
-                }
-              }
-            },
-            2: {
-              pergunta: "eu amo nicolas constitucional dois?",
-              resposta_correta: "a",
-              respostas: {
-                a: {
-                  descricao: "sim constitucional a",
-                  justificativa: "por que sim"
-                },
-                b: {
-                  descricao: "não constitucional b",
-                  justificativa: "por que não"
-                },
-                c: {
-                  descricao: "não constitucional c",
-                  justificativa: "por que não"
-                },
-                d: {
-                  descricao: "não constitucional d",
-                  justificativa: "por que não"
-                }
-              }
-            }
-          },
-          etica: {
-            1: {
-              pergunta: "eu amo nicolas etica?",
-              resposta_correta: "a",
-              respostas: {
-                a: {
-                  descricao: "sim etica a",
-                  justificativa: "por que sim"
-                },
-                b: {
-                  descricao: "não etica b",
-                  justificativa: "por que não"
-                },
-                c: {
-                  descricao: "não etica c",
-                  justificativa: "por que não"
-                },
-                d: {
-                  descricao: "não etica d",
-                  justificativa: "por que não"
-                }
-              }
-            }
-          }
-        }
-      };
-      this.shuffleArray(simulado).then(s => {
-        resolve(s);
+      this.getSimuladoByRef().then(simulado => {
+        this.shuffleArray(simulado).then(s => {
+          resolve(s);
+        });
       });
     });
-
-    /* var simulado = [];
-    return new Promise((resolve, reject) => {
-      this.simuladoRef
-        .snapshotChanges()
-        .subscribe(snapshot => {
-          snapshot.forEach(item => {
-            simulado.push(item.key);
-          });
-
-          this.shuffleArray(simulado).then(shuffle => {
-            const simuladoId = shuffle[0];
-            let materias: any;
-
-            this.getDisciplinas(simuladoId).then(res => {
-              materias = res;
-              console.log(materias);
-              resolve({id: simuladoId, materias: {...materias}})
-            })
-          });
-        });
-    }); */
   }
 
   getDisciplinas(id) {
@@ -267,7 +111,7 @@ export class SimuladoProvider {
       console.log("simuladoArr:", simuladoArr);
 
       _.each(simuladoArr.questions, (item, key) => {
-        if (_.includes(quizArr, this.normalizeString(key))){
+        if (_.includes(quizArr, this.normalizeString(key))) {
           parsedArr[this.normalizeString(key)] = item;
         }
       });
@@ -289,7 +133,7 @@ export class SimuladoProvider {
 
   getResult(exam) {
     let total = 0;
-    let respondidas= 0;
+    let respondidas = 0;
     let corretas = 0;
     let nota = 0;
 
@@ -299,8 +143,8 @@ export class SimuladoProvider {
         const question = book[questionText];
 
         total += 1;
-        
-        if (question.resposta_informada) { 
+
+        if (question.resposta_informada) {
           respondidas += 1;
         };
 

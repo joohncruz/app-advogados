@@ -7,14 +7,22 @@
 </ion-header>
 
 <ion-content class="menu-content" padding>
-    <ion-row>
-      <ion-col class="signup-col">
-        <button ion-button id="btn-simulado" full (click)="goPrepararSimulado()">Simulado</button>
-        <button ion-button id="btn-quizz" full (click)="customQuiz()">Quiz</button>
-        <button ion-button id="btn-historico" full (click)="goHistoricoPage()">Histórico</button>
-        <button ion-button id="btn-sair" full (click)="signOut()">
-          Sair
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-content>
+  <ion-row>
+    <ion-col class="signup-col">
+      <h3 text-center>Olá
+        <b>{{user.displayName}}</b>,
+      </h3>
+      <h6 text-center>Escoha o que deseja fazer...</h6>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="signup-col">
+      <button ion-button id="btn-simulado" full (click)="goPrepararSimulado()">Simulado</button>
+      <button ion-button id="btn-quizz" full (click)="customQuiz()">Quiz</button>
+      <button ion-button id="btn-historico" full (click)="goHistoricoPage()">Histórico</button>
+      <button ion-button id="btn-sair" full (click)="signOut()">
+        Sair
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-content>

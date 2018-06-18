@@ -12,8 +12,9 @@ import { PrepararSimuladoPage } from '../preparar-simulado/preparar-simulado';
 })
 export class HomePage {
 
+  user: any;
   constructor(public navCtrl: NavController, private authService: AuthService) {
-
+    this.user = JSON.parse(localStorage.getItem("user"));
   }
 
   signOut() {

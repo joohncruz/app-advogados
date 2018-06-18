@@ -25,17 +25,18 @@ export class SignupPage {
 
   createAccount() {
     if (this.form.form.valid) {
-      let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
+      let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom' });
 
       this.authService.createUser(this.user)
         .then((user: any) => {
           user.sendEmailVerification();
-          this.userProvider.addUser(user.uid, user.email, user.displayName);
-
+          user.updateProfile({ displayName: this.user.displayName });
+          this.userProvider.addUser(user.uid, user.email, this.user.displayName);
           toast.setMessage('Usuário criado com sucesso.');
-          toast.present();
 
-          this.navCtrl.setRoot(HomePage);
+          this.navCtrl.setRoot(HomePage).then(() => {
+            toast.present();
+          });
         })
         .catch((error: any) => {
           if (error.code == 'auth/email-already-in-use') {
