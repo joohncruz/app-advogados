@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, LoadingController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { User } from '../../providers/auth/user';
 import { AuthService } from '../../providers/auth/auth-service';
@@ -18,6 +18,7 @@ export class SignupPage {
 
   constructor(
     public navCtrl: NavController,
+    public loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
     private authService: AuthService,
     private userProvider: UserProvider) {
@@ -25,6 +26,14 @@ export class SignupPage {
 
   createAccount() {
     if (this.form.form.valid) {
+      let loading = this.loadingCtrl.create({
+
+        showBackdrop: true,
+        content: `Criando conta...`,
+        duration: 5000
+      });
+      loading.present();
+
       let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom' });
 
       this.authService.createUser(this.user)
@@ -35,10 +44,12 @@ export class SignupPage {
           toast.setMessage('Usuário criado com sucesso.');
 
           this.navCtrl.setRoot(HomePage).then(() => {
+            loading.dismiss();
             toast.present();
           });
         })
         .catch((error: any) => {
+          loading.dismiss();
           if (error.code == 'auth/email-already-in-use') {
             toast.setMessage('Thrown if there already exists an account with the given email address.');
           }
