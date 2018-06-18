@@ -27,12 +27,12 @@ import { UserProvider } from '../providers/user/user';
 import { SimuladoProvider } from '../providers/simulado/simulado';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBQsMou8CwzNNRvpz6Xd8zti9dCl6spVLQ",
-  authDomain: "trabmontanha-afa5c.firebaseapp.com",
-  databaseURL: "https://trabmontanha-afa5c.firebaseio.com",
-  projectId: "trabmontanha-afa5c",
-  storageBucket: "trabmontanha-afa5c.appspot.com",
-  messagingSenderId: "922779715590"
+  apiKey: "AIzaSyCwycl6nj3cYiI-L_L86ime09JmDTUzYQE",
+  authDomain: "base-nova.firebaseapp.com",
+  databaseURL: "https://base-nova.firebaseio.com",
+  projectId: "base-nova",
+  storageBucket: "base-nova.appspot.com",
+  messagingSenderId: "337720806704"
 };
 
 @NgModule({
@@ -73,10 +73,10 @@ const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthService,
     UserProvider,
     SimuladoProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }
