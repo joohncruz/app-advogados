@@ -41,9 +41,8 @@ export class SignupPage {
           user.sendEmailVerification();
           user.updateProfile({ displayName: this.user.displayName });
           this.userProvider.addUser(user.uid, user.email, this.user.displayName);
-          toast.setMessage('Usuário criado com sucesso.');
-
           this.navCtrl.setRoot(HomePage).then(() => {
+            toast.setMessage(`Olá ${this.user.displayName}`);
             loading.dismiss();
             toast.present();
           });

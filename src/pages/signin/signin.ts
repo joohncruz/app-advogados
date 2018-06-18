@@ -62,7 +62,14 @@ export class SigninPage {
           console.log("signIn authUser", authUser);
           this.userProvider.saveUserLocalStorage({ key: authUser.key, uid: authUser.uid, email: authUser.email, displayName: authUser.displayName });
           loading.dismiss();
-          this.navCtrl.setRoot(HomePage);
+          this.navCtrl.setRoot(HomePage).then(() => {
+            let toast = this.toastCtrl.create({
+              duration: 3000,
+              position: "bottom"
+            });
+            toast.setMessage(`Olá ${authUser.displayName}.`);
+            toast.present();
+          });
         })
         .catch((error: any) => {
           loading.dismiss();
