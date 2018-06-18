@@ -11,11 +11,11 @@
 <ion-content padding>
   <ion-card>
     <ion-card-content>
-      <h2>Simulado OAB 2015</h2>
+      <h2>Simulado OAB {{ simulado.ano }} </h2>
       <img src="assets/imgs/star.png" class="slide-image" />
       <p>Questões</p>
       <p>
-        <b>8/10</b>
+        <b>{{ resultado.corretas || 0 }} / {{ resultado.total || 0 }} </b>
       </p>
       <button ion-button id="btn-sair" full (click)="home()">
         Principal

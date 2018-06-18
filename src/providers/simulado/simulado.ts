@@ -286,4 +286,35 @@ export class SimuladoProvider {
       resolve(array);
     });
   }
+
+  getResult(exam) {
+    let total = 0;
+    let respondidas= 0;
+    let corretas = 0;
+    let nota = 0;
+
+    Object.keys(exam.questions).forEach((bookText) => {
+      const book = exam.questions[bookText];
+      Object.keys(book).forEach((questionText) => {
+        const question = book[questionText];
+
+        total += 1;
+        
+        if (question.resposta_informada) { 
+          respondidas += 1;
+        };
+
+        if (question.resposta_informada &&
+          question.resposta_correta === question.resposta_informada) {
+          corretas += 1;
+        };
+
+      });
+
+      nota = Math.floor((corretas / total) * 100);
+    });
+
+    return { total, respondidas, corretas, nota };
+
+  }
 }
