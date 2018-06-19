@@ -10,10 +10,12 @@ export class UserProvider {
   }
 
   addUser (uid, email, displayName) {
-    const promise = this.userRef.push({ uid, email, displayName })
+    //const promise = this.userRef.push({ uid, email, displayName })
+  
+    const promise = this.userRef.update(uid, { uid, email, displayName });
     
     promise.then(response => {
-      this.saveUserLocalStorage({key: response.key, uid, email, displayName})
+      this.saveUserLocalStorage({ key: uid, uid, email, displayName})
     });
     
   }
