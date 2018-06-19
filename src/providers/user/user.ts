@@ -22,7 +22,7 @@ export class UserProvider {
   }
 
   getSimuladoRefKey(uid){
-    return this.db.list(`users/${uid}/exames/`).push("tmpSimulado");
+    return this.db.list(`users/${uid}/exames/`).push(null);
   }
 
   updateUser(ref, obj) {
