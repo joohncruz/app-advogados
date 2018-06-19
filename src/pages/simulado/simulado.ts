@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController  } from 'ionic-angular';
 import { SimuladoProvider } from '../../providers/simulado/simulado';
+import { UserProvider } from '../../providers/user/user';
 import { SimuladoCompletoPage } from '../simulado-completo/simulado-completo';
 
 import { HomePage } from '../home/home';
@@ -18,7 +19,7 @@ export class SimuladoPage {
   userOption: any;
   finished: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private simuladoProvider: SimuladoProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private simuladoProvider: SimuladoProvider, private userProvider: UserProvider) {
     this.simulado = this.navParams.get('simulado');
     this.finished = false;
     this.books = Object.keys(this.simulado.questions);
@@ -101,6 +102,9 @@ export class SimuladoPage {
   updateUserSimulate(currentBook, userOption) {
     this.userSimulate.questions[currentBook.bookId][currentBook.currentQuestionId].resposta_informada = userOption;
     // TODO: Atualizar o objeto dentro do usuario.
+    console.log('------------- updateUserSimulate(currentBook, userOption)');
+    const user = this.userProvider.getUser()
+    console.log(user);
   }
 
   showFeedback(title, message, nextQuestion) {

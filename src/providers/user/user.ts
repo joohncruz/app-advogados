@@ -22,8 +22,12 @@ export class UserProvider {
     localStorage.setItem('user', JSON.stringify(user))
   }
 
+  updateUser(ref, obj) {
+    this.userRef.update(ref, obj).then(response => console.log(response)).catch(error => console.log(error));
+  }
+
   getUser () {
-    return JSON.stringify(localStorage.getItem('user'))
+    return JSON.parse(localStorage.getItem('user'))
   }
 
   clearUser () {

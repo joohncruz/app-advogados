@@ -60,6 +60,7 @@ export class SigninPage {
         .signIn(this.user)
         .then((authUser) => {
           console.log("signIn authUser", authUser);
+          console.log(authUser.key);
           this.userProvider.saveUserLocalStorage({ key: authUser.key, uid: authUser.uid, email: authUser.email, displayName: authUser.displayName });
           loading.dismiss();
           this.navCtrl.setRoot(HomePage).then(() => {
