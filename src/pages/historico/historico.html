@@ -14,25 +14,40 @@
 <ion-content padding class="tutorial-page">
   <ion-card>
 
+    
     <ion-card-content>
-      <ion-slides pager>
 
-        <ion-slide *ngFor="let historico of historicos">
-          <h2>Simulado OAB {{historico.exam.ano}}</h2>
-          <img src="assets/imgs/star.png" class="slide-image" />
-          <p>Questões respondidas</p>
-          <p>
-            <b>{{historico.resultado.respondidas}}</b>
-          </p>
-          <p>Concluido em</p>
-          <p>3 de abril</p>
-          <p>Pontos:
-            <b>{{historico.resultado.corretas}}/{{historico.resultado.total}} </b>
-            <b>{{historico.resultado.nota}} %</b>
-          </p>
-        </ion-slide>
-   
-      </ion-slides>
+        <div *ngIf= "!this.user.exames">
+          <h2>Não encontramos dados de Quiz ou Simulado</h2>
+          <p></p>
+          <button ion-button id="btn-simulado" full (click)="goPrepararSimulado()">Simulado</button>
+          <button ion-button id="btn-quizz" full (click)="customQuiz()">Quiz</button>
+          <button ion-button id="btn-sair" full (click)="close()">
+            Principal
+          </button>
+        </div>
+
+        <div *ngIf= "this.user.exames">
+          
+          <ion-slides pager>
+              <ion-slide *ngFor="let historico of historicos">
+                <h2>Simulado OAB {{historico.exam.ano}}</h2>
+                <img src="assets/imgs/star.png" class="slide-image" />
+                <p>Questões respondidas</p>
+                <p>
+                  <b>{{historico.resultado.respondidas}}</b>
+                </p>
+                <p>Concluido em</p>
+                <p>3 de abril</p>
+                <p>Pontos:
+                  <b>{{historico.resultado.corretas}}/{{historico.resultado.total}} </b>
+                  <b>{{historico.resultado.nota}} %</b>
+                </p>
+              </ion-slide>
+          </ion-slides>
+
+        </div>
+      
     </ion-card-content>
 
   </ion-card>
