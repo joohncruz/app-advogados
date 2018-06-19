@@ -671,11 +671,11 @@ var map = {
 		2
 	],
 	"../pages/simulado/simulado.module": [
-		368,
+		367,
 		1
 	],
 	"../pages/tutorial-inicial/tutorial-inicial.module": [
-		367,
+		368,
 		0
 	]
 };
@@ -882,8 +882,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/signin/signin.module#LoginPageModule', name: 'SigninPage', segment: 'signin', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/simulado-completo/simulado-completo.module#SimuladoCompletoPageModule', name: 'SimuladoCompletoPage', segment: 'simulado-completo', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/tutorial-inicial/tutorial-inicial.module#TutorialInicialPageModule', name: 'TutorialInicialPage', segment: 'tutorial-inicial', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/simulado/simulado.module#SimuladoPageModule', name: 'SimuladoPage', segment: 'simulado', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/simulado/simulado.module#SimuladoPageModule', name: 'SimuladoPage', segment: 'simulado', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/tutorial-inicial/tutorial-inicial.module#TutorialInicialPageModule', name: 'TutorialInicialPage', segment: 'tutorial-inicial', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_5_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
@@ -1216,10 +1216,9 @@ var UserProvider = /** @class */ (function () {
     };
     UserProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]])
     ], UserProvider);
     return UserProvider;
-    var _a;
 }());
 
 //# sourceMappingURL=user.js.map
@@ -1265,12 +1264,12 @@ var SimuladoProvider = /** @class */ (function () {
             });
         });
     };
-    SimuladoProvider.prototype.getQuiz = function (selected) {
+    SimuladoProvider.prototype.getQuiz = function (selected, maxCount) {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.getSimuladoByRef().then(function (simulado) {
                 _this.getMateriasSelecionadas(selected).then(function (selected1) {
-                    _this.parseQuiz(selected1, simulado).then(function (s1) {
+                    _this.parseQuiz(selected1, simulado, maxCount).then(function (s1) {
                         _this.shuffleArray(s1).then(function (s) {
                             resolve(s);
                         });
@@ -1336,15 +1335,28 @@ var SimuladoProvider = /** @class */ (function () {
             .replace(/[\u0300-\u036f]/g, "")
             .toLowerCase();
     };
-    SimuladoProvider.prototype.parseQuiz = function (quizArr, simuladoArr) {
+    SimuladoProvider.prototype.parseQuiz = function (quizArr, simuladoArr, maxCount) {
         var _this = this;
         var parsedArr = [];
+        var questionCount = 0;
         return new Promise(function (resolve) {
             console.log("quizArr:", quizArr);
             console.log("simuladoArr:", simuladoArr);
+            console.log("maxCount:", maxCount);
             __WEBPACK_IMPORTED_MODULE_2_lodash__["each"](simuladoArr.questions, function (item, key) {
+                console.log("counter:", __WEBPACK_IMPORTED_MODULE_2_lodash__["size"](__WEBPACK_IMPORTED_MODULE_2_lodash__["values"](parsedArr)));
                 if (__WEBPACK_IMPORTED_MODULE_2_lodash__["includes"](quizArr, _this.normalizeString(key))) {
-                    parsedArr[_this.normalizeString(key)] = item;
+                    if (questionCount <= maxCount) {
+                        var questionsToAdd = [];
+                        __WEBPACK_IMPORTED_MODULE_2_lodash__["each"](item, function (item2) {
+                            questionCount++;
+                            if (questionCount <= maxCount) {
+                                questionsToAdd.push(item2);
+                            }
+                        });
+                        console.log("questionsToAdd:", questionsToAdd);
+                        parsedArr[_this.normalizeString(key)] = questionsToAdd;
+                    }
                 }
             });
             simuladoArr.questions = parsedArr;
@@ -1432,6 +1444,7 @@ var PrepararSimuladoPage = /** @class */ (function () {
         this.alertCtrl = alertCtrl;
         this.isQuiz = this.navParams.get('isQuiz');
         this.selected = this.navParams.get('disciplinasSelecionadas');
+        this.questionsCount = this.navParams.get('questionsCount');
     }
     PrepararSimuladoPage.prototype.ionViewDidLoad = function () {
         var _this = this;
@@ -1442,7 +1455,7 @@ var PrepararSimuladoPage = /** @class */ (function () {
             });
         }
         else {
-            this.simuladoProvider.getQuiz(this.selected).then(function (res) {
+            this.simuladoProvider.getQuiz(this.selected, this.questionsCount).then(function (res) {
                 console.log("getQuiz res:", res);
                 var result = res;
                 if (result.questions && __WEBPACK_IMPORTED_MODULE_5_lodash__["size"](__WEBPACK_IMPORTED_MODULE_5_lodash__["values"](result.questions)) > 0) {
