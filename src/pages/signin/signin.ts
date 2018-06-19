@@ -30,7 +30,9 @@ export class SigninPage {
     private alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
     private userProvider: UserProvider
-  ) { }
+  ) {
+
+   }
 
   createAccount() {
     this.navCtrl.push(SignupPage);
@@ -41,9 +43,32 @@ export class SigninPage {
   }
 
   loginFacebook() {
-    let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom' });
-    toast.setMessage('Ainda estamos trabalhando para implementar o login com o Facebook.');
-    toast.present();
+    this.authService.signInFacebook().then(authUser => {
+      //Setando usuario no localStorage
+      this.userProvider.saveUserLocalStorage({
+        key: authUser.user.uid,
+        uid: authUser.user.uid,
+        email: authUser.additionalUserInfo.profile.email,
+        displayName: authUser.additionalUserInfo.profile.name
+      });
+      //Redicerionando usuari.
+      this.navCtrl.setRoot(HomePage).then(() => {
+        let toast = this.toastCtrl.create({
+          duration: 3000,
+          position: "bottom"
+        });
+        toast.setMessage(`Olá ${authUser.additionalUserInfo.profile.name}.`);
+        toast.present();
+      });
+
+    }).catch(error => {
+      //Mensagem de erro
+      let toast = this.toastCtrl.create({
+        duration: 3000,
+        position: "bottom"
+      });
+      toast.setMessage(error.message);
+    });
   }
 
   signIn() {

@@ -26,6 +26,10 @@ export class AuthService {
     return this.angularFireAuth.auth.signOut();
   }
 
+  signInFacebook(){
+    return this.angularFireAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+  }
+
   resetPassword(email: string) {
     return this.angularFireAuth.auth.sendPasswordResetEmail(email);
   }
