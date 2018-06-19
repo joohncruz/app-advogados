@@ -21,6 +21,10 @@ export class UserProvider {
     localStorage.setItem('user', JSON.stringify(user))
   }
 
+  getSimuladoRefKey(uid){
+    return this.db.list(`users/${uid}/exames/`).push("tmpSimulado");
+  }
+
   updateUser(ref, obj) {
     this.userRef.update(ref, obj).then(response =>  { 
       this.clearUser();

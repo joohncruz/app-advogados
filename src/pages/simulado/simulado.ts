@@ -21,6 +21,7 @@ export class SimuladoPage {
   currentBook: any;
   userOption: any;
   finished: any;
+  simuladoRefKey: any;
 
   constructor(
     public navCtrl: NavController, 
@@ -33,6 +34,7 @@ export class SimuladoPage {
     this.finished = false;
     this.books = Object.keys(this.simulado.questions);
 
+
     const questions = this.simulado.questions[this.books[0]];
     this.currentBook = {
       bookId: this.books[0],
@@ -42,6 +44,15 @@ export class SimuladoPage {
     }
 
     this.userSimulate = this.simulado;
+    this.genEmptyRef();
+  }
+
+  genEmptyRef(){
+    const user = this.userProvider.getUser();
+    this.userProvider.getSimuladoRefKey(user.uid).then((ref) => {
+      this.simuladoRefKey = ref.key;
+      console.log("simuladoRefKey:", ref.key);
+    });
   }
 
   confirmQuestion(question, userOption) {
@@ -128,18 +139,12 @@ export class SimuladoPage {
     console.log(this.userSimulate);
 
     if (user.exames) {
-      this.userProvider.updateUser(user.uid, {
-        ...user,
-        exames: [
-          this.userSimulate
-        ]
+      this.userProvider.updateUser(`${user.uid}/exames/${this.simuladoRefKey}/`, {
+        ...this.userSimulate
       })
     } else {
-      this.userProvider.updateUser(user.uid, {
-        ...user,
-        exames: [
-          this.userSimulate
-        ]
+      this.userProvider.updateUser(`${user.uid}/exames/${this.simuladoRefKey}/`, {
+        ...this.userSimulate
       })
     }
 
