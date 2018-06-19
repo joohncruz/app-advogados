@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController  } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { SimuladoProvider } from '../../providers/simulado/simulado';
 import { UserProvider } from '../../providers/user/user';
 import { SimuladoCompletoPage } from '../simulado-completo/simulado-completo';
+
+import { Content } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
 
@@ -12,6 +14,7 @@ import { HomePage } from '../home/home';
   templateUrl: 'simulado.html',
 })
 export class SimuladoPage {
+  @ViewChild(Content) content: Content;
   simulado: any;
   userSimulate: any;
   books: any;
@@ -28,11 +31,11 @@ export class SimuladoPage {
     this.currentBook = {
       bookId: this.books[0],
       questions,
-      currentQuestionId: 1,
+      currentQuestionId: 0,
       currentQuestion: questions[Object.keys(questions)[0]],
     }
-    
-    this.userSimulate = this.simulado; 
+
+    this.userSimulate = this.simulado;
   }
 
   confirmQuestion(question, userOption) {
@@ -40,12 +43,12 @@ export class SimuladoPage {
     const resposta = question.respostas[userOption];
 
     this.showFeedback(
-      respostaCorreta === userOption ? 'Resposta Correta!' : 'Resposta Incorreta', 
-      resposta.justificativa,
+      respostaCorreta === userOption ? 'Resposta Correta!' : 'Resposta Incorreta',
+      resposta.justificativa ? resposta.justificativa : 'Nenhuma justificativa informada.',
       () => this.nextQuestion(userOption, this.currentBook)
     );
   }
-  
+
   nextQuestion(userOption, currentBook) {
     let nextBook = {};
 
@@ -53,22 +56,22 @@ export class SimuladoPage {
     const nextQuestionId = currentBook.currentQuestionId + 1;
 
     console.log('totalQuestions', this.simulado.questions, this.books, currentBook)
-    const totalQuestions = 
+    const totalQuestions =
       Object.keys(this.simulado.questions[currentBook.bookId]).length;
 
-    console.log('totalQuestions', totalQuestions)      
-    
+    console.log('totalQuestions', totalQuestions)
+
     console.log('isAnsweredAllQuestions')
 
-    const isAnsweredAllQuestions = nextQuestionId > totalQuestions; 
+    const isAnsweredAllQuestions = nextQuestionId >= totalQuestions;
 
     console.log('isAnsweredAllQuestions', isAnsweredAllQuestions)
-  
-    const totalBooks = 
+
+    const totalBooks =
       Object.keys(this.books).length;
 
     // Caso nao tenha respondido todas as questões da materia atual atual.
-    if(!isAnsweredAllQuestions) {
+    if (!isAnsweredAllQuestions) {
       console.log('if(!isAnsweredAllQuestions)')
       nextBook = {
         bookId: currentBook.bookId,
@@ -76,7 +79,7 @@ export class SimuladoPage {
         currentQuestionId: nextQuestionId,
         currentQuestion: currentBook.questions[nextQuestionId],
       }
-    
+
     } else if (isAnsweredAllQuestions && this.books.length > 1) {
       console.log('else if (isAnsweredAllQuestions && this.books.length > 1)')
       this.books.shift();
@@ -91,7 +94,7 @@ export class SimuladoPage {
     } else {
       console.log('else')
       this.finished = true;
-      this.navCtrl.setRoot(SimuladoCompletoPage, {'simulado': this.userSimulate});
+      this.navCtrl.setRoot(SimuladoCompletoPage, { 'simulado': this.userSimulate });
       return;
     }
 
@@ -114,7 +117,8 @@ export class SimuladoPage {
       buttons: [
         {
           text: 'Próxima',
-          handler: () => { 
+          handler: () => {
+            this.scrollToTop();
             nextQuestion();
           }
         }
@@ -127,7 +131,7 @@ export class SimuladoPage {
     console.log('ionViewDidLoad SimuladoPage');
   }
 
-  close(){
+  close() {
     let alert = this.alertCtrl.create({
       title: 'Confirme sua ação',
       message: 'Deseja realmente sair do simulado?',
@@ -148,6 +152,10 @@ export class SimuladoPage {
       ]
     });
     alert.present();
+  }
+
+  scrollToTop() {
+    this.content.scrollToTop();
   }
 
 }
