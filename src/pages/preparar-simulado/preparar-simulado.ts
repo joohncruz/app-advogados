@@ -15,6 +15,7 @@ export class PrepararSimuladoPage {
   simulados: Object;
   isQuiz: boolean;
   selected: any;
+  questionsCount: any;
 
   constructor(
     public navCtrl: NavController,
@@ -23,6 +24,7 @@ export class PrepararSimuladoPage {
     private alertCtrl: AlertController) {
     this.isQuiz = this.navParams.get('isQuiz');
     this.selected = this.navParams.get('disciplinasSelecionadas');
+    this.questionsCount = this.navParams.get('questionsCount');
   }
 
   ionViewDidLoad() {
@@ -32,7 +34,7 @@ export class PrepararSimuladoPage {
         this.navCtrl.setRoot(SimuladoPage, { 'simulado': res });
       });
     } else {
-      this.simuladoProvider.getQuiz(this.selected).then((res) => {
+      this.simuladoProvider.getQuiz(this.selected, this.questionsCount).then((res) => {
         console.log("getQuiz res:", res);
         let result: any = res;
         if (result.questions && _.size(_.values(result.questions)) > 0) {
