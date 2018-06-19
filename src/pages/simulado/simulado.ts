@@ -108,6 +108,19 @@ export class SimuladoPage {
     console.log('------------- updateUserSimulate(currentBook, userOption)');
     const user = this.userProvider.getUser()
     console.log(user);
+
+    if(user.exames) {
+      console.log(user);
+    } else {
+      console.log(user);
+      this.userProvider.updateUser(user.uid, {
+        ...user,
+        exames: [
+          this.userSimulate
+        ]
+      })
+    }
+
   }
 
   showFeedback(title, message, nextQuestion) {

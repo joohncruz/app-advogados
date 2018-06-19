@@ -137,6 +137,8 @@ export class SimuladoProvider {
     let corretas = 0;
     let nota = 0;
 
+    console.log(exam);
+
     Object.keys(exam.questions).forEach((bookText) => {
       const book = exam.questions[bookText];
       Object.keys(book).forEach((questionText) => {
