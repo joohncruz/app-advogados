@@ -4,7 +4,7 @@ import { UserProvider } from '../../providers/user/user';
 import { SimuladoCompletoPage } from '../simulado-completo/simulado-completo';
 
 import { Content } from 'ionic-angular';
-
+import * as moment from 'moment';
 import { HomePage } from '../home/home';
 
 @IonicPage()
@@ -151,11 +151,13 @@ export class SimuladoPage {
 
     if (user.exames) {
       this.userProvider.updateUser(`${user.uid}/exames/${this.simuladoRefKey}/`, {
-        ...this.userSimulate
+        ...this.userSimulate,
+        lastUpdate: moment().valueOf()
       })
     } else {
       this.userProvider.updateUser(`${user.uid}/exames/${this.simuladoRefKey}/`, {
-        ...this.userSimulate
+        ...this.userSimulate,
+        lastUpdate: moment().valueOf()
       })
     }
 

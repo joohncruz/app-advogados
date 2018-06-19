@@ -9,26 +9,26 @@ export class UserProvider {
     this.userRef = this.db.list('users');
   }
 
-  addUser (uid, email, displayName) {
+  addUser(uid, email, displayName) {
     const promise = this.userRef.update(uid, { uid, email, displayName });
     promise.then(response => {
-      this.saveUserLocalStorage({ key: uid, uid, email, displayName})
+      this.saveUserLocalStorage({ key: uid, uid, email, displayName })
     });
-    
+
   }
 
   saveUserLocalStorage(user) {
     localStorage.setItem('user', JSON.stringify(user))
   }
 
-  getSimuladoRefKey(uid){
+  getSimuladoRefKey(uid) {
     return this.db.list(`users/${uid}/exames/`).push(null);
   }
 
   updateUser(ref, obj) {
-    this.userRef.update(ref, obj).then(response =>  { 
+    this.userRef.update(ref, obj).then(response => {
 
-      if(obj.uid) {
+      if (obj.uid) {
         this.clearUser();
         this.saveUserLocalStorage(obj);
       } else {
@@ -39,18 +39,29 @@ export class UserProvider {
           exames: [
             obj
           ]
-        });        
+        });
       }
-      
+
     }).catch(error => console.log(error));
   }
-  
 
-  getUser () {
+  getUserSimulados() {
+    return new Promise(resolve => {
+      var user: any = JSON.parse(localStorage.getItem('user'));
+      this.db
+        .list(`users/${user.uid}/exames/`)
+        .valueChanges()
+        .subscribe(exames => {
+          resolve(exames);
+        });
+    });
+  }
+
+  getUser() {
     return JSON.parse(localStorage.getItem('user'))
   }
 
-  clearUser () {
+  clearUser() {
     localStorage.removeItem('user');
   }
 

@@ -1,53 +1,61 @@
 <ion-header>
   <ion-navbar>
-      <ion-buttons left>
-          <button ion-button icon-only (click)="close()">
-              <ion-icon name="arrow-back"></ion-icon>
-          </button>
-      </ion-buttons>
-      <ion-title text-center>
-        Meu histórico
-      </ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="close()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>
+      Meu histórico
+    </ion-title>
   </ion-navbar>
-  </ion-header>
+</ion-header>
 
 <ion-content padding class="tutorial-page">
   <ion-card>
 
-    
+
     <ion-card-content>
-
-        <div *ngIf= "!this.user.exames">
-          <h2>Não encontramos dados de Quiz ou Simulado</h2>
-          <p></p>
-          <button ion-button id="btn-simulado" full (click)="goPrepararSimulado()">Simulado</button>
-          <button ion-button id="btn-quizz" full (click)="customQuiz()">Quiz</button>
-          <button ion-button id="btn-sair" full (click)="close()">
-            Principal
-          </button>
-        </div>
-
-        <div *ngIf= "this.user.exames">
-          
-          <ion-slides pager>
-              <ion-slide *ngFor="let historico of historicos">
-                <h2>Simulado OAB {{historico.exam.ano}}</h2>
-                <img src="assets/imgs/star.png" class="slide-image" />
-                <p>Questões respondidas</p>
-                <p>
-                  <b>{{historico.resultado.respondidas}}</b>
-                </p>
-                <p>Concluido em</p>
-                <p>3 de abril</p>
-                <p>Pontos:
-                  <b>{{historico.resultado.corretas}}/{{historico.resultado.total}} </b>
-                  <b>{{historico.resultado.nota}} %</b>
-                </p>
-              </ion-slide>
-          </ion-slides>
-
-        </div>
+      <div *ngIf="this.loadingHistory && this.historicos.length == 0">
+        <h2>Carregando histórico</h2>
+      </div>
       
+      <div *ngIf="!this.loadingHistory && !this.historicos.length > 0">
+        <h2>Não encontramos dados de Quiz ou Simulado</h2>
+        <p></p>
+        <button ion-button id="btn-simulado" full (click)="goPrepararSimulado()">Simulado</button>
+        <button ion-button id="btn-quizz" full (click)="customQuiz()">Quiz</button>
+        <button ion-button id="btn-sair" full (click)="close()">
+          Principal
+        </button>
+      </div>
+
+      <div *ngIf="!this.loadingHistory && this.historicos.length > 0">
+
+        <ion-slides pager>
+          <ion-slide *ngFor="let historico of historicos">
+            <h2>Simulado OAB {{historico.exam.ano}}</h2>
+            <img src="assets/imgs/star.png" class="slide-image" />
+            <p>Questões respondidas</p>
+            <p>
+              <b>{{historico.resultado.respondidas}}</b>
+            </p>
+            <p>Concluido em</p>
+            <p>{{historico.lastUpdate}}</p>
+            <br />
+            <h2>PONTOS</h2>
+            <p>Corretas: {{historico.resultado.corretas}}</p>
+            <p>Total: {{historico.resultado.total}}</p>
+            <p>{{historico.resultado.corretas}}/{{historico.resultado.total}} =
+              <b>{{historico.resultado.nota}} %</b>
+            </p>
+
+
+          </ion-slide>
+        </ion-slides>
+
+      </div>
+
     </ion-card-content>
 
   </ion-card>

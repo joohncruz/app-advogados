@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { SimuladoProvider } from '../../providers/simulado/simulado';
 import { UserProvider } from '../../providers/user/user';
 import { CustomQuizPage } from '../custom-quiz/custom-quiz';
 import { PrepararSimuladoPage } from '../preparar-simulado/preparar-simulado';
-
+import * as moment from 'moment';
 import { HomePage } from '../home/home';
 
 @IonicPage()
@@ -15,25 +15,43 @@ import { HomePage } from '../home/home';
 export class HistoricoPage {
   user: any;
   historicos = [];
+  loadingHistory: any = true;
 
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams, 
+    public navCtrl: NavController,
+    public navParams: NavParams,
     private simuladoProvider: SimuladoProvider,
-    userProvider: UserProvider
+    private userProvider: UserProvider,
+    public loadingCtrl: LoadingController
   ) {
     this.user = userProvider.getUser();
-    console.log(this.user);
+    this.loadingHistory = true;
+    moment.locale('pt-BR');
+  }
 
-    if(this.user.exames) {
-      this.historicos = this.user.exames.map(exam => ({ exam, resultado: this.simuladoProvider.getResult(exam) }))
-    }
-    console.log(this.historicos);
-    
+  getExames() {
+    let loading = this.loadingCtrl.create({
+
+      showBackdrop: true,
+      content: `Carregando historico...`,
+      duration: 5000
+    });
+    loading.present();
+    this.userProvider.getUserSimulados().then((resExames: any) => {
+      this.historicos = resExames.map(exam => ({
+        exam,
+        lastUpdate: moment(exam.lastUpdate).format("LL"),
+        resultado: this.simuladoProvider.getResult(exam)
+      }))
+      console.log("historicos:", this.historicos);
+      this.loadingHistory = false;
+      loading.dismiss();
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HistoricoPage');
+    this.getExames();
   }
 
   close() {
