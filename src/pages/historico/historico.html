@@ -19,7 +19,7 @@
       <div *ngIf="this.loadingHistory && this.historicos.length == 0">
         <h2>Carregando histórico</h2>
       </div>
-      
+
       <div *ngIf="!this.loadingHistory && !this.historicos.length > 0">
         <h2>Não encontramos dados de Quiz ou Simulado</h2>
         <p></p>
@@ -32,8 +32,9 @@
 
       <div *ngIf="!this.loadingHistory && this.historicos.length > 0">
 
-        <ion-slides pager>
+        <ion-slides pager paginationType="progress" parallax>
           <ion-slide *ngFor="let historico of historicos">
+            <br />
             <h2>Simulado OAB {{historico.exam.ano}}</h2>
             <img src="assets/imgs/star.png" class="slide-image" />
             <p>Questões respondidas</p>
@@ -49,8 +50,7 @@
             <p>{{historico.resultado.corretas}}/{{historico.resultado.total}} =
               <b>{{historico.resultado.nota}} %</b>
             </p>
-
-
+            <br />
           </ion-slide>
         </ion-slides>
 
