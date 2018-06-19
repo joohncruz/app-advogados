@@ -27,10 +27,24 @@ export class UserProvider {
 
   updateUser(ref, obj) {
     this.userRef.update(ref, obj).then(response =>  { 
-      this.clearUser();
-      this.saveUserLocalStorage(obj);
+
+      if(obj.uid) {
+        this.clearUser();
+        this.saveUserLocalStorage(obj);
+      } else {
+        const user = this.getUser()
+        this.clearUser();
+        this.saveUserLocalStorage({
+          ...user,
+          exames: [
+            obj
+          ]
+        });        
+      }
+      
     }).catch(error => console.log(error));
   }
+  
 
   getUser () {
     return JSON.parse(localStorage.getItem('user'))

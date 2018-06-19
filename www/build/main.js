@@ -281,17 +281,22 @@ var SimuladoPage = /** @class */ (function () {
         this.alertCtrl = alertCtrl;
         this.toastCtrl = toastCtrl;
         this.userProvider = userProvider;
+        console.log('TRACE: SimuladoPage 1');
         this.simulado = this.navParams.get('simulado');
+        console.log('TRACE: SimuladoPage 2', this.simulado);
+        this.userSimulate = this.simulado;
+        console.log('TRACE: SimuladoPage 3', this.userSimulate);
         this.finished = false;
         this.books = Object.keys(this.simulado.questions);
+        console.log('TRACE: SimuladoPage 4', this.books);
         var questions = this.simulado.questions[this.books[0]];
+        console.log('TRACE: SimuladoPage 5', questions);
         this.currentBook = {
             bookId: this.books[0],
             questions: questions,
             currentQuestionId: 0,
             currentQuestion: questions[Object.keys(questions)[0]],
         };
-        this.userSimulate = this.simulado;
         this.genEmptyRef();
     }
     SimuladoPage.prototype.genEmptyRef = function () {
@@ -304,6 +309,7 @@ var SimuladoPage = /** @class */ (function () {
     };
     SimuladoPage.prototype.confirmQuestion = function (question, userOption) {
         var _this = this;
+        console.log('TRACE: confirmQuestion');
         if (userOption) {
             var respostaCorreta = question.resposta_correta;
             var resposta = question.respostas[userOption];
@@ -319,6 +325,7 @@ var SimuladoPage = /** @class */ (function () {
         }
     };
     SimuladoPage.prototype.nextQuestion = function (userOption, currentBook) {
+        console.log('TRACE: nextQuestion');
         var nextBook = {};
         this.updateUserSimulate(currentBook, userOption);
         var nextQuestionId = currentBook.currentQuestionId + 1;
@@ -361,12 +368,12 @@ var SimuladoPage = /** @class */ (function () {
         this.currentBook = nextBook;
     };
     SimuladoPage.prototype.updateUserSimulate = function (currentBook, userOption) {
+        console.log('TRACE: updateUserSimulate', currentBook, userOption);
+        console.log('TRACE: updateUserSimulate > 2', this.userSimulate);
         this.userSimulate.questions[currentBook.bookId][currentBook.currentQuestionId].resposta_informada = userOption;
-        // TODO: Atualizar o objeto dentro do usuario.
-        console.log('------------- updateUserSimulate(currentBook, userOption)');
+        console.log('TRACE: updateUserSimulate > 3', this.userSimulate);
         var user = this.userProvider.getUser();
-        console.log(user);
-        console.log(this.userSimulate);
+        console.log('TRACE: updateUserSimulate > 4', user, this.userSimulate);
         if (user.exames) {
             this.userProvider.updateUser(user.uid + "/exames/" + this.simuladoRefKey + "/", __assign({}, this.userSimulate));
         }
@@ -422,19 +429,16 @@ var SimuladoPage = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Content */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Content */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Content */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Content */]) === "function" && _a || Object)
     ], SimuladoPage.prototype, "content", void 0);
     SimuladoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-simulado',template:/*ion-inline-start:"/home/joohncruz/Projects/github/app-advogados/src/pages/simulado/simulado.html"*/'\n<ion-header>\n  <ion-navbar>\n      <ion-buttons left>\n          <button ion-button icon-only (click)="close()">\n              <ion-icon name="arrow-back"></ion-icon>\n          </button>\n      </ion-buttons>\n      <ion-title>Simulado {{simulado.ano}}</ion-title>\n  </ion-navbar>\n  </ion-header>\n\n\n<ion-content padding class="question">\n  <ion-row>\n    <ion-col text-center>\n      <h2>Simulado OAB {{simulado.ano}}</h2>\n    </ion-col>\n  </ion-row>\n\n  <ion-row>\n    <ion-col>\n      <p> [{{currentBook.bookId}}] {{currentBook.currentQuestionId + 1}}. \n        {{currentBook.currentQuestion.pergunta}}\n      </p>\n    </ion-col>\n  </ion-row>\n\n  <ion-row>\n    <ion-col>\n      <ion-list radio-group no-lines [(ngModel)]="userOption">\n        <ion-item>\n          <ion-label class="customLabel">\n            {{currentBook.currentQuestion.respostas.a.descricao}}  \n          </ion-label>\n          <ion-radio checked="true" value="a"></ion-radio>\n        </ion-item>\n\n        <ion-item>\n          <ion-label class="customLabel">\n            {{currentBook.currentQuestion.respostas.b.descricao}}  \n          </ion-label>\n          <ion-radio checked="true" value="b"></ion-radio>\n        </ion-item>\n\n        <ion-item>\n          <ion-label class="customLabel">\n            {{currentBook.currentQuestion.respostas.c.descricao}}  \n          </ion-label>\n          <ion-radio checked="true" value="c"></ion-radio>\n        </ion-item>\n\n        <ion-item>\n          <ion-label class="customLabel">\n            {{currentBook.currentQuestion.respostas.d.descricao}}  \n          </ion-label>\n          <ion-radio checked="true" value="d"></ion-radio>\n        </ion-item>\n\n      </ion-list>\n    </ion-col>\n  </ion-row>\n\n  <button ion-button id="btn-confirm" full (click)="confirmQuestion(currentBook.currentQuestion, userOption)">\n    Confirmar\n  </button>\n</ion-content>'/*ion-inline-end:"/home/joohncruz/Projects/github/app-advogados/src/pages/simulado/simulado.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_user_user__["a" /* UserProvider */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__providers_user_user__["a" /* UserProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_user_user__["a" /* UserProvider */]) === "function" && _f || Object])
     ], SimuladoPage);
     return SimuladoPage;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=simulado.js.map
@@ -976,19 +980,16 @@ var SigninPage = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])("form"),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* NgForm */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* NgForm */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* NgForm */]) === "function" && _a || Object)
     ], SigninPage.prototype, "form", void 0);
     SigninPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: "page-signin",template:/*ion-inline-start:"/home/joohncruz/Projects/github/app-advogados/src/pages/signin/signin.html"*/'<ion-content class="login-content" padding>\n  <ion-row class="logo-row">\n    <ion-col>\n      <img src="assets/imgs/logo.png" />\n    </ion-col>\n  </ion-row>\n  <div class="login-box">\n    <form #form="ngForm" novalidate>\n      <ion-row>\n        <ion-col>\n          <ion-item class="input-custom">\n            <ion-label color="light" floating>E-mail</ion-label>\n            <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>\n          </ion-item>\n          <ion-item class="input-custom">\n            <ion-label color="light" floating>Senha</ion-label>\n            <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>\n          </ion-item>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col class="signup-col">\n          <button ion-button class="submit-btn" full (click)="signIn()">Entrar</button>\n          <button ion-button class="social-button-facebook" full  (click)="loginFacebook()">\n            <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>\n            Continuar com o Facebook\n          </button>\n          <button ion-button class="register-btn" block clear (click)="createAccount()">\n            Não tem uma conta ainda? Registre-se\n          </button>\n          <button ion-button class="register-btn" block clear (click)="resetPassword()">\n            Perdeu sua senha? clique aqui!\n          </button>\n\n        </ion-col>\n      </ion-row>\n\n    </form>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/home/joohncruz/Projects/github/app-advogados/src/pages/signin/signin.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_8__providers_user_user__["a" /* UserProvider */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth_service__["a" /* AuthService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_8__providers_user_user__["a" /* UserProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__providers_user_user__["a" /* UserProvider */]) === "function" && _f || Object])
     ], SigninPage);
     return SigninPage;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=signin.js.map
@@ -1128,6 +1129,14 @@ var AuthService = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(91);
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1160,8 +1169,17 @@ var UserProvider = /** @class */ (function () {
     UserProvider.prototype.updateUser = function (ref, obj) {
         var _this = this;
         this.userRef.update(ref, obj).then(function (response) {
-            _this.clearUser();
-            _this.saveUserLocalStorage(obj);
+            if (obj.uid) {
+                _this.clearUser();
+                _this.saveUserLocalStorage(obj);
+            }
+            else {
+                var user = _this.getUser();
+                _this.clearUser();
+                _this.saveUserLocalStorage(__assign({}, user, { exames: [
+                        obj
+                    ] }));
+            }
         }).catch(function (error) { return console.log(error); });
     };
     UserProvider.prototype.getUser = function () {
@@ -1172,9 +1190,10 @@ var UserProvider = /** @class */ (function () {
     };
     UserProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _a || Object])
     ], UserProvider);
     return UserProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=user.js.map
@@ -1222,14 +1241,15 @@ var PrepararSimuladoPage = /** @class */ (function () {
         var _this = this;
         if (!this.isQuiz) {
             this.simuladoProvider.getSimulado().then(function (res) {
-                console.log("getSimulado res:", res);
+                console.log("TRACE: PrepararSimuladoPage 1 SIMULADO:", res);
                 _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__simulado_simulado__["a" /* SimuladoPage */], { 'simulado': res });
             });
         }
         else {
             this.simuladoProvider.getQuiz(this.selected, this.questionsCount).then(function (res) {
-                console.log("getQuiz res:", res);
+                console.log("TRACE: PrepararSimuladoPage 1 QUIZ:", res);
                 var result = res;
+                console.log("TRACE: PrepararSimuladoPage 2 QUIZ:", result);
                 if (result.questions && __WEBPACK_IMPORTED_MODULE_5_lodash__["size"](__WEBPACK_IMPORTED_MODULE_5_lodash__["values"](result.questions)) > 0) {
                     _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__simulado_simulado__["a" /* SimuladoPage */], { 'simulado': res });
                 }
@@ -1250,12 +1270,10 @@ var PrepararSimuladoPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-preparar-simulado',template:/*ion-inline-start:"/home/joohncruz/Projects/github/app-advogados/src/pages/preparar-simulado/preparar-simulado.html"*/'<ion-content class="menu-content" padding>\n    <ion-row text-center>\n      <ion-col class="preparar-simulado">\n          <img class="grayscale" src="assets/imgs/mulher1.png"/>\n          <h2>Preparando simulado</h2>\n          <p>Aguarde enquanto estamos preparando o simulado...</p>\n          <div class="linha"></div>\n      </ion-col>\n    </ion-row>\n  </ion-content>\n'/*ion-inline-end:"/home/joohncruz/Projects/github/app-advogados/src/pages/preparar-simulado/preparar-simulado.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_simulado_simulado__["a" /* SimuladoProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_simulado_simulado__["a" /* SimuladoProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_simulado_simulado__["a" /* SimuladoProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object])
     ], PrepararSimuladoPage);
     return PrepararSimuladoPage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=preparar-simulado.js.map
@@ -1295,19 +1313,23 @@ var SimuladoProvider = /** @class */ (function () {
         return new Promise(function (resolve) {
             _this.simuladoRef.valueChanges().subscribe(function (snapshot) {
                 var randomSimulado = snapshot[Math.floor(Math.random() * snapshot.length)];
-                console.log("getSimuladoByRef:", snapshot);
-                console.log("randomSimulado:", randomSimulado);
+                console.log('getSimuladoByRef', randomSimulado);
                 resolve(randomSimulado);
             });
         });
     };
     SimuladoProvider.prototype.getQuiz = function (selected, maxCount) {
         var _this = this;
+        console.log('TRACE: getQuiz 1', selected, maxCount);
         return new Promise(function (resolve, reject) {
             _this.getSimuladoByRef().then(function (simulado) {
+                console.log('TRACE: getQuiz 2', simulado);
                 _this.getMateriasSelecionadas(selected).then(function (selected1) {
+                    console.log('TRACE: getQuiz 3', selected1);
                     _this.parseQuiz(selected1, simulado, maxCount).then(function (s1) {
+                        console.log('TRACE: getQuiz 4', s1);
                         _this.shuffleArray(s1).then(function (s) {
+                            console.log('TRACE: getQuiz 5', s);
                             resolve(s);
                         });
                     });
@@ -1374,14 +1396,14 @@ var SimuladoProvider = /** @class */ (function () {
     };
     SimuladoProvider.prototype.parseQuiz = function (quizArr, simuladoArr, maxCount) {
         var _this = this;
-        var parsedArr = [];
+        var parsedArr = {};
         var questionCount = 0;
         return new Promise(function (resolve) {
-            console.log("quizArr:", quizArr);
-            console.log("simuladoArr:", simuladoArr);
-            console.log("maxCount:", maxCount);
+            console.log("TRACE parseQuiz 1: quizArr:", quizArr);
+            console.log("TRACE parseQuiz 2: simuladoArr:", simuladoArr);
+            console.log("TRACE parseQuiz 3: maxCount:", maxCount);
             __WEBPACK_IMPORTED_MODULE_2_lodash__["each"](simuladoArr.questions, function (item, key) {
-                console.log("counter:", __WEBPACK_IMPORTED_MODULE_2_lodash__["size"](__WEBPACK_IMPORTED_MODULE_2_lodash__["values"](parsedArr)));
+                console.log("TRACE parseQuiz 4: counter:", __WEBPACK_IMPORTED_MODULE_2_lodash__["size"](__WEBPACK_IMPORTED_MODULE_2_lodash__["values"](parsedArr)));
                 if (__WEBPACK_IMPORTED_MODULE_2_lodash__["includes"](quizArr, _this.normalizeString(key))) {
                     if (questionCount <= maxCount) {
                         var questionsToAdd = [];
@@ -1391,13 +1413,15 @@ var SimuladoProvider = /** @class */ (function () {
                                 questionsToAdd.push(item2);
                             }
                         });
-                        console.log("questionsToAdd:", questionsToAdd);
+                        console.log("TRACE parseQuiz 5: questionsToAdd:", questionsToAdd);
                         parsedArr[_this.normalizeString(key)] = questionsToAdd;
                     }
                 }
             });
+            console.log("TRACE parseQuiz 6: parsedArr:", parsedArr);
+            console.log("TRACE parseQuiz 7: simuladoArr 1:", simuladoArr);
             simuladoArr.questions = parsedArr;
-            console.log("parsedArr:", simuladoArr);
+            console.log("TRACE parseQuiz 8: simuladoArr 2:", simuladoArr);
             resolve(simuladoArr);
         });
     };
@@ -1437,9 +1461,10 @@ var SimuladoProvider = /** @class */ (function () {
     };
     SimuladoProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _a || Object])
     ], SimuladoProvider);
     return SimuladoProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=simulado.js.map

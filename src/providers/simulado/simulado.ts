@@ -20,20 +20,28 @@ export class SimuladoProvider {
   getSimuladoByRef() {
     return new Promise(resolve => {
       this.simuladoRef.valueChanges().subscribe(snapshot => {
-        var randomSimulado = snapshot[Math.floor(Math.random() * snapshot.length)];
-        console.log("getSimuladoByRef:", snapshot);
-        console.log("randomSimulado:", randomSimulado);
+        let randomSimulado = snapshot[Math.floor(Math.random() * snapshot.length)];
+        console.log('getSimuladoByRef', randomSimulado)
         resolve(randomSimulado);
       });
     });
   }
 
   getQuiz(selected, maxCount) {
+    console.log('TRACE: getQuiz 1', selected, maxCount)
     return new Promise((resolve, reject) => {
       this.getSimuladoByRef().then(simulado => {
+        console.log('TRACE: getQuiz 2', simulado)
+        
         this.getMateriasSelecionadas(selected).then(selected1 => {
+          console.log('TRACE: getQuiz 3', selected1)
+          
           this.parseQuiz(selected1, simulado, maxCount).then(s1 => {
+            console.log('TRACE: getQuiz 4', s1)
+            
             this.shuffleArray(s1).then(s => {
+              console.log('TRACE: getQuiz 5', s)
+              
               resolve(s);
             });
           });
@@ -104,16 +112,16 @@ export class SimuladoProvider {
   }
 
   private parseQuiz(quizArr, simuladoArr, maxCount) {
-    var parsedArr: any = [];
+    var parsedArr: any = {};
     var questionCount: any = 0;
     return new Promise(resolve => {
 
-      console.log("quizArr:", quizArr);
-      console.log("simuladoArr:", simuladoArr);
-      console.log("maxCount:", maxCount);
+      console.log("TRACE parseQuiz 1: quizArr:", quizArr);
+      console.log("TRACE parseQuiz 2: simuladoArr:", simuladoArr);
+      console.log("TRACE parseQuiz 3: maxCount:", maxCount);
 
       _.each(simuladoArr.questions, (item, key) => {
-        console.log("counter:", _.size(_.values(parsedArr)));
+        console.log("TRACE parseQuiz 4: counter:", _.size(_.values(parsedArr)));
         if (_.includes(quizArr, this.normalizeString(key))) {
           if (questionCount <= maxCount) {
             var questionsToAdd: any = [];
@@ -123,13 +131,16 @@ export class SimuladoProvider {
                 questionsToAdd.push(item2);
               }
             });
-            console.log("questionsToAdd:", questionsToAdd);
+            console.log("TRACE parseQuiz 5: questionsToAdd:", questionsToAdd);
             parsedArr[this.normalizeString(key)] = questionsToAdd;
           }
         }
       });
+
+      console.log("TRACE parseQuiz 6: parsedArr:", parsedArr);
+      console.log("TRACE parseQuiz 7: simuladoArr 1:", simuladoArr);
       simuladoArr.questions = parsedArr;
-      console.log("parsedArr:", simuladoArr);
+      console.log("TRACE parseQuiz 8: simuladoArr 2:", simuladoArr);
       resolve(simuladoArr);
     });
   }

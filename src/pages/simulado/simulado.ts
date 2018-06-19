@@ -28,12 +28,22 @@ export class SimuladoPage {
     private alertCtrl: AlertController,
     private toastCtrl: ToastController,
     private userProvider: UserProvider) {
+
+    console.log('TRACE: SimuladoPage 1');
     this.simulado = this.navParams.get('simulado');
+    console.log('TRACE: SimuladoPage 2', this.simulado);
+    
+    this.userSimulate = this.simulado;
+    console.log('TRACE: SimuladoPage 3', this.userSimulate);
+    
     this.finished = false;
     this.books = Object.keys(this.simulado.questions);
-
+    console.log('TRACE: SimuladoPage 4', this.books);
+    
 
     const questions = this.simulado.questions[this.books[0]];
+    console.log('TRACE: SimuladoPage 5', questions);
+
     this.currentBook = {
       bookId: this.books[0],
       questions,
@@ -41,7 +51,6 @@ export class SimuladoPage {
       currentQuestion: questions[Object.keys(questions)[0]],
     }
 
-    this.userSimulate = this.simulado;
     this.genEmptyRef();
   }
 
@@ -54,6 +63,8 @@ export class SimuladoPage {
   }
 
   confirmQuestion(question, userOption) {
+    console.log('TRACE: confirmQuestion');
+
     if (userOption) {
       const respostaCorreta = question.resposta_correta;
       const resposta = question.respostas[userOption];
@@ -75,6 +86,7 @@ export class SimuladoPage {
   }
 
   nextQuestion(userOption, currentBook) {
+    console.log('TRACE: nextQuestion');
     let nextBook = {};
 
     this.updateUserSimulate(currentBook, userOption);
@@ -128,13 +140,14 @@ export class SimuladoPage {
   }
 
   updateUserSimulate(currentBook, userOption) {
+    console.log('TRACE: updateUserSimulate', currentBook, userOption)
+    console.log('TRACE: updateUserSimulate > 2', this.userSimulate)
+    
     this.userSimulate.questions[currentBook.bookId][currentBook.currentQuestionId].resposta_informada = userOption;
-    // TODO: Atualizar o objeto dentro do usuario.
-    console.log('------------- updateUserSimulate(currentBook, userOption)');
-    const user = this.userProvider.getUser()
 
-    console.log(user);
-    console.log(this.userSimulate);
+    console.log('TRACE: updateUserSimulate > 3', this.userSimulate)
+    const user = this.userProvider.getUser()
+    console.log('TRACE: updateUserSimulate > 4', user, this.userSimulate)
 
     if (user.exames) {
       this.userProvider.updateUser(`${user.uid}/exames/${this.simuladoRefKey}/`, {
