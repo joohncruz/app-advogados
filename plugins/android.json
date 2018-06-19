@@ -7,20 +7,23 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "io.ionic.starter"
+      "PACKAGE_NAME": "br.com.phandadesign.advapp"
     },
-    "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-ionic-webview": {
-      "PACKAGE_NAME": "io.ionic.starter"
+    "cordova-plugin-headercolor": {
+      "PACKAGE_NAME": "br.com.phandadesign.advapp"
     },
     "cordova-plugin-ionic-keyboard": {
-      "PACKAGE_NAME": "io.ionic.starter"
+      "PACKAGE_NAME": "br.com.phandadesign.advapp"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "br.com.phandadesign.advapp"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "br.com.phandadesign.advapp"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "br.com.phandadesign.advapp"
     }
   },
   "dependent_plugins": {}

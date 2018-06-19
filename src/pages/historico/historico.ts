@@ -18,7 +18,7 @@ export class HistoricoPage {
     public navCtrl: NavController, 
     public navParams: NavParams, 
     private simuladoProvider: SimuladoProvider,
-    private userProvider: UserProvider
+    userProvider: UserProvider
   ) {
     this.user = userProvider.getUser();
     console.log(this.user);

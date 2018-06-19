@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 307:
+/***/ 363:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HistoricoPageModule", function() { return HistoricoPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrepararSimuladoPageModule", function() { return PrepararSimuladoPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__historico__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__preparar_simulado__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HistoricoPageModule = /** @class */ (function () {
-    function HistoricoPageModule() {
+var PrepararSimuladoPageModule = /** @class */ (function () {
+    function PrepararSimuladoPageModule() {
     }
-    HistoricoPageModule = __decorate([
+    PrepararSimuladoPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__historico__["a" /* HistoricoPage */],
+                __WEBPACK_IMPORTED_MODULE_2__preparar_simulado__["a" /* PrepararSimuladoPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__historico__["a" /* HistoricoPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__preparar_simulado__["a" /* PrepararSimuladoPage */]),
             ],
         })
-    ], HistoricoPageModule);
-    return HistoricoPageModule;
+    ], PrepararSimuladoPageModule);
+    return PrepararSimuladoPageModule;
 }());
 
-//# sourceMappingURL=historico.module.js.map
+//# sourceMappingURL=preparar-simulado.module.js.map
 
 /***/ })
 

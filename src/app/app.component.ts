@@ -8,6 +8,7 @@ import { TutorialInicialPage } from '../pages/tutorial-inicial/tutorial-inicial'
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { SigninPage } from '../pages/signin/signin';
+import { HeaderColor } from '@ionic-native/header-color';
 
 @Component({
   templateUrl: 'app.html'
@@ -15,7 +16,8 @@ import { SigninPage } from '../pages/signin/signin';
 export class MyApp {
   rootPage:any;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, afAuth: AngularFireAuth) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
+    afAuth: AngularFireAuth, private headerColor: HeaderColor) {
     const authObserver = afAuth.authState.subscribe(user => {
       if(user) {
         this.rootPage = HomePage;
@@ -33,7 +35,8 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
+      statusBar.backgroundColorByHexString('#ffffff')
+      this.headerColor.tint('#3b5998');
       splashScreen.hide();
     });
   }

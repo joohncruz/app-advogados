@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
-import { SimuladoProvider } from '../../providers/simulado/simulado';
 import { UserProvider } from '../../providers/user/user';
 import { SimuladoCompletoPage } from '../simulado-completo/simulado-completo';
 
@@ -26,8 +25,7 @@ export class SimuladoPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
-    private alertCtrl: AlertController, 
-    private simuladoProvider: SimuladoProvider,
+    private alertCtrl: AlertController,
     private toastCtrl: ToastController,
     private userProvider: UserProvider) {
     this.simulado = this.navParams.get('simulado');
@@ -94,8 +92,8 @@ export class SimuladoPage {
 
     console.log('isAnsweredAllQuestions', isAnsweredAllQuestions)
 
-    const totalBooks =
-      Object.keys(this.books).length;
+    // const totalBooks =
+    //   Object.keys(this.books).length;
 
     // Caso nao tenha respondido todas as questões da materia atual atual.
     if (!isAnsweredAllQuestions) {

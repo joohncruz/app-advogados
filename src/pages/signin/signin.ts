@@ -3,7 +3,6 @@ import {
   IonicPage,
   NavController,
   ToastController,
-  AlertController,
   LoadingController
 } from "ionic-angular";
 import { NgForm } from "@angular/forms";
@@ -27,7 +26,6 @@ export class SigninPage {
     public navCtrl: NavController,
     private toastCtrl: ToastController,
     private authService: AuthService,
-    private alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
     private userProvider: UserProvider
   ) {

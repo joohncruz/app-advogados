@@ -25,6 +25,7 @@ import { SimuladoPage } from '../pages/simulado/simulado';
 import { AuthService } from '../providers/auth/auth-service';
 import { UserProvider } from '../providers/user/user';
 import { SimuladoProvider } from '../providers/simulado/simulado';
+import { HeaderColor } from '@ionic-native/header-color';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCwycl6nj3cYiI-L_L86ime09JmDTUzYQE",
@@ -76,7 +77,8 @@ const firebaseConfig = {
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthService,
     UserProvider,
-    SimuladoProvider
+    SimuladoProvider,
+    HeaderColor
   ]
 })
 export class AppModule { }
