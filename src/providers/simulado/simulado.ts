@@ -28,11 +28,11 @@ export class SimuladoProvider {
     });
   }
 
-  getQuiz(selected) {
+  getQuiz(selected, maxCount) {
     return new Promise((resolve, reject) => {
       this.getSimuladoByRef().then(simulado => {
         this.getMateriasSelecionadas(selected).then(selected1 => {
-          this.parseQuiz(selected1, simulado).then(s1 => {
+          this.parseQuiz(selected1, simulado, maxCount).then(s1 => {
             this.shuffleArray(s1).then(s => {
               resolve(s);
             });
@@ -103,16 +103,29 @@ export class SimuladoProvider {
       .toLowerCase();
   }
 
-  private parseQuiz(quizArr, simuladoArr) {
+  private parseQuiz(quizArr, simuladoArr, maxCount) {
     var parsedArr: any = [];
+    var questionCount: any = 0;
     return new Promise(resolve => {
 
       console.log("quizArr:", quizArr);
       console.log("simuladoArr:", simuladoArr);
+      console.log("maxCount:", maxCount);
 
       _.each(simuladoArr.questions, (item, key) => {
+        console.log("counter:", _.size(_.values(parsedArr)));
         if (_.includes(quizArr, this.normalizeString(key))) {
-          parsedArr[this.normalizeString(key)] = item;
+          if (questionCount <= maxCount) {
+            var questionsToAdd: any = [];
+            _.each(item, item2 => {
+              questionCount++;
+              if (questionCount <= maxCount) {
+                questionsToAdd.push(item2);
+              }
+            });
+            console.log("questionsToAdd:", questionsToAdd);
+            parsedArr[this.normalizeString(key)] = questionsToAdd;
+          }
         }
       });
       simuladoArr.questions = parsedArr;
