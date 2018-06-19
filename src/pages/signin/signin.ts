@@ -12,6 +12,7 @@ import { HomePage } from "../home/home";
 import { SignupPage } from "../signup/signup";
 import { ResetpasswordPage } from "../resetpassword/resetpassword";
 import { UserProvider } from '../../providers/user/user';
+import { ClassGetter } from "@angular/compiler/src/output/output_ast";
 
 @IonicPage()
 @Component({
@@ -30,7 +31,7 @@ export class SigninPage {
     private userProvider: UserProvider
   ) {
 
-   }
+  }
 
   createAccount() {
     this.navCtrl.push(SignupPage);
@@ -41,6 +42,12 @@ export class SigninPage {
   }
 
   loginFacebook() {
+    let loading = this.loadingCtrl.create({
+      showBackdrop: true,
+      content: `Fazendo login...` 
+    });
+    loading.present();
+
     this.authService.signInFacebook().then(authUser => {
       //Setando usuario no localStorage
       this.userProvider.saveUserLocalStorage({
@@ -51,6 +58,7 @@ export class SigninPage {
       });
       //Redicerionando usuari.
       this.navCtrl.setRoot(HomePage).then(() => {
+        loading.dismiss();
         let toast = this.toastCtrl.create({
           duration: 3000,
           position: "bottom"
@@ -65,17 +73,22 @@ export class SigninPage {
         duration: 3000,
         position: "bottom"
       });
-      toast.setMessage(error.message);
+      if (error.code == "auth/account-exists-with-different-credential"){
+        toast.setMessage("Já existe uma conta criada com esse e-mail!");
+      }else{
+        toast.setMessage(error.message);
+      }
+      toast.present();
+      loading.dismiss();
+      console.log("Error:", error);
     });
   }
 
   signIn() {
     if (this.form.form.valid) {
       let loading = this.loadingCtrl.create({
-
         showBackdrop: true,
-        content: `Fazendo login...`,
-        duration: 5000
+        content: `Fazendo login...`
       });
       loading.present();
 
