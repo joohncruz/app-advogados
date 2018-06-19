@@ -30,7 +30,7 @@ export class SimuladoPage {
     this.currentBook = {
       bookId: this.books[0],
       questions,
-      currentQuestionId: 1,
+      currentQuestionId: 0,
       currentQuestion: questions[Object.keys(questions)[0]],
     }
 
@@ -62,7 +62,7 @@ export class SimuladoPage {
 
     console.log('isAnsweredAllQuestions')
 
-    const isAnsweredAllQuestions = nextQuestionId > totalQuestions;
+    const isAnsweredAllQuestions = nextQuestionId >= totalQuestions;
 
     console.log('isAnsweredAllQuestions', isAnsweredAllQuestions)
 
