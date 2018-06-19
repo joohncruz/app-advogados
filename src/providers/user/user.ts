@@ -10,10 +10,7 @@ export class UserProvider {
   }
 
   addUser (uid, email, displayName) {
-    //const promise = this.userRef.push({ uid, email, displayName })
-  
     const promise = this.userRef.update(uid, { uid, email, displayName });
-    
     promise.then(response => {
       this.saveUserLocalStorage({ key: uid, uid, email, displayName})
     });
@@ -24,8 +21,15 @@ export class UserProvider {
     localStorage.setItem('user', JSON.stringify(user))
   }
 
+  getSimuladoRefKey(uid){
+    return this.db.list(`users/${uid}/exames/`).push(null);
+  }
+
   updateUser(ref, obj) {
-    this.userRef.update(ref, obj).then(response => console.log(response)).catch(error => console.log(error));
+    this.userRef.update(ref, obj).then(response =>  { 
+      this.clearUser();
+      this.saveUserLocalStorage(obj);
+    }).catch(error => console.log(error));
   }
 
   getUser () {
@@ -33,8 +37,7 @@ export class UserProvider {
   }
 
   clearUser () {
-    localStorage.removeItem('user')
-    return true
+    localStorage.removeItem('user');
   }
 
 }

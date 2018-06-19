@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { SimuladoProvider } from '../../providers/simulado/simulado';
 import { UserProvider } from '../../providers/user/user';
 import { SimuladoCompletoPage } from '../simulado-completo/simulado-completo';
@@ -21,11 +21,19 @@ export class SimuladoPage {
   currentBook: any;
   userOption: any;
   finished: any;
+  simuladoRefKey: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private simuladoProvider: SimuladoProvider, private userProvider: UserProvider) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private alertCtrl: AlertController, 
+    private simuladoProvider: SimuladoProvider,
+    private toastCtrl: ToastController,
+    private userProvider: UserProvider) {
     this.simulado = this.navParams.get('simulado');
     this.finished = false;
     this.books = Object.keys(this.simulado.questions);
+
 
     const questions = this.simulado.questions[this.books[0]];
     this.currentBook = {
@@ -36,17 +44,36 @@ export class SimuladoPage {
     }
 
     this.userSimulate = this.simulado;
+    this.genEmptyRef();
+  }
+
+  genEmptyRef(){
+    const user = this.userProvider.getUser();
+    this.userProvider.getSimuladoRefKey(user.uid).then((ref) => {
+      this.simuladoRefKey = ref.key;
+      console.log("simuladoRefKey:", ref.key);
+    });
   }
 
   confirmQuestion(question, userOption) {
-    const respostaCorreta = question.resposta_correta;
-    const resposta = question.respostas[userOption];
+    if (userOption) {
+      const respostaCorreta = question.resposta_correta;
+      const resposta = question.respostas[userOption];
 
-    this.showFeedback(
-      respostaCorreta === userOption ? 'Resposta Correta!' : 'Resposta Incorreta',
-      resposta.justificativa ? resposta.justificativa : 'Nenhuma justificativa informada.',
-      () => this.nextQuestion(userOption, this.currentBook)
-    );
+      this.showFeedback(
+        respostaCorreta === userOption ? 'Resposta Correta!' : 'Resposta Incorreta',
+        resposta.justificativa ? resposta.justificativa : 'Nenhuma justificativa informada.',
+        () => this.nextQuestion(userOption, this.currentBook)
+      );
+    } else {
+      let toast = this.toastCtrl.create({
+        message: 'Você deve escolher uma alternativa para continuar!',
+        duration: 3000,
+        position: 'bottom'
+      });
+      toast.present();
+    }
+
   }
 
   nextQuestion(userOption, currentBook) {
@@ -88,7 +115,7 @@ export class SimuladoPage {
       nextBook = {
         bookId: this.books[0],
         questions,
-        currentQuestionId: 1,
+        currentQuestionId: 0,
         currentQuestion: questions[Object.keys(questions)[0]],
       }
     } else {
@@ -107,7 +134,20 @@ export class SimuladoPage {
     // TODO: Atualizar o objeto dentro do usuario.
     console.log('------------- updateUserSimulate(currentBook, userOption)');
     const user = this.userProvider.getUser()
+
     console.log(user);
+    console.log(this.userSimulate);
+
+    if (user.exames) {
+      this.userProvider.updateUser(`${user.uid}/exames/${this.simuladoRefKey}/`, {
+        ...this.userSimulate
+      })
+    } else {
+      this.userProvider.updateUser(`${user.uid}/exames/${this.simuladoRefKey}/`, {
+        ...this.userSimulate
+      })
+    }
+
   }
 
   showFeedback(title, message, nextQuestion) {
