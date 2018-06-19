@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { SimuladoProvider } from '../../providers/simulado/simulado';
 import { UserProvider } from '../../providers/user/user';
 import { SimuladoCompletoPage } from '../simulado-completo/simulado-completo';
@@ -22,7 +22,13 @@ export class SimuladoPage {
   userOption: any;
   finished: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private simuladoProvider: SimuladoProvider, private userProvider: UserProvider) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private alertCtrl: AlertController, 
+    private simuladoProvider: SimuladoProvider,
+    private toastCtrl: ToastController,
+    private userProvider: UserProvider) {
     this.simulado = this.navParams.get('simulado');
     this.finished = false;
     this.books = Object.keys(this.simulado.questions);
@@ -39,14 +45,24 @@ export class SimuladoPage {
   }
 
   confirmQuestion(question, userOption) {
-    const respostaCorreta = question.resposta_correta;
-    const resposta = question.respostas[userOption];
+    if (userOption) {
+      const respostaCorreta = question.resposta_correta;
+      const resposta = question.respostas[userOption];
 
-    this.showFeedback(
-      respostaCorreta === userOption ? 'Resposta Correta!' : 'Resposta Incorreta',
-      resposta.justificativa ? resposta.justificativa : 'Nenhuma justificativa informada.',
-      () => this.nextQuestion(userOption, this.currentBook)
-    );
+      this.showFeedback(
+        respostaCorreta === userOption ? 'Resposta Correta!' : 'Resposta Incorreta',
+        resposta.justificativa ? resposta.justificativa : 'Nenhuma justificativa informada.',
+        () => this.nextQuestion(userOption, this.currentBook)
+      );
+    } else {
+      let toast = this.toastCtrl.create({
+        message: 'Você deve escolher uma alternativa para continuar!',
+        duration: 3000,
+        position: 'bottom'
+      });
+      toast.present();
+    }
+
   }
 
   nextQuestion(userOption, currentBook) {
@@ -111,10 +127,10 @@ export class SimuladoPage {
     console.log(user);
     console.log(this.userSimulate);
 
-    if(user.exames) {
+    if (user.exames) {
       this.userProvider.updateUser(user.uid, {
         ...user,
-        exames: [ 
+        exames: [
           this.userSimulate
         ]
       })
