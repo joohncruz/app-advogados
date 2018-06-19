@@ -63,7 +63,7 @@ export class CustomQuizPage {
   }
 
   removerQuestoes() {
-    if (this.NumeroQuestoes > 0) {
+    if (this.NumeroQuestoes > 1) {
       this.NumeroQuestoes = this.NumeroQuestoes - 1;
     }
   }
