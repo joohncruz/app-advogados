@@ -43,7 +43,7 @@ export class SimuladoPage {
 
     this.showFeedback(
       respostaCorreta === userOption ? 'Resposta Correta!' : 'Resposta Incorreta',
-      resposta.justificativa,
+      resposta.justificativa ? resposta.justificativa : 'Nenhuma justificativa informada.',
       () => this.nextQuestion(userOption, this.currentBook)
     );
   }
