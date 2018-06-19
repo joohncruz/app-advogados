@@ -88,7 +88,7 @@ export class SimuladoPage {
       nextBook = {
         bookId: this.books[0],
         questions,
-        currentQuestionId: 1,
+        currentQuestionId: 0,
         currentQuestion: questions[Object.keys(questions)[0]],
       }
     } else {
@@ -107,12 +107,18 @@ export class SimuladoPage {
     // TODO: Atualizar o objeto dentro do usuario.
     console.log('------------- updateUserSimulate(currentBook, userOption)');
     const user = this.userProvider.getUser()
+
     console.log(user);
+    console.log(this.userSimulate);
 
     if(user.exames) {
-      console.log(user);
+      this.userProvider.updateUser(user.uid, {
+        ...user,
+        exames: [ 
+          this.userSimulate
+        ]
+      })
     } else {
-      console.log(user);
       this.userProvider.updateUser(user.uid, {
         ...user,
         exames: [
